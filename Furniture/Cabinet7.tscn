@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Furniture/Cabinet7.fbx" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.22017, 1.58044, 1.16009 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.1, 1.58, 1 )
+
+[node name="FurnitureItem" type="StaticBody"]
+
+[node name="Cabinet7" parent="." instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6373, 1.60179, -1.32333 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35132, 1.59136, 2.72349 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.193497, 1.59136, -0.144012 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 0.935567, 0, 0.353148, 0, 1, 0, -0.353148, 0, 0.935567, 1.17759, 1.60438, 1.08621 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( 0.358254, 0, 0.933624, 0, 1, 0, -0.933624, 0, 0.358254, -1.03062, 1.60438, -1.13622 )
+shape = SubResource( 2 )
