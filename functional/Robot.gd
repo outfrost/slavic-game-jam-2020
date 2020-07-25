@@ -60,11 +60,12 @@ func _physics_process(delta):
 func _process(delta):
 	add_charge(discharge_rate * delta)
 	util.display(self, "charge %f" % charge)
-	for i in range(0, 6):
-		if (charge >= (i + 0.5) / 6.0):
-			body_mesh.surface_set_material(indicator_lookup[i], indicator_lit)
-		else:
-			body_mesh.surface_set_material(indicator_lookup[i], indicator_unlit)
+	if(!indicator_lookup.empty()):
+		for i in range(0, 6):
+			if (charge >= (i + 0.5) / 6.0):
+				body_mesh.surface_set_material(indicator_lookup[i], indicator_lit)
+			else:
+				body_mesh.surface_set_material(indicator_lookup[i], indicator_unlit)
 
 func add_charge(amount: float):
 	charge += amount

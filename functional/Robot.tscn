@@ -13,6 +13,7 @@ rough = true
 height = 0.6
 
 [node name="Robot" type="RigidBody"]
+mode = 2
 physics_material_override = SubResource( 1 )
 axis_lock_angular_x = true
 axis_lock_angular_y = true

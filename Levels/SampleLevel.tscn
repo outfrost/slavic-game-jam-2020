@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Furniture/Desk1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Items/Coil_Roll.fbx" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Items/Fence1.fbx" type="PackedScene" id=9]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 134.857, 132.496, 112.553 )
 
 [sub_resource type="PhysicsMaterial" id=1]
 rough = true
@@ -26,7 +29,7 @@ size = Vector2( 200, 200 )
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 1 )
-playable_area_bounds = AABB( 0, 0, 0, 200, 200, 200 )
+playable_area_bounds = AABB( -40, 0, -40, 80, 20, 80 )
 
 [node name="Robot" parent="." instance=ExtResource( 3 )]
 
@@ -44,6 +47,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1284, 0, 0 )
 
 [node name="Desk2" parent="Furniture" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22478, 0, -9.15474 )
+
+[node name="StaticBody" type="RigidBody" parent="Furniture"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 126.979, 0 )
+contacts_reported = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="Furniture/StaticBody"]
+shape = SubResource( 5 )
 
 [node name="Stool1" parent="Furniture" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88698, 0, -9.30726 )
@@ -103,3 +113,5 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 4 )
 material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
