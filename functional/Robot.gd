@@ -1,16 +1,16 @@
 extends RigidBody
 
+const util = preload("res://util/util.gd")
+
 export var velocity_max_angular = 2
 export var velocity_max_linear = 30
 export var velocity_linear_acceleration = 20
 var player_model: Spatial
-var debug_label: Label
 
 var charge: float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	debug_label = get_tree().root.find_node("DebugLabel", true, false)
 	player_model = self.get_node('PlayerModel') as Spatial
 
 func _physics_process(delta):
@@ -34,8 +34,7 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if debug_label:
-		debug_label.text = String(charge)
+	util.display(self, "charge %f" % charge)
 
 func add_charge(amount: float):
 	charge += amount
