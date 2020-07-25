@@ -18,6 +18,8 @@ var level_dimension_squared: float
 
 var current_level_container: Node
 
+var timer_label: RichTextLabel
+
 var gameover_popup: Popup
 var gameover_message_label: RichTextLabel
 var gameover_score_label: RichTextLabel
@@ -51,6 +53,8 @@ func _ready():
 
 	current_level_container = self.get_node("CurrentLevel")
 	SpawnLevel()
+	
+	timer_label = find_node("TimerLabel")
 
 	gameover_popup = find_node("GameoverPopup")
 	gameover_message_label = gameover_popup.get_node("Panel/MessageLabel")
@@ -66,6 +70,7 @@ func _process(delta):
 
 	if !gameover_popup.visible:
 		time_left = max(time_left - delta, 0.0)
+		timer_label.bbcode_text = "[right][b]%02d:%02d[/b][/right]" % [int(time_left) / 60, int(time_left) % 60]
 		if time_left == 0.0:
 			game_over()
 
