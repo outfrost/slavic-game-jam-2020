@@ -1,19 +1,18 @@
 [gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Assets/Furniture/fridge.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Furniture/Fridge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Furniture/cube2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Furniture/Cabinet3.fbx" type="PackedScene" id=3]
+[ext_resource path="res://Furniture/Desk1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Furniture/cube3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Furniture/Cabinet1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Furniture/cube1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Furniture/Cabinet7.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Furniture/Cabinet6.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/Furniture/Table2.fbx" type="PackedScene" id=9]
+[ext_resource path="res://Furniture/Table2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Furniture/Cabinet2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Furniture/Cabinet3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Furniture/Desk1.fbx" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Furniture/bed.fbx" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Furniture/Chair1.fbx" type="PackedScene" id=14]
+[ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Furniture/EndTable1.fbx" type="PackedScene" id=17]
@@ -21,13 +20,16 @@
 [ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=19]
 [ext_resource path="res://functional/Robot.tscn" type="PackedScene" id=20]
 
+[sub_resource type="PhysicsMaterial" id=10]
+rough = true
+
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="BoxShape" id=10]
+[sub_resource type="BoxShape" id=2]
 
 [sub_resource type="BoxShape" id=3]
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=11]
 
 [sub_resource type="BoxShape" id=5]
 
@@ -47,23 +49,23 @@ playable_area_bounds = AABB( 0, 0, 0, 30, 20, 20 )
 [node name="Spatial" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.03587, 0 )
 
-[node name="Desk1" parent="Spatial" instance=ExtResource( 12 )]
+[node name="Desk2" parent="Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 21.1901, -3.83495, 14.7862 )
 
 [node name="Cabinet5" parent="Spatial" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1.02754, 0, 0, 0, 1.22469, 12.7875, -3.92652, -6.83109 )
+transform = Transform( 1, 0, 0, 0, 1.02754, 0, 0, 0, 1.22469, 13.9765, -3.92652, -6.83109 )
 
 [node name="Cabinet9" parent="Spatial" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1355, -3.97451, -5.3169 )
 
 [node name="Cabinet6" parent="Spatial" instance=ExtResource( 8 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 5.37873, -3.97451, -5.28535 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7.7683, -3.97451, -5.28535 )
 
 [node name="Cabinet8" parent="Spatial" instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 5.43641, -3.975, 2.43824 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 7.81898, -3.975, 2.43824 )
 
-[node name="Cabinet3" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93215, -3.89452, 12.8774 )
+[node name="Cabinet7" parent="Spatial" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43344, -3.89452, 12.8774 )
 
 [node name="Cabinet1" parent="Spatial" instance=ExtResource( 5 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1.86719, 0, -3.04204e-07, 21.4416, -3.89583, 8.39154 )
@@ -74,28 +76,28 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 21.4544
 [node name="bed" parent="Spatial" instance=ExtResource( 13 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.7049, -3.975, 27.4334 )
 
-[node name="Table2" parent="Spatial" instance=ExtResource( 9 )]
+[node name="Table3" parent="Spatial" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.904, -3.81818, -0.29 )
 
-[node name="Chair1 (1)" parent="Spatial" instance=ExtResource( 14 )]
+[node name="Chair1" parent="Spatial" instance=ExtResource( 14 )]
 transform = Transform( -2.03651e-07, 0, 1.25, 0, 1.25, 0, -1.25, 0, -2.03651e-07, 20.0072, -3.79887, 15.9533 )
 
-[node name="Chair1 (1)2" parent="Spatial" instance=ExtResource( 14 )]
+[node name="Chair2" parent="Spatial" instance=ExtResource( 14 )]
 transform = Transform( -2.03651e-07, 0, 1.25, 0, 1.26602, 0, -1.25, 0, -2.03651e-07, -13.0184, -3.75948, -0.346872 )
 
-[node name="Chair1 (1)3" parent="Spatial" instance=ExtResource( 14 )]
+[node name="Chair3" parent="Spatial" instance=ExtResource( 14 )]
 transform = Transform( 1.49061e-08, 0, -1.25, 0, 1.26602, 0, 1.25, 0, 1.49061e-08, -4.70343, -3.75948, -0.346872 )
 
-[node name="Chair1 (1)4" parent="Spatial" instance=ExtResource( 14 )]
+[node name="Chair4" parent="Spatial" instance=ExtResource( 14 )]
 transform = Transform( 1.25, 0, 0, 0, 1.26602, 0, 0, 0, 1.25, -8.85053, -3.75948, -1.84079 )
 
-[node name="Chair1 (1)5" parent="Spatial" instance=ExtResource( 14 )]
+[node name="Chair5" parent="Spatial" instance=ExtResource( 14 )]
 transform = Transform( -0.978681, 0, -0.777614, 0, 1.26602, 0, 0.777614, 0, -0.978681, -8.36302, -3.75948, 1.89641 )
 
 [node name="EndTable1" parent="Spatial" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422, 23.7205 )
 
-[node name="fridge2" parent="Spatial" instance=ExtResource( 1 )]
+[node name="StaticBody" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( -0.000670358, 0, -0.893114, 0, 1.16224, 0, 1.06271, 0, -0.000797649, 21.3549, -3.81854, 0.191467 )
 
 [node name="Windows" type="Spatial" parent="."]
@@ -198,6 +200,7 @@ transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, -6.28449, 33.7541, 11.568 
 
 [node name="StaticBody" type="StaticBody" parent="Room"]
 transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, -6.30412, -0.240074, 11.5502 )
+physics_material_override = SubResource( 10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Room/StaticBody"]
 shape = SubResource( 1 )
@@ -206,27 +209,27 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape10" type="CollisionShape" parent="Room/StaticBody"]
 transform = Transform( 1, 0, 0, 0, -5.52154e-08, -13.5564, 0, 0.025, -1.62921e-07, 0.000654355, 12.4649, 0.97612 )
-shape = SubResource( 10 )
+shape = SubResource( 2 )
 
 [node name="Wall1" parent="Room/StaticBody/CollisionShape10" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 4.44089e-16, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 4.54747e-13, 0, 8.88178e-16, 1, 0, 0, 0 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="Room/StaticBody"]
 transform = Transform( -0.405447, 0, 0, 0, -5.52154e-08, -13.5564, 0, 0.025, -1.62921e-07, 0.589571, 12.4649, -0.0221601 )
 shape = SubResource( 3 )
 
 [node name="Wall5" parent="Room/StaticBody/CollisionShape3" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, -4.60164e-06, 0, -2.87602e-09, 0.293884, 0, 3.45707e-06, 0.576365 )
 
-[node name="CollisionShape4" type="CollisionShape" parent="Room/StaticBody"]
-transform = Transform( 6.60557e-08, 0.0166667, 3.68103e-08, 0, 1.62921e-07, -13.5564, 0.23337, -1.56292e-09, 0, 0.190107, 12.4649, 0.729185 )
-shape = SubResource( 4 )
+[node name="CollisionShape2" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( 6.60557e-08, 0.0166667, 3.68103e-08, 6.77626e-19, 4.47669e-08, -3.72498, 0.1165, -7.80222e-10, -1.72321e-15, 0.190107, 5.07503, 0.837207 )
+shape = SubResource( 11 )
 
-[node name="Wall9" parent="Room/StaticBody/CollisionShape4" instance=ExtResource( 2 )]
-transform = Transform( 1, -1.33227e-15, -1.47915e-14, -9.09495e-13, 1, -2.27374e-13, -1.01644e-20, -1.77636e-15, 1, 0, 3.09944e-06, 0 )
+[node name="Wall9" parent="Room/StaticBody/CollisionShape2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, -1.69407e-21, 0, 1, -2.27374e-13, -6.77626e-21, -8.88178e-16, 1, 0, -9.53674e-07, 0 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="Room/StaticBody"]
-transform = Transform( 6.60557e-08, 0.0166667, 3.68103e-08, -1.22293e-20, 4.33784e-08, -3.60946, 0.23337, -1.56292e-09, -3.45188e-15, 0.190107, 20.4877, 0.3082 )
+transform = Transform( 6.60558e-08, 0.0166667, 3.68103e-08, -1.52857e-20, 5.42198e-08, -4.51156, 0.23337, -1.56292e-09, -3.45188e-15, 0.190107, 21.507, 1.52456 )
 shape = SubResource( 5 )
 
 [node name="Wall8" parent="Room/StaticBody/CollisionShape5" instance=ExtResource( 2 )]
@@ -237,36 +240,37 @@ transform = Transform( 6.60557e-08, 0.0166667, 3.68103e-08, 0, 1.62921e-07, -13.
 shape = SubResource( 6 )
 
 [node name="Wall7" parent="Room/StaticBody/CollisionShape6" instance=ExtResource( 2 )]
-transform = Transform( 1, 4.44089e-16, 1.69407e-21, 0, 1, 5.86236e-20, 0, 3.18995e-22, 1, 0, 0, 0 )
+transform = Transform( 1, 9.76996e-15, 2.03288e-20, -7.27596e-12, 1, 1.60904e-06, -2.03288e-20, 8.75551e-09, 0.271468, 0.00584483, -8.34465e-07, 0.554033 )
 
 [node name="CollisionShape7" type="CollisionShape" parent="Room/StaticBody"]
 transform = Transform( 1, 1.49929e-16, 0, 0, -5.52154e-08, -13.5564, 5.68434e-15, 0.025, -1.62921e-07, 0.000654325, 12.4649, -0.9943 )
 shape = SubResource( 7 )
 
 [node name="Wall2" parent="Room/StaticBody/CollisionShape7" instance=ExtResource( 2 )]
-transform = Transform( 1, -1.49929e-16, 1.00974e-28, -2.27374e-13, 1, 0, 9.26096e-22, -4.44089e-16, 1, 1.49012e-08, 0, 5.96046e-08 )
+transform = Transform( 1, -1.49929e-16, 1.00974e-28, -2.27374e-13, 1, 4.54747e-13, 9.26096e-22, 0, 1, 1.49012e-08, 0, 5.96046e-08 )
 
 [node name="CollisionShape8" type="CollisionShape" parent="Room/StaticBody"]
 transform = Transform( -1.62921e-07, 0.0166667, -3.68103e-08, 0, -1.62921e-07, -13.5564, -0.998835, -2.71218e-09, 5.9902e-15, 0.984747, 12.4649, 0.00294495 )
 shape = SubResource( 8 )
 
 [node name="Wall3" parent="Room/StaticBody/CollisionShape8" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, -4.23516e-22, 0, 1, -5.86239e-20, 0, -3.18996e-22, 1, 0, 0, 0 )
+transform = Transform( 1, 2.22045e-16, -4.23516e-22, 0, 1, -5.8624e-20, 0, -3.18996e-22, 1, 0, 0, 0 )
 
 [node name="CollisionShape9" type="CollisionShape" parent="Room/StaticBody"]
 transform = Transform( -1.62921e-07, 0.0166667, -3.68103e-08, 0, -1.62921e-07, -13.5564, -0.998835, -2.71218e-09, 5.9902e-15, -0.983766, 12.4649, 0.00294495 )
 shape = SubResource( 9 )
 
 [node name="Wall4" parent="Room/StaticBody/CollisionShape9" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, -4.23516e-22, 0, 1, -5.86239e-20, 0, -3.18996e-22, 1, 0, 0, 0 )
+transform = Transform( 1, 4.44089e-16, -4.23516e-22, 0, 1, -5.8624e-20, 0, -3.18996e-22, 1, 0, 0, 0 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.30306, 18.0295 )
 
 [node name="Door2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.290959, 0, -0.211213, 0, 4.03312, 0, 0.0265717, 0, 2.31283, -0.812324, 4.1622, 19.2892 )
+transform = Transform( 0.290959, 0, -0.211213, 0, 4.03312, 0, 0.0265717, 0, 2.31283, -0.812324, 4.1622, 38.8906 )
 
 [node name="Light" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.31072, 0 )
 
 [node name="lamp2" parent="Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 13.7681, 10.1167, 2.36084 )
