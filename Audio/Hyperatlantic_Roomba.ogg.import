@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hyperatlantic_Roomba.ogg-0ffbfe6fb55efa4c242c8e376d5a7c8b.oggstr"
+
+[deps]
+
+source_file="res://Audio/Hyperatlantic_Roomba.ogg"
+dest_files=[ "res://.import/Hyperatlantic_Roomba.ogg-0ffbfe6fb55efa4c242c8e376d5a7c8b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
