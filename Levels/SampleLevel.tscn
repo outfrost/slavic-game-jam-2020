@@ -26,6 +26,7 @@ size = Vector2( 200, 200 )
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 1 )
+playable_area_bounds = AABB( 0, 0, 0, 200, 200, 200 )
 
 [node name="Robot" parent="." instance=ExtResource( 3 )]
 

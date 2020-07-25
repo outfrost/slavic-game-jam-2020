@@ -16,9 +16,9 @@ Levels = [ ExtResource( 1 ) ]
 [node name="devCameras" type="Node" parent="."]
 
 [node name="CameraPerspective" type="Camera" parent="devCameras"]
-transform = Transform( 0.525343, -0.383719, 0.759457, 0.0104944, 0.895398, 0.445144, -0.850826, -0.225883, 0.474418, 11.7998, 7.16861, 6.15879 )
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 16, 12 )
 current = true
-far = 300.0
+far = 400.0
 
 [node name="CameraFlatTop" type="Camera" parent="devCameras"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 90, 0 )

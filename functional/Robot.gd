@@ -22,7 +22,6 @@ func _ready():
 	# Lookup table for charge indicator surface indices for materials
 	body_mesh = (player_model.get_node("Char1_Body/Body2") as MeshInstance).mesh
 	for i in range(0, body_mesh.get_surface_count()):
-		print(body_mesh.surface_get_material(i).resource_name)
 		match body_mesh.surface_get_material(i).resource_name:
 			"Charge Indicator":
 				indicator_lookup[0] = i
