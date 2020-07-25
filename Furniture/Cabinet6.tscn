@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Furniture/Cabinet6.fbx" type="PackedScene" id=1]
 
@@ -10,6 +10,9 @@ extents = Vector3( 0.859916, 0.0547432, 2.87946 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 2.02782, 0.06, 1.02657 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1, 1.58, 0.975691 )
 
 [node name="Cabinet6" type="StaticBody"]
 
@@ -23,6 +26,14 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35779, 1.59136, 2.71932 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( 0.734583, 0, 0.678519, 0, 1, 0, -0.678519, 0, 0.734583, 0.273309, 1.59136, -0.119611 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="."]
+transform = Transform( 0.734583, 0, 0.678519, 0, 1, 0, -0.678519, 0, 0.734583, 0.273309, 1.59136, -0.119611 )
+shape = SubResource( 1 )
+
 [node name="CollisionShape3" type="CollisionShape" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.0909862, 3.11006, 0.0978757 )
 shape = SubResource( 2 )
@@ -34,3 +45,11 @@ shape = SubResource( 3 )
 [node name="CollisionShape5" type="CollisionShape" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.54874, 3.10626, 0.953046 )
 shape = SubResource( 3 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="."]
+transform = Transform( 0.934671, 0, 0.355515, 0, 1, 0, -0.355515, 0, 0.934671, 1.22817, 1.44742, 1.13064 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="."]
+transform = Transform( 0.394183, 0, 0.919032, 0, 1, 0, -0.919032, 0, 0.394183, -0.960633, 1.44742, -1.18614 )
+shape = SubResource( 4 )
