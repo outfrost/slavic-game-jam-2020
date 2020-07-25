@@ -1,25 +1,23 @@
 extends RigidBody
 
-
 var current_camera = 0
 const cameras = ['../CameraPerspective', '../CameraDebugTop', '../CameraDebugSide']
 export var velocity_max_angular = 2
 export var velocity_max_linear = 30
 export var velocity_linear_acceleration = 20
-var PlayerModel: Spatial
+var player_model: Spatial
 
 func _ready():
 	self.get_node(cameras[current_camera]).make_current()
-	PlayerModel = self.get_node('PlayerModel') as Spatial
+	player_model = self.get_node('PlayerModel') as Spatial
 
 func _physics_process(delta):
 	var velocity_abs = self.linear_velocity.length()
-	print(velocity_abs)
 	if Input.is_action_pressed("turn_left") and self.angular_velocity.y < 1 * velocity_max_angular:
-		PlayerModel.rotate_y(1 * delta)
+		player_model.rotate_y(1 * delta)
 	if Input.is_action_pressed("turn_right") and self.angular_velocity.y > -1 * velocity_max_angular:
-		PlayerModel.rotate_y(-1 * delta)
-	var rotataion = PlayerModel.transform.basis.get_euler().y
+		player_model.rotate_y(-1 * delta)
+	var rotataion = player_model.transform.basis.get_euler().y
 	if velocity_abs < velocity_max_linear:
 		if Input.is_action_pressed("move_forwards"):
 			self.add_central_force(Vector3(0, 0, 1 * velocity_linear_acceleration).rotated(Vector3(0,1,0), rotataion))
