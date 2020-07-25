@@ -4,14 +4,14 @@
 [ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://functional/Robot.tscn" type="PackedScene" id=3]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.25098, 0.25098, 0.25098, 1 )
 
-[sub_resource type="PlaneMesh" id=5]
-material = SubResource( 4 )
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
 size = Vector2( 20, 20 )
 
-[sub_resource type="PlaneShape" id=6]
+[sub_resource type="PlaneShape" id=3]
 
 [node name="Spatial" type="Spatial"]
 
@@ -40,11 +40,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.785514 )
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="Robot" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.98468, 0 )
