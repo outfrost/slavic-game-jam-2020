@@ -1,5 +1,6 @@
 extends Spatial
 
+const util = preload("res://util/util.gd")
 const Level = preload("res://Levels/Level.gd")
 
 var current_level = 0
@@ -21,6 +22,7 @@ func _ready():
 	SpawnLevel()
 
 func _process(delta):
+	util.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
 	if Input.is_action_just_pressed("debug_switch_camera"):
 		current_camera = (current_camera + 1) % (dev_cameras.size())
 		dev_cameras[current_camera].make_current()
