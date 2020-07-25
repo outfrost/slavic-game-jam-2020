@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/SampleLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://util/DebugLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://default_env.tres" type="Environment" id=5]
+[ext_resource path="res://Assets/Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -12,17 +13,17 @@ ambient_light_color = Color( 1, 1, 1, 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 48
 use_filter = true
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 64
 use_filter = true
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 36
 use_filter = true
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="InputEventAction" id=5]
 action = "ui_accept"
@@ -35,11 +36,11 @@ size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
-Levels = [ ExtResource( 1 ) ]
+Levels = [ ExtResource( 1 ), ExtResource( 4 ) ]
 
 [node name="CurrentLevel" type="Node" parent="."]
 
@@ -53,11 +54,13 @@ far = 400.0
 
 [node name="CameraFlatTop" type="Camera" parent="devCameras"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 90, 0 )
+environment = ExtResource( 5 )
 projection = 1
 size = 60.0
 
 [node name="CameraFlatSide" type="Camera" parent="devCameras"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 90 )
+environment = ExtResource( 5 )
 projection = 1
 size = 60.0
 
