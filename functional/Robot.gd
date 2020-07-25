@@ -52,7 +52,8 @@ func _physics_process(delta):
 		self.angular_velocity = Vector3(0,0,0)
 		self.linear_velocity = Vector3(0,0,0)
 		self.transform = Transform.IDENTITY
-		self.transform.origin.y = 5.585
+		charge = 0.5
+		player_model.rotation.y = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
