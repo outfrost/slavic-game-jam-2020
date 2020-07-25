@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Doomby2.png-dd69ada0db95e263db9752a7febc626b.stex"
+path="res://.import/Doomby2.png-bc86ad90ef78f1a37ff7ed017a433fc1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blender Raw/Renders/Doomby2.png"
-dest_files=[ "res://.import/Doomby2.png-dd69ada0db95e263db9752a7febc626b.stex" ]
+source_file="res://Assets/Blender Raw/_Renders/Doomby2.png"
+dest_files=[ "res://.import/Doomby2.png-bc86ad90ef78f1a37ff7ed017a433fc1.stex" ]
 
 [params]
 
