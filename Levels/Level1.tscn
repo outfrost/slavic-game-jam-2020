@@ -1,0 +1,253 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Furniture/fridge.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Furniture/cube2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Furniture/Cabinet3.fbx" type="PackedScene" id=3]
+[ext_resource path="res://Furniture/cube3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Furniture/Cabinet1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Furniture/cube1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Furniture/Cabinet7.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Furniture/Cabinet6.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Furniture/Table2.fbx" type="PackedScene" id=9]
+[ext_resource path="res://Furniture/Cabinet2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Furniture/Cabinet3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Furniture/Desk1.fbx" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Furniture/bed.fbx" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Furniture/Chair1.fbx" type="PackedScene" id=14]
+[ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Furniture/EndTable1.fbx" type="PackedScene" id=17]
+[ext_resource path="res://Furniture/lamp.tscn" type="PackedScene" id=18]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.03587, 0 )
+
+[node name="Desk1" parent="Spatial" instance=ExtResource( 12 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 21.1901, -3.83495, 14.7862 )
+
+[node name="Cabinet5" parent="Spatial" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1.02754, 0, 0, 0, 1.22469, 12.7875, -3.92652, -6.83109 )
+
+[node name="Cabinet9" parent="Spatial" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1355, -3.97451, -5.3169 )
+
+[node name="Cabinet6" parent="Spatial" instance=ExtResource( 8 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 5.37873, -3.97451, -5.28535 )
+
+[node name="Cabinet8" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 5.43641, -3.975, 2.43824 )
+
+[node name="Cabinet3" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93215, -3.89452, 12.8774 )
+
+[node name="Cabinet1" parent="Spatial" instance=ExtResource( 5 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1.86719, 0, -3.04204e-07, 21.4416, -3.89583, 8.39154 )
+
+[node name="Cabinet4" parent="Spatial" instance=ExtResource( 11 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 21.4544, -3.89452, 4.06003 )
+
+[node name="bed" parent="Spatial" instance=ExtResource( 13 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.7049, -3.975, 27.4334 )
+
+[node name="Table2" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.904, -3.81818, -0.29 )
+
+[node name="Chair1 (1)" parent="Spatial" instance=ExtResource( 14 )]
+transform = Transform( -2.03651e-07, 0, 1.25, 0, 1.25, 0, -1.25, 0, -2.03651e-07, 20.0072, -3.79887, 15.9533 )
+
+[node name="Chair1 (1)2" parent="Spatial" instance=ExtResource( 14 )]
+transform = Transform( -2.03651e-07, 0, 1.25, 0, 1.26602, 0, -1.25, 0, -2.03651e-07, -13.0184, -3.75948, -0.346872 )
+
+[node name="Chair1 (1)3" parent="Spatial" instance=ExtResource( 14 )]
+transform = Transform( 1.49061e-08, 0, -1.25, 0, 1.26602, 0, 1.25, 0, 1.49061e-08, -4.70343, -3.75948, -0.346872 )
+
+[node name="Chair1 (1)4" parent="Spatial" instance=ExtResource( 14 )]
+transform = Transform( 1.25, 0, 0, 0, 1.26602, 0, 0, 0, 1.25, -8.85053, -3.75948, -1.84079 )
+
+[node name="Chair1 (1)5" parent="Spatial" instance=ExtResource( 14 )]
+transform = Transform( -0.978681, 0, -0.777614, 0, 1.26602, 0, 0.777614, 0, -0.978681, -8.36302, -3.75948, 1.89641 )
+
+[node name="EndTable1" parent="Spatial" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422, 23.7205 )
+
+[node name="fridge2" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( -0.000670358, 0, -0.893114, 0, 1.16224, 0, 1.06271, 0, -0.000797649, 21.3549, -3.81854, 0.191467 )
+
+[node name="Windows" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.848365, 0, 0, 0, 1, 0, 3.75473, 0 )
+
+[node name="Double" type="Spatial" parent="Windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93046, 0, 0 )
+
+[node name="window" parent="Windows/Double" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double2" type="Spatial" parent="Windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0784, 0, 0 )
+
+[node name="window" parent="Windows/Double2" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double2" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double4" type="Spatial" parent="Windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7225, 0, 0 )
+
+[node name="window" parent="Windows/Double4" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double4" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double8" type="Spatial" parent="Windows"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -24.7938, 0, 22.7192 )
+
+[node name="window" parent="Windows/Double8" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double8" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double9" type="Spatial" parent="Windows"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -11.6872, 0, 22.7192 )
+
+[node name="window" parent="Windows/Double9" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double9" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double10" type="Spatial" parent="Windows"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 6.35192, 0, 22.7192 )
+
+[node name="window" parent="Windows/Double10" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double10" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double11" type="Spatial" parent="Windows"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 14.8558, 0, 22.7192 )
+
+[node name="window" parent="Windows/Double11" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double11" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double12" type="Spatial" parent="Windows"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 14.8558, 0, 5.81998 )
+
+[node name="window" parent="Windows/Double12" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double12" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double6" type="Spatial" parent="Windows"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -27.4889, 0, 4.21466 )
+
+[node name="window" parent="Windows/Double6" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double6" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Double7" type="Spatial" parent="Windows"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -27.4889, 0, 25.804 )
+
+[node name="window" parent="Windows/Double7" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.87467, -7.82494 )
+
+[node name="window2" parent="Windows/Double7" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
+
+[node name="Room" type="Spatial" parent="."]
+
+[node name="Roof" parent="Room" instance=ExtResource( 4 )]
+transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, -6.28449, 12.2599, 11.568 )
+
+[node name="Floor" parent="Room" instance=ExtResource( 4 )]
+transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, -6.30412, -0.240074, 11.5502 )
+
+[node name="Wall1" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( 30, 0, 0, 0, -2.76077e-08, -6.7782, 0, 0.5, -3.25841e-06, -6.28449, 5.99239, 31.0726 )
+
+[node name="Wall5" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( -12.1634, 0, 0, 0, -2.76077e-08, -6.7782, 0, 0.5, -3.25841e-06, 11.383, 5.99239, 11.107 )
+
+[node name="Wall9" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( 1.98167e-06, 0.5, 1.10431e-06, 0, 8.14603e-08, -6.7782, 4.6674, -3.12583e-08, -6.90377e-14, -0.600922, 5.99239, 26.1339 )
+
+[node name="Wall8" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( 1.98167e-06, 0.5, 1.10431e-06, 0, 2.16892e-08, -1.80473, 4.6674, -3.12583e-08, -6.90377e-14, -0.600922, 10.0038, 17.7142 )
+
+[node name="Wall7" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( 1.98167e-06, 0.5, 1.10431e-06, 0, 8.14603e-08, -6.7782, 3.09901, -2.07546e-08, -4.58389e-14, -0.600922, 5.99239, 13.6913 )
+
+[node name="Wall2" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( 30, 0, 0, 0, -2.76077e-08, -6.7782, 0, 0.5, -3.25841e-06, -6.28449, 5.99239, -8.3358 )
+
+[node name="Wall3" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( -4.88762e-06, 0.5, -1.10431e-06, 0, -8.14603e-08, -6.7782, -19.9767, -5.42437e-08, 1.19804e-13, 23.2383, 5.99239, 11.6091 )
+
+[node name="Wall4" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( -4.88762e-06, 0.5, -1.10431e-06, 0, -8.14603e-08, -6.7782, -19.9767, -5.42437e-08, 1.19804e-13, -35.8171, 5.99239, 11.6091 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.30306, 18.0295 )
+
+[node name="Door2" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.142048, 0, 2.02949, 0, 4.03312, 0, -0.255315, 0, -1.12914, -3.0297, 4.1622, 22.8243 )
+
+[node name="lamp2" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 13.7681, 10.1167, 2.36084 )
+
+[node name="SpotLight" type="SpotLight" parent="lamp2"]
+transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
+light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
+light_energy = 2.0
+spot_range = 15.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.757859
+
+[node name="lamp4" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 12.2595, 10.1167, 20.1787 )
+
+[node name="SpotLight" type="SpotLight" parent="lamp4"]
+transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
+light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
+light_energy = 2.0
+spot_range = 15.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.757859
+
+[node name="lamp5" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, -16.7749, 10.1167, 20.1787 )
+
+[node name="SpotLight" type="SpotLight" parent="lamp5"]
+transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
+light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
+light_energy = 2.0
+spot_range = 15.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.757859
+
+[node name="lamp6" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, -16.7749, 10.1167, 4.44582 )
+
+[node name="SpotLight" type="SpotLight" parent="lamp6"]
+transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
+light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
+light_energy = 2.0
+spot_range = 15.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.757859
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.424263, 0, -0.905539, 0, 1, 0, 0.905539, 0, 0.424263, -29.0768, 5.24592, 14.8668 )
