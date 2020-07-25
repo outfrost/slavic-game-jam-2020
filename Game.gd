@@ -35,6 +35,7 @@ func SpawnLevel() -> void:
 	robot = get_tree().root.find_node("Robot", true, false)
 	if robot:
 		robot.connect("battery_depleted", self, "game_over")
+		connect("game_over", robot, "on_game_over")
 	else:
 		printerr("No robot found :(")
 

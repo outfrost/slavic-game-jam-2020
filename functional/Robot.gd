@@ -71,7 +71,6 @@ func _process(delta):
 	add_charge(discharge_rate * delta)
 	util.display(self, "charge %f" % charge)
 	if charge == 0.0:
-		working = false
 		emit_signal("battery_depleted")
 
 	if indicator_lookup.empty():
@@ -85,3 +84,6 @@ func _process(delta):
 func add_charge(amount: float):
 	charge += amount
 	charge = clamp(charge, 0.0, 1.0)
+
+func on_game_over():
+	working = false
