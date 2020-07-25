@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Furniture/fridge.fbx" type="PackedScene" id=1]
 [ext_resource path="res://Furniture/cube2.tscn" type="PackedScene" id=2]
@@ -14,11 +14,35 @@
 [ext_resource path="res://Assets/Furniture/Desk1.fbx" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Furniture/bed.fbx" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Furniture/Chair1.fbx" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Furniture/EndTable1.fbx" type="PackedScene" id=17]
 [ext_resource path="res://Furniture/lamp.tscn" type="PackedScene" id=18]
+[ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=19]
+[ext_resource path="res://functional/Robot.tscn" type="PackedScene" id=20]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=10]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="BoxShape" id=8]
+
+[sub_resource type="BoxShape" id=9]
 
 [node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242577, 0, -10.5309 )
+script = ExtResource( 15 )
+playable_area_bounds = AABB( 0, 0, 0, 30, 20, 20 )
 
 [node name="Spatial" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.03587, 0 )
@@ -170,45 +194,84 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
 [node name="Room" type="Spatial" parent="."]
 
 [node name="Roof" parent="Room" instance=ExtResource( 4 )]
-transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, -6.28449, 12.2599, 11.568 )
+transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, -6.28449, 33.7541, 11.568 )
 
-[node name="Floor" parent="Room" instance=ExtResource( 4 )]
+[node name="StaticBody" type="StaticBody" parent="Room"]
 transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, -6.30412, -0.240074, 11.5502 )
 
-[node name="Wall1" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( 30, 0, 0, 0, -2.76077e-08, -6.7782, 0, 0.5, -3.25841e-06, -6.28449, 5.99239, 31.0726 )
+[node name="CollisionShape" type="CollisionShape" parent="Room/StaticBody"]
+shape = SubResource( 1 )
 
-[node name="Wall5" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( -12.1634, 0, 0, 0, -2.76077e-08, -6.7782, 0, 0.5, -3.25841e-06, 11.383, 5.99239, 11.107 )
+[node name="Floor" parent="Room/StaticBody/CollisionShape" instance=ExtResource( 4 )]
 
-[node name="Wall9" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( 1.98167e-06, 0.5, 1.10431e-06, 0, 8.14603e-08, -6.7782, 4.6674, -3.12583e-08, -6.90377e-14, -0.600922, 5.99239, 26.1339 )
+[node name="CollisionShape10" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( 1, 0, 0, 0, -5.52154e-08, -13.5564, 0, 0.025, -1.62921e-07, 0.000654355, 12.4649, 0.97612 )
+shape = SubResource( 10 )
 
-[node name="Wall8" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( 1.98167e-06, 0.5, 1.10431e-06, 0, 2.16892e-08, -1.80473, 4.6674, -3.12583e-08, -6.90377e-14, -0.600922, 10.0038, 17.7142 )
+[node name="Wall1" parent="Room/StaticBody/CollisionShape10" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 4.44089e-16, 1, 0, 0, 0 )
 
-[node name="Wall7" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( 1.98167e-06, 0.5, 1.10431e-06, 0, 8.14603e-08, -6.7782, 3.09901, -2.07546e-08, -4.58389e-14, -0.600922, 5.99239, 13.6913 )
+[node name="CollisionShape3" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( -0.405447, 0, 0, 0, -5.52154e-08, -13.5564, 0, 0.025, -1.62921e-07, 0.589571, 12.4649, -0.0221601 )
+shape = SubResource( 3 )
 
-[node name="Wall2" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( 30, 0, 0, 0, -2.76077e-08, -6.7782, 0, 0.5, -3.25841e-06, -6.28449, 5.99239, -8.3358 )
+[node name="Wall5" parent="Room/StaticBody/CollisionShape3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="Wall3" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( -4.88762e-06, 0.5, -1.10431e-06, 0, -8.14603e-08, -6.7782, -19.9767, -5.42437e-08, 1.19804e-13, 23.2383, 5.99239, 11.6091 )
+[node name="CollisionShape4" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( 6.60557e-08, 0.0166667, 3.68103e-08, 0, 1.62921e-07, -13.5564, 0.23337, -1.56292e-09, 0, 0.190107, 12.4649, 0.729185 )
+shape = SubResource( 4 )
 
-[node name="Wall4" parent="Room" instance=ExtResource( 2 )]
-transform = Transform( -4.88762e-06, 0.5, -1.10431e-06, 0, -8.14603e-08, -6.7782, -19.9767, -5.42437e-08, 1.19804e-13, -35.8171, 5.99239, 11.6091 )
+[node name="Wall9" parent="Room/StaticBody/CollisionShape4" instance=ExtResource( 2 )]
+transform = Transform( 1, -1.33227e-15, -1.47915e-14, -9.09495e-13, 1, -2.27374e-13, -1.01644e-20, -1.77636e-15, 1, 0, 3.09944e-06, 0 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( 6.60557e-08, 0.0166667, 3.68103e-08, -1.22293e-20, 4.33784e-08, -3.60946, 0.23337, -1.56292e-09, -3.45188e-15, 0.190107, 20.4877, 0.3082 )
+shape = SubResource( 5 )
+
+[node name="Wall8" parent="Room/StaticBody/CollisionShape5" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 5.86236e-20, -6.77626e-21, -8.88178e-16, 1, 0, 0, 0 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( 6.60557e-08, 0.0166667, 3.68103e-08, 0, 1.62921e-07, -13.5564, 0.15495, -1.03773e-09, -2.29194e-15, 0.190107, 12.4649, 0.107055 )
+shape = SubResource( 6 )
+
+[node name="Wall7" parent="Room/StaticBody/CollisionShape6" instance=ExtResource( 2 )]
+transform = Transform( 1, 4.44089e-16, 1.69407e-21, 0, 1, 5.86236e-20, 0, 3.18995e-22, 1, 0, 0, 0 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( 1, 1.49929e-16, 0, 0, -5.52154e-08, -13.5564, 5.68434e-15, 0.025, -1.62921e-07, 0.000654325, 12.4649, -0.9943 )
+shape = SubResource( 7 )
+
+[node name="Wall2" parent="Room/StaticBody/CollisionShape7" instance=ExtResource( 2 )]
+transform = Transform( 1, -1.49929e-16, 1.00974e-28, -2.27374e-13, 1, 0, 9.26096e-22, -4.44089e-16, 1, 1.49012e-08, 0, 5.96046e-08 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( -1.62921e-07, 0.0166667, -3.68103e-08, 0, -1.62921e-07, -13.5564, -0.998835, -2.71218e-09, 5.9902e-15, 0.984747, 12.4649, 0.00294495 )
+shape = SubResource( 8 )
+
+[node name="Wall3" parent="Room/StaticBody/CollisionShape8" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, -4.23516e-22, 0, 1, -5.86239e-20, 0, -3.18996e-22, 1, 0, 0, 0 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="Room/StaticBody"]
+transform = Transform( -1.62921e-07, 0.0166667, -3.68103e-08, 0, -1.62921e-07, -13.5564, -0.998835, -2.71218e-09, 5.9902e-15, -0.983766, 12.4649, 0.00294495 )
+shape = SubResource( 9 )
+
+[node name="Wall4" parent="Room/StaticBody/CollisionShape9" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, -4.23516e-22, 0, 1, -5.86239e-20, 0, -3.18996e-22, 1, 0, 0, 0 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.30306, 18.0295 )
 
 [node name="Door2" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.142048, 0, 2.02949, 0, 4.03312, 0, -0.255315, 0, -1.12914, -3.0297, 4.1622, 22.8243 )
+transform = Transform( 0.290959, 0, -0.211213, 0, 4.03312, 0, 0.0265717, 0, 2.31283, -0.812324, 4.1622, 19.2892 )
 
-[node name="lamp2" parent="." instance=ExtResource( 18 )]
+[node name="Light" type="Spatial" parent="."]
+
+[node name="lamp2" parent="Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 13.7681, 10.1167, 2.36084 )
 
-[node name="SpotLight" type="SpotLight" parent="lamp2"]
+[node name="SpotLight" type="SpotLight" parent="Light/lamp2"]
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
@@ -216,10 +279,10 @@ spot_range = 15.0
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
-[node name="lamp4" parent="." instance=ExtResource( 18 )]
+[node name="lamp4" parent="Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 12.2595, 10.1167, 20.1787 )
 
-[node name="SpotLight" type="SpotLight" parent="lamp4"]
+[node name="SpotLight" type="SpotLight" parent="Light/lamp4"]
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
@@ -227,10 +290,10 @@ spot_range = 15.0
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
-[node name="lamp5" parent="." instance=ExtResource( 18 )]
+[node name="lamp5" parent="Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, -16.7749, 10.1167, 20.1787 )
 
-[node name="SpotLight" type="SpotLight" parent="lamp5"]
+[node name="SpotLight" type="SpotLight" parent="Light/lamp5"]
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
@@ -238,10 +301,10 @@ spot_range = 15.0
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
-[node name="lamp6" parent="." instance=ExtResource( 18 )]
+[node name="lamp6" parent="Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, -16.7749, 10.1167, 4.44582 )
 
-[node name="SpotLight" type="SpotLight" parent="lamp6"]
+[node name="SpotLight" type="SpotLight" parent="Light/lamp6"]
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
@@ -249,5 +312,9 @@ spot_range = 15.0
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.424263, 0, -0.905539, 0, 1, 0, 0.905539, 0, 0.424263, -29.0768, 5.24592, 14.8668 )
+[node name="Chargers" type="Node" parent="."]
+
+[node name="ChargingStation" parent="Chargers" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115416, 0.197123, -16.7181 )
+
+[node name="Robot" parent="." instance=ExtResource( 20 )]

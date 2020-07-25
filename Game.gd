@@ -3,7 +3,7 @@ extends Spatial
 const util = preload("res://util/util.gd")
 const Level = preload("res://Levels/Level.gd")
 
-var current_level = 0
+var current_level = 1
 var current_camera = 0
 var dev_cameras: Array
 var camera_perspective: Camera
@@ -40,7 +40,7 @@ func _ready():
 
 func _process(delta):
 	util.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
-
+	util.display (self, String(Levels.size()))
 	if Input.is_action_just_pressed("level_next"):
 		#call_deferred("next_level")
 		next_level()
