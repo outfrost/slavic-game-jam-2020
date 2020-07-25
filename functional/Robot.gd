@@ -9,6 +9,7 @@ export var velocity_max_angular = 2
 export var velocity_max_linear = 30
 export var velocity_linear_acceleration = 20
 export var charge: float = 0.5
+export var discharge_rate: float = -0.025
 
 var player_model: Spatial
 var body_mesh: Mesh
@@ -57,6 +58,7 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	add_charge(discharge_rate * delta)
 	util.display(self, "charge %f" % charge)
 	for i in range(0, 6):
 		if (charge >= (i + 0.5) / 6.0):
