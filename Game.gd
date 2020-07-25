@@ -2,18 +2,25 @@ extends Spatial
 
 const util = preload("res://util/util.gd")
 const Level = preload("res://Levels/Level.gd")
+const Robot = preload("res://functional/Robot.gd")
+
+signal game_over()
 
 var current_level = 0
 var current_camera = 0
 var dev_cameras: Array
 var camera_perspective: Camera
 var cam_pers_offset: Vector3
-var robot: Spatial
+var robot: Robot
 var level_dimension_squared: float
 
 export var Levels: Array
 
 var current_level_container: Node
+
+var gameover_popup: Popup
+var gameover_message_label: RichTextLabel
+var gameover_score_label: RichTextLabel
 
 func SpawnLevel() -> void:
 	var level_instance = (Levels[current_level] as PackedScene).instance()
@@ -22,7 +29,9 @@ func SpawnLevel() -> void:
 	level_dimension_squared = level_dimension * level_dimension
 
 	robot = get_tree().root.find_node("Robot", true, false)
-	if !robot:
+	if robot:
+		robot.connect("battery_depleted", self, "game_over")
+	else:
 		printerr("No robot found :(")
 
 func _ready():
@@ -37,6 +46,11 @@ func _ready():
 
 	current_level_container = self.get_node("CurrentLevel")
 	SpawnLevel()
+
+	gameover_popup = find_node("GameoverPopup")
+	gameover_message_label = gameover_popup.get_node("Panel/MessageLabel")
+	gameover_score_label = gameover_popup.get_node("Panel/ScoreLabel")
+	gameover_popup.get_node("Panel/RestartButton").connect("pressed", self, "next_level")
 
 func _process(delta):
 	util.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
@@ -61,7 +75,12 @@ func _process(delta):
 		camera_origin += cam_pers_offset
 		camera_perspective.translation = camera_origin
 
+func game_over():
+	emit_signal("game_over")
+	gameover_popup.show()
+
 func next_level():
+	gameover_popup.hide()
 	remove_level()
 	current_level = (current_level + 1) % Levels.size()
 	call_deferred("SpawnLevel")

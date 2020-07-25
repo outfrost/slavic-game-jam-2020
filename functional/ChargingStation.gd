@@ -1,6 +1,7 @@
 extends Area
 
 const util = preload("res://util/util.gd")
+const Game = preload("res://Game.gd")
 const Robot = preload("res://functional/Robot.gd")
 
 export var max_charging_speed: float = 0.05
@@ -9,6 +10,8 @@ export var charging_falloff_distance: float = 10.0
 var robot: Robot
 var docked: bool = false
 
+var working: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	robot = get_tree().root.find_node("Robot", true, false)
@@ -16,9 +19,12 @@ func _ready():
 		printerr("Charging station lost connection to robot :(")
 	connect("body_entered", self, "on_body_entered_dock")
 	connect("body_exited", self, "on_body_exited_dock")
+	(get_tree().root.find_node("Game", true, false) as Game).connect("game_over", self, "on_game_over")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !working:
+		return
 	var charging_eff = 0.0
 	if docked:
 		charging_eff = 1.0
@@ -35,3 +41,6 @@ func on_body_entered_dock(body):
 func on_body_exited_dock(body):
 	if body == robot:
 		docked = false
+
+func on_game_over():
+	working = false

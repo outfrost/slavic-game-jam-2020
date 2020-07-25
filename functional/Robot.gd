@@ -5,6 +5,8 @@ const util = preload("res://util/util.gd")
 const indicator_lit = preload("res://Assets/Characters/indicator_lit.tres")
 const indicator_unlit = preload("res://Assets/Characters/indicator_unlit.tres")
 
+signal battery_depleted()
+
 export var velocity_max_angular = 2
 export var velocity_max_linear = 30
 export var velocity_linear_acceleration = 20
@@ -15,12 +17,16 @@ var player_model: Spatial
 var body_mesh: Mesh
 var indicator_lookup = {}
 
+var working: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_model = self.get_node('PlayerModel') as Spatial
 	
 	# Lookup table for charge indicator surface indices for materials
-	body_mesh = (player_model.get_node("Char1_Body/Body2") as MeshInstance).mesh
+	var mesh_instance = player_model.get_node("Char1_Body/Body2") as MeshInstance
+	body_mesh = mesh_instance.mesh.duplicate()
+	mesh_instance.mesh = body_mesh
 	for i in range(0, body_mesh.get_surface_count()):
 		match body_mesh.surface_get_material(i).resource_name:
 			"Charge Indicator":
@@ -37,6 +43,8 @@ func _ready():
 				indicator_lookup[5] = i
 
 func _physics_process(delta):
+	if !working:
+		return
 	var velocity_abs = self.linear_velocity.length()
 	if Input.is_action_pressed("turn_left") and self.angular_velocity.y < 1 * velocity_max_angular:
 		player_model.rotate_y(1 * delta)
@@ -58,8 +66,14 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !working:
+		return
 	add_charge(discharge_rate * delta)
 	util.display(self, "charge %f" % charge)
+	if charge == 0.0:
+		working = false
+		emit_signal("battery_depleted")
+
 	if indicator_lookup.empty():
 		return
 	for i in range(0, 6):
