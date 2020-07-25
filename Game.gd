@@ -6,6 +6,8 @@ const Robot = preload("res://functional/Robot.gd")
 
 signal game_over()
 
+export var Levels: Array
+
 var current_level = 0
 var current_camera = 0
 var dev_cameras: Array
@@ -14,19 +16,21 @@ var cam_pers_offset: Vector3
 var robot: Robot
 var level_dimension_squared: float
 
-export var Levels: Array
-
 var current_level_container: Node
 
 var gameover_popup: Popup
 var gameover_message_label: RichTextLabel
 var gameover_score_label: RichTextLabel
 
+var time_left: float
+
 func SpawnLevel() -> void:
-	var level_instance = (Levels[current_level] as PackedScene).instance()
+	var level_instance: Level = (Levels[current_level] as PackedScene).instance()
 	current_level_container.add_child(level_instance)
 	var level_dimension = level_instance.playable_area_bounds.get_longest_axis_size()
 	level_dimension_squared = level_dimension * level_dimension
+
+	time_left = level_instance.time_limit
 
 	robot = get_tree().root.find_node("Robot", true, false)
 	if robot:
@@ -58,6 +62,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("level_next"):
 		#call_deferred("next_level")
 		next_level()
+
+	if !gameover_popup.visible:
+		time_left = max(time_left - delta, 0.0)
+		if time_left == 0.0:
+			game_over()
 
 	if Input.is_action_just_pressed("debug_switch_camera"):
 		current_camera = (current_camera + 1) % (dev_cameras.size())
