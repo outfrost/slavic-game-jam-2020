@@ -16,6 +16,8 @@ export var Levels: Array
 var current_level_container: Node
 
 func SpawnLevel() -> void:
+	for node in current_level_container.get_children():
+		current_level_container.remove_child(node)
 	var level_instance = (Levels[current_level] as PackedScene).instance()
 	current_level_container.add_child(level_instance)
 	var level_dimension = level_instance.playable_area_bounds.get_longest_axis_size()
@@ -40,6 +42,10 @@ func _ready():
 
 func _process(delta):
 	util.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
+
+	if Input.is_action_just_pressed("level_next"):
+		call_deferred("next_level")
+
 	if Input.is_action_just_pressed("debug_switch_camera"):
 		current_camera = (current_camera + 1) % (dev_cameras.size())
 		dev_cameras[current_camera].make_current()
@@ -55,3 +61,7 @@ func _process(delta):
 		# Camera follows at an offset to see player more or less in the middle of the screen
 		camera_origin += cam_pers_offset
 		camera_perspective.translation = camera_origin
+
+func next_level():
+	current_level = (current_level + 1) % Levels.size()
+	SpawnLevel()

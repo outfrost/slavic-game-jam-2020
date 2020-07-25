@@ -3,10 +3,10 @@
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://functional/Robot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Furniture/Cabinet1.fbx" type="PackedScene" id=4]
+[ext_resource path="res://Furniture/Cabinet1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Furniture/Stool1.fbx" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Furniture/Desk1.fbx" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Furniture/Chair1.fbx" type="PackedScene" id=7]
+[ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Furniture/Desk1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Items/Coil_Roll.fbx" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Items/Fence1.fbx" type="PackedScene" id=9]
 
@@ -36,13 +36,13 @@ playable_area_bounds = AABB( 0, 0, 0, 200, 200, 200 )
 
 [node name="Furniture" type="Node" parent="."]
 
-[node name="Chair1" parent="Furniture" instance=ExtResource( 7 )]
+[node name="Chair2" parent="Furniture" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25196, 0, 0 )
 
-[node name="Cabinet1" parent="Furniture" instance=ExtResource( 4 )]
+[node name="Cabinet2" parent="Furniture" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1284, 0, 0 )
 
-[node name="Desk1" parent="Furniture" instance=ExtResource( 6 )]
+[node name="Desk2" parent="Furniture" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22478, 0, -9.15474 )
 
 [node name="Stool1" parent="Furniture" instance=ExtResource( 5 )]

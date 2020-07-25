@@ -11,9 +11,9 @@ extents = Vector3( 3.12478, 0.114749, 1.50106 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.14, 1.48885, 0.14 )
 
-[node name="FurnitureItem" type="StaticBody"]
+[node name="Desk1" type="StaticBody"]
 
-[node name="Desk1" parent="." instance=ExtResource( 1 )]
+[node name="Desk1Model" parent="." instance=ExtResource( 1 )]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99797, 1.517, -0.255109 )
