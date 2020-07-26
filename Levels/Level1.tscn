@@ -3,6 +3,7 @@
 [ext_resource path="res://Furniture/fridge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level1Room.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Furniture/Desk1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Furniture/EndTable1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Furniture/Cabinet1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Furniture/cube1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Furniture/Cabinet7.tscn" type="PackedScene" id=7]
@@ -14,7 +15,6 @@
 [ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Assets/Furniture/EndTable1.fbx" type="PackedScene" id=17]
 [ext_resource path="res://Furniture/lamp.tscn" type="PackedScene" id=18]
 [ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=19]
 [ext_resource path="res://functional/Robot.tscn" type="PackedScene" id=20]
@@ -82,7 +82,7 @@ transform = Transform( 1.25, 0, 0, 0, 1.26602, 0, 0, 0, 1.25, -8.85053, -3.75948
 [node name="Chair5" parent="Clean/Spatial" instance=ExtResource( 14 )]
 transform = Transform( -0.978681, 0, -0.777614, 0, 1.26602, 0, 0.777614, 0, -0.978681, -8.36302, -3.75948, 1.89641 )
 
-[node name="EndTable1" parent="Clean/Spatial" instance=ExtResource( 17 )]
+[node name="EndTable" parent="Clean/Spatial" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422, 23.7205 )
 
 [node name="Fridge" parent="Clean/Spatial" instance=ExtResource( 1 )]
@@ -187,6 +187,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
 transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.04735, 18.0295 )
 
 [node name="Light" type="Spatial" parent="Clean"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7783, 0 )
 
 [node name="lamp2" parent="Clean/Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 13.7681, 10.1167, 2.36084 )
@@ -196,7 +197,7 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.7
 spot_attenuation = 0.297302
 spot_angle = 60.0
 
@@ -208,7 +209,7 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.7
 spot_attenuation = 0.297302
 spot_angle = 60.0
 
@@ -220,7 +221,7 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.7
 spot_attenuation = 0.297302
 spot_angle = 60.0
 
@@ -232,7 +233,7 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.7
 spot_attenuation = 0.297302
 spot_angle = 60.0
 
@@ -286,7 +287,7 @@ transform = Transform( 1.25, 0, 0, 0, 1.26602, 0, 0, 0, 1.25, -8.85053, -3.75948
 [node name="Chair5" parent="Playable/Spatial" instance=ExtResource( 14 )]
 transform = Transform( -0.978681, 0, -0.777614, 0, 1.26602, 0, 0.777614, 0, -0.978681, -8.36302, -3.75948, 1.89641 )
 
-[node name="EndTable1" parent="Playable/Spatial" instance=ExtResource( 17 )]
+[node name="EndTable" parent="Playable/Spatial" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422, 23.7205 )
 
 [node name="Fridge" parent="Playable/Spatial" instance=ExtResource( 1 )]
@@ -391,6 +392,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
 transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.04735, 18.0295 )
 
 [node name="Light" type="Spatial" parent="Playable"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.09722, 0 )
 
 [node name="lamp2" parent="Playable/Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 13.7681, 10.1167, 2.36084 )
@@ -400,7 +402,7 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.2
 spot_attenuation = 0.297302
 spot_angle = 60.0
 
@@ -412,7 +414,7 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.2
 spot_attenuation = 0.297302
 spot_angle = 60.0
 
@@ -424,7 +426,7 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.2
 spot_attenuation = 0.297302
 spot_angle = 60.0
 
@@ -436,6 +438,6 @@ transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.5
 light_specular = 0.6
-spot_range = 20.0
+spot_range = 34.2
 spot_attenuation = 0.297302
 spot_angle = 60.0
