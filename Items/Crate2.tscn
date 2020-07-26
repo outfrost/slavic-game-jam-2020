@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Items/Crate2.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Items/WithTextures/Crate2.tscn" type="PackedScene" id=1]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.98848, 1, 1 )
@@ -9,8 +9,7 @@ extents = Vector3( 1.98848, 1, 1 )
 collision_layer = 2
 collision_mask = 7
 
-[node name="Crate2Model" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00783, 0 )
+[node name="Crate2" parent="." instance=ExtResource( 1 )]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

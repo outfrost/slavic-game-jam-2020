@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Furniture/fridge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level1Room.tscn" type="PackedScene" id=2]
@@ -12,18 +12,23 @@
 [ext_resource path="res://Furniture/Cabinet2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Furniture/Cabinet3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Furniture/Bed.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Items/Vase1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Items/Carton1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Furniture/lamp.tscn" type="PackedScene" id=18]
 [ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=19]
 [ext_resource path="res://functional/Robot.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Items/Mirror1.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Items/Crate2.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Items/Crate3.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Items/Crate1.tscn" type="PackedScene" id=24]
 
 [node name="Level1" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26099, 0, -11.4544 )
 script = ExtResource( 15 )
-playable_area_bounds = AABB( -15, 0, -10, 30, 4, 20 )
-reference_area_bounds = AABB( 185, 0, -10, 30, 4, 20 )
+playable_area_bounds = AABB( 0, 0, 0, 30, 20, 20 )
 
 [node name="ChargingStation" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311269, 0, -6.1871 )
@@ -187,7 +192,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
 transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.04735, 18.0295 )
 
 [node name="Light" type="Spatial" parent="Clean"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7783, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3767, 0 )
 
 [node name="lamp2" parent="Clean/Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 13.7681, 10.1167, 2.36084 )
@@ -293,6 +298,24 @@ transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422
 [node name="Fridge" parent="Playable/Spatial" instance=ExtResource( 1 )]
 transform = Transform( -0.000670358, 0, -0.893114, 0, 1.05061, 0, 1.03031, 0, -0.000773328, 21.3549, -3.76307, 0.0495424 )
 
+[node name="Carton2" parent="Playable/Spatial" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65378, -0.81451, -5.23018 )
+
+[node name="Mirror1" parent="Playable/Spatial" instance=ExtResource( 21 )]
+transform = Transform( 0.699089, 0, 0.715034, 0, 1, 0, -0.715034, 0, 0.699089, -32.376, -3.77653, -4.54371 )
+
+[node name="Vase2" parent="Playable/Spatial" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9775, -0.357327, -0.217226 )
+
+[node name="Crate6" parent="Playable/Spatial" instance=ExtResource( 23 )]
+transform = Transform( 0.984726, 0, 0.174112, 0, 1, 0, -0.174112, 0, 0.984726, -30.719, -3.16738, 23.8547 )
+
+[node name="Crate5" parent="Playable/Spatial" instance=ExtResource( 22 )]
+transform = Transform( 0.916209, 0, -0.400701, 0, 1, 0, 0.400701, 0, 0.916209, -30.0796, -3.87134, 26.0734 )
+
+[node name="Crate4" parent="Playable/Spatial" instance=ExtResource( 24 )]
+transform = Transform( 0.836994, 0, 0.547213, 0, 1, 0, -0.547213, 0, 0.836994, -33.2065, -2.64493, 22.2607 )
+
 [node name="Windows" type="Spatial" parent="Playable"]
 transform = Transform( 1, 0, 0, 0, 0.848365, 0, 0, 0, 1, 0, 3.49902, 0 )
 
@@ -392,7 +415,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56214, 2.87467, -7.82494 )
 transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.04735, 18.0295 )
 
 [node name="Light" type="Spatial" parent="Playable"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.09722, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.69561, 0 )
 
 [node name="lamp2" parent="Playable/Light" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 13.7681, 10.1167, 2.36084 )
