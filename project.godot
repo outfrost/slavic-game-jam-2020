@@ -62,6 +62,12 @@ level_next={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="items"
+3d_physics/layer_3="environment"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

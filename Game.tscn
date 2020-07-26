@@ -144,6 +144,9 @@ grow_vertical = 2
 custom_fonts/font = SubResource( 4 )
 shortcut = SubResource( 6 )
 text = "Next level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasLayerHud" type="CanvasLayer" parent="."]
 
