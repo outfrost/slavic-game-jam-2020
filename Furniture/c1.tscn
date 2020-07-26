@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Furniture/cabinet1.fbx" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Blender Raw/_Renders/wood_01.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Furniture/Cabinet1.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Textures/wood_01.jpg" type="Texture" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
