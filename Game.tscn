@@ -52,17 +52,11 @@ environment = ExtResource( 5 )
 current = true
 far = 400.0
 
-[node name="CameraFlatTop" type="Camera" parent="devCameras"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 90, 0 )
+[node name="CameraCleanRoom" type="Camera" parent="devCameras"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 200, 30, 19 )
 environment = ExtResource( 5 )
-projection = 1
-size = 60.0
-
-[node name="CameraFlatSide" type="Camera" parent="devCameras"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 90 )
-environment = ExtResource( 5 )
-projection = 1
-size = 60.0
+current = true
+far = 400.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
