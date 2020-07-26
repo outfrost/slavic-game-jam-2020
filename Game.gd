@@ -7,6 +7,7 @@ const Robot = preload("res://functional/Robot.gd")
 signal game_over()
 
 export var Levels: Array
+export var scan_step: float = 0.25
 
 var current_level = 0
 var current_camera = 0
@@ -14,6 +15,7 @@ var dev_cameras: Array
 var camera_perspective: Camera
 var cam_pers_offset: Vector3
 var robot: Robot
+var level_playable_area: AABB
 var level_dimension_squared: float
 
 var current_level_container: Node
@@ -26,10 +28,13 @@ var gameover_score_label: RichTextLabel
 
 var time_left: float
 
+var final_scan: Array
+
 func SpawnLevel() -> void:
 	var level_instance: Level = (Levels[current_level] as PackedScene).instance()
 	current_level_container.add_child(level_instance)
-	var level_dimension = level_instance.playable_area_bounds.get_longest_axis_size()
+	level_playable_area = level_instance.playable_area_bounds
+	var level_dimension = level_playable_area.get_longest_axis_size()
 	level_dimension_squared = level_dimension * level_dimension
 
 	time_left = level_instance.time_limit
@@ -90,6 +95,7 @@ func _process(delta):
 		camera_perspective.translation = camera_origin
 
 func game_over():
+	scan_level()
 	emit_signal("game_over")
 	gameover_popup.show()
 
@@ -103,3 +109,36 @@ func remove_level():
 	for node in current_level_container.get_children():
 		current_level_container.remove_child(node)
 		(node as Node).queue_free()
+
+func scan_level():
+	var steps_x = int(ceil(level_playable_area.size.x / scan_step))
+	var steps_y = int(ceil(level_playable_area.size.y / scan_step))
+	var steps_z = int(ceil(level_playable_area.size.z / scan_step))
+
+	var physics_direct_state = get_world().get_direct_space_state()
+	var query = PhysicsShapeQueryParameters.new()
+	query.collision_mask = 2 # 0b010
+	query.collide_with_areas = true
+	query.margin = 0.04
+	var shape = BoxShape.new()
+	shape.extents = Vector3.ONE * scan_step * 0.5
+	query.set_shape(shape)
+
+	for x in range(0, steps_x):
+		var lines = []
+		for y in range(0, steps_y):
+			var points = []
+			for z in range(0, steps_z):
+				query.transform = Transform.IDENTITY.translated(
+					level_playable_area.position
+					+ shape.extents
+					+ Vector3(x * scan_step, y * scan_step, z * scan_step)
+				)
+				var result = physics_direct_state.collide_shape(query)
+				if result.size() > 0:
+					var box = MeshInstance.new()
+					var cube_mesh = CubeMesh.new()
+					cube_mesh.size = Vector3.ONE * 0.1
+					box.mesh = cube_mesh
+					box.transform = Transform.IDENTITY.translated(query.transform.origin)
+					add_child(box)

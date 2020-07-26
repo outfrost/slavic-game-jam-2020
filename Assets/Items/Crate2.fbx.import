@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Cabinet3.fbx-a11f07dfd30c59a70f347cb880b8fdb7.scn"
+path="res://.import/Crate2.fbx-7af47b307aa87dab1896cf331c656e2a.scn"
 
 [deps]
 
-source_file="res://Assets/Furniture/Cabinet3.fbx"
-dest_files=[ "res://.import/Cabinet3.fbx-a11f07dfd30c59a70f347cb880b8fdb7.scn" ]
+source_file="res://Assets/Items/Crate2.fbx"
+dest_files=[ "res://.import/Crate2.fbx-7af47b307aa87dab1896cf331c656e2a.scn" ]
 
 [params]
 
