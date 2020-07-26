@@ -266,9 +266,6 @@ transform = Transform( 1, 4.44089e-16, -4.23516e-22, 0, 1, -5.8624e-20, 0, -3.18
 [node name="Door" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.471985, 0, 0, 0, 4.1387, 0, 0, 0, 2.32245, -35.52, 4.30306, 18.0295 )
 
-[node name="Door2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.290959, 0, -0.211213, 0, 4.03312, 0, 0.0265717, 0, 2.31283, -0.812324, 4.1622, 38.8906 )
-
 [node name="Light" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.31072, 0 )
 
