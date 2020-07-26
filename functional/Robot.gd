@@ -45,12 +45,14 @@ func paint_object(object, color):
 func _ready():
 	player_model = self.get_node('PlayerModel') as Spatial
 	grab_point = player_model.find_node("GrabPoint") as Position3D
-	pinjoint = self.get_parent().find_node("PinJoint") as PinJoint
+	#pinjoint = self.get_parent().find_node("PinJoint") as PinJoint
+	pinjoint = PinJoint.new()
+	self.get_parent().add_child(pinjoint)
 	pinjoint.set_param(PinJoint.PARAM_BIAS, 1)
 	pinjoint.set_param(PinJoint.PARAM_DAMPING, 1.5)
 	pinjoint.set_param(PinJoint.PARAM_IMPULSE_CLAMP, 0)
 	# TODO: spawn it or move to Game scene to make sure it appears on every level
-	grab_target_body = self.get_parent().get_node("GrabTarget")
+	grab_target_body = self.get_parent().get_parent().get_parent().get_node("GrabTarget")
 	if !grab_target_body:
 		print("!!!!")
 	
@@ -107,14 +109,17 @@ func _physics_process(delta):
 	
 	var test_visual_thing = self.get_parent().find_node("TestThing") as Spatial
 	var grab_point_pos = grab_point.global_transform.origin
-	if(debug_visualize_grab_point_selection):
+	if(debug_visualize_grab_point_selection and test_visual_thing):
 		test_visual_thing.transform = Transform.IDENTITY
 		test_visual_thing.translate(grab_point_pos)
 	grab_target_body.transform = Transform.IDENTITY
 	grab_target_body.translate(grab_point_pos)
 	
 	# TODO: teleport item up/down when robot moves arm up/down
-	var level_items = self.get_parent().get_node("Items").get_children()
+	var level_items_container = self.get_parent().get_node("Items")
+	var level_items = []
+	if level_items_container:
+		level_items = self.get_parent().get_node("Items").get_children()
 	
 	var items_matched = []
 	var distance_min = grab_radius
@@ -132,7 +137,7 @@ func _physics_process(delta):
 	for item_canditate in items_matched:
 		if(item_canditate.distance == distance_min):
 			item_data = item_canditate
-			if(debug_visualize_grab_point_selection):
+			if(debug_visualize_grab_point_selection and test_visual_thing):
 				test_visual_thing.transform = Transform.IDENTITY
 				test_visual_thing.translate(item_canditate.gp.global_transform.origin)
 			break
