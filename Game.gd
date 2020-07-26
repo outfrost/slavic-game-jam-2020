@@ -26,6 +26,7 @@ var gameover_popup: Popup
 var gameover_message_label: RichTextLabel
 var gameover_score_label: RichTextLabel
 var gameover_reason_label: RichTextLabel
+var hud_message_label: RichTextLabel
 
 var time_left: float
 
@@ -42,7 +43,7 @@ func SpawnLevel() -> void:
 	var level_reference_area = level_instance.reference_area_bounds
 	reference_scan = scan_aabb(level_reference_area)
 
-	time_left = level_instance.time_limit
+	time_left = level_instance.time_limit + 5.0
 
 	robot = get_tree().root.find_node("Robot", true, false)
 	if robot:
@@ -50,6 +51,14 @@ func SpawnLevel() -> void:
 		connect("game_over", robot, "on_game_over")
 	else:
 		printerr("No robot found :(")
+	
+	robot.working = false
+	set_camera(1)
+	hud_message_label.show()
+	yield(get_tree().create_timer(5.0), "timeout")
+	set_camera(0)
+	hud_message_label.hide()
+	robot.working = true
 
 func _ready():
 	dev_cameras = self.get_node("devCameras").get_children()
@@ -62,6 +71,7 @@ func _ready():
 		cam_pers_offset = Vector3.ZERO
 
 	current_level_container = self.get_node("CurrentLevel")
+	hud_message_label = find_node("HudMessageLabel", true, false)
 	SpawnLevel()
 	
 	timer_label = find_node("TimerLabel")
@@ -85,8 +95,7 @@ func _process(delta):
 			game_over("time")
 
 	if Input.is_action_just_pressed("debug_switch_camera"):
-		current_camera = (current_camera + 1) % (dev_cameras.size())
-		dev_cameras[current_camera].make_current()
+		set_camera((current_camera + 1) % dev_cameras.size())
 
 	if camera_perspective && robot:
 		var displacement = robot.global_transform.origin
@@ -99,6 +108,10 @@ func _process(delta):
 		# Camera follows at an offset to see player more or less in the middle of the screen
 		camera_origin += cam_pers_offset
 		camera_perspective.translation = camera_origin
+
+func set_camera(index):
+	current_camera = index
+	dev_cameras[current_camera].make_current()
 
 func game_over(reason):
 	var similarity = scan_level()
