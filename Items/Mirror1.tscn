@@ -1,17 +1,71 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Items/WithTextures/Mirror1.tscn" type="PackedScene" id=1]
 
 [sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 2.54736, 0.0767735 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0868674, 1.44561, 0.0678387 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1.0655, 0.0624123, 0.055614 )
 
 [node name="Mirror1" type="RigidBody"]
+
+[node name="Mirror1Model" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.30498, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.975022, 0.22211, 0, -0.22211, 0.975022, 0, 0.208422, -0.152202 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.926351, -0.376661, 0, 0.376661, 0.926351, 1.15191, -0.937956, -0.76701 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.926351, -0.376661, 0, 0.376661, 0.926351, -1.10154, -0.937956, -0.76701 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.91131, -0.411721, 0, 0.411721, 0.91131, 0, -2.22618, -1.29241 )
+shape = SubResource( 3 )
 
 [node name="GrabPoints" type="Spatial" parent="."]
 
 [node name="Position3D" type="Position3D" parent="GrabPoints"]
-transform = Transform( 6.50277, 0, 0, 0, 12.4138, 0, 0, 0, 4.70807, 0, 2.25748, -0.465986 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64504, -0.736597 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 1 )
+[node name="Position3D2" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340057, -0.168104 )
 
-[node name="Mirror1" parent="." instance=ExtResource( 1 )]
+[node name="Position3D3" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.11997, 0.379718 )
+
+[node name="Position3D4" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.20266, -1.26375 )
+
+[node name="Position3D5" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0552, 2.64504, -0.736597 )
+
+[node name="Position3D6" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0552, 0.340057, -0.168104 )
+
+[node name="Position3D7" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0552, -2.11997, 0.379718 )
+
+[node name="Position3D8" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0552, -2.20266, -1.26375 )
+
+[node name="Position3D9" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00309, 2.64504, -0.736597 )
+
+[node name="Position3D10" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00309, 0.340057, -0.168104 )
+
+[node name="Position3D11" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00309, -2.11997, 0.379718 )
+
+[node name="Position3D12" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00309, -2.20266, -1.26375 )

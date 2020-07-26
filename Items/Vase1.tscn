@@ -21,3 +21,6 @@ shape = SubResource( 1 )
 
 [node name="GrabPoint" type="Position3D" parent="GrabPoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74028, 0 )
+
+[node name="GrabPoint2" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.576131, 0 )
