@@ -42,14 +42,6 @@ var grab_point: Position3D
 var working: bool = true
 
 func paint_object(object, color):
-#	var model = object.find_node("*Model")
-#	for model_part in model.get_children():
-#		if model_part is MeshInstance and model_part.mesh:
-#			var material
-#			if material == null:
-#				material = SpatialMaterial.new()
-#				model_part.set_surface_material(0, material)
-#			material.albedo_color = color
 	pass
 
 # Called when the node enters the scene tree for the first time.

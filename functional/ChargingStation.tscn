@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://functional/ChargingStation.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Static/Charger.fbx" type="PackedScene" id=2]
 [ext_resource path="res://Audio/SFX_NearbyCharging.wav" type="AudioStream" id=3]
 [ext_resource path="res://Audio/SFX_StationCharging.wav" type="AudioStream" id=4]
 [ext_resource path="res://Audio/SFX_StationDocking.wav" type="AudioStream" id=5]
+[ext_resource path="res://functional/Charger.tscn" type="PackedScene" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.5, 0.3, 0.25 )
@@ -22,7 +22,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.5 )
 shape = SubResource( 1 )
 
-[node name="Charger" parent="." instance=ExtResource( 2 )]
+[node name="Charger1" parent="." instance=ExtResource( 2 )]
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
