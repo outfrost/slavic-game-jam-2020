@@ -55,10 +55,12 @@ shape = SubResource( 3 )
 [node name="BatteryLow" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80988, 0 )
 stream = ExtResource( 5 )
+unit_db = 15.0
 
 [node name="Grab" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
 stream = ExtResource( 7 )
+unit_db = 9.0
 
 [node name="Engine" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
@@ -67,15 +69,19 @@ stream = ExtResource( 6 )
 [node name="Pull" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
 stream = ExtResource( 8 )
+unit_db = 6.0
 
 [node name="Push" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
 stream = ExtResource( 9 )
+unit_db = 6.0
 
 [node name="TurningOn" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
 stream = ExtResource( 10 )
+unit_db = 9.0
 
 [node name="TurningOff" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
 stream = ExtResource( 11 )
+unit_db = 9.0

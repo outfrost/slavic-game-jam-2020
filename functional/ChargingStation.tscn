@@ -67,11 +67,14 @@ shape = SubResource( 3 )
 [node name="NearbyCharging" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12257, 0.213231 )
 stream = ExtResource( 3 )
+unit_db = 9.0
 
 [node name="StationCharging" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12257, 0.213231 )
 stream = ExtResource( 4 )
+unit_db = 12.0
 
 [node name="StationDocking" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12257, 0.213231 )
 stream = ExtResource( 5 )
+unit_db = 12.0

@@ -14,7 +14,7 @@ var sound_turning_on: AudioStreamPlayer3D
 var sound_turning_off: AudioStreamPlayer3D
 
 var enging_sound_min = 5
-var engine_sound_max = 25
+var engine_sound_max = 35
 
 const grab_radius = 2
 const debug_visualize_item_selection = true
@@ -206,10 +206,12 @@ func _process(delta):
 	add_charge(discharge_rate * delta)
 	util.display(self, "charge %f" % charge)
 	if charge < 0.2:
-		sound_battery_low.play()
+		if !sound_battery_low.playing:
+			sound_battery_low.play()
 	if charge == 0.0:
 		emit_signal("battery_depleted")
-		sound_turning_off.play()
+		if !sound_turning_off.playing:
+			sound_turning_off.play()
 
 	if indicator_lookup.empty():
 		return
