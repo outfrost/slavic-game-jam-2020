@@ -137,10 +137,13 @@ func scan_level() -> float:
 			for z in range(0, min(line_final.size(), line_ref.size())):
 				var point_final = line_final[z]
 				var point_ref = line_ref[z]
-				mean_diff += abs(point_final - point_ref)
+				#if point_final > 0.0:
+					#print(point_final)
+				#mean_diff += abs(point_final - point_ref)
+				mean_diff += float(point_final != point_ref)
 				cell_count += 1
 	mean_diff /= cell_count
-	var similarity = 1.0 - ((1.0 - mean_diff) * (1.0 - mean_diff))
+	var similarity = pow(1.0 - mean_diff, 4.0)
 	return similarity
 
 func scan_aabb(aabb: AABB) -> Array:
@@ -169,11 +172,18 @@ func scan_aabb(aabb: AABB) -> Array:
 				query.transform = Transform.IDENTITY.translated(
 					aabb.position + pos)
 				var result = physics_direct_state.collide_shape(query)
-				var cell_value = 0.0
-				for point in result:
-					var distance = (point as Vector3 - pos).length()
-					var value = clamp(inverse_lerp(max_distance, 0.0, distance), 0.0, 1.0)
-					cell_value = max(cell_value, value)
+				#var cell_value = 0.0
+				var cell_value: bool = result.size() > 0
+#				if cell_value:
+#					print("REEE")
+#					for p in result:
+#						print(p)
+#				for point in result:
+#					var distance = ((point as Vector3) - pos).length()
+#					print("from %s to %s" % [pos, point])
+#					#print(inverse_lerp(max_distance, 0.0, distance))
+#					var value = clamp(inverse_lerp(max_distance, 0.0, distance), 0.0, 1.0)
+#					cell_value = max(cell_value, value)
 				points.append(cell_value)
 			lines.append(points)
 		planes.append(lines)

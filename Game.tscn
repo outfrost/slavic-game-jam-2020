@@ -44,6 +44,7 @@ radius = 0.25
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
 Levels = [ ExtResource( 1 ), ExtResource( 4 ) ]
+scan_step = 0.5
 
 [node name="CurrentLevel" type="Node" parent="."]
 
