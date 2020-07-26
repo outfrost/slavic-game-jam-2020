@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Furniture/CoffeeTable1.fbx" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 3.16289, 1.14876, 1.77216 )
+
+[node name="CoffeeTable1" type="StaticBody"]
+collision_layer = 2147483650
+collision_mask = 2147483655
+
+[node name="CoffeeTable1Model" parent="." instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06319, -0.0310087 )
+shape = SubResource( 1 )
