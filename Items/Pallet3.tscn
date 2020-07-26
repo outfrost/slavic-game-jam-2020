@@ -8,6 +8,7 @@ extents = Vector3( 2.29745, 0.208859, 1.52616 )
 [node name="Pallet3" type="RigidBody"]
 collision_layer = 2
 collision_mask = 7
+can_sleep = false
 
 [node name="Pallet3Model" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.192793, 0 )

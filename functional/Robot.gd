@@ -42,14 +42,24 @@ var grab_point: Position3D
 var working: bool = true
 
 func paint_object(object, color):
+	var model = object.find_node("*Model")
+	if !model:
+		return
+	for model_part in model.get_children():
+		if model_part is MeshInstance and model_part.mesh:
+			var material
+			if material == null:
+				material = SpatialMaterial.new()
+				model_part.set_surface_material(0, material)
+			material.albedo_color = color
 	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_model = self.get_node('PlayerModel') as Spatial
 	grab_point = player_model.find_node("GrabPoint") as Position3D
-	#pinjoint = self.get_parent().find_node("PinJoint") as PinJoint
-	pinjoint = PinJoint.new()
+	pinjoint = self.get_parent().find_node("PinJoint") as PinJoint
+	#pinjoint = PinJoint.new()
 	self.get_parent().add_child(pinjoint)
 	pinjoint.set_param(PinJoint.PARAM_BIAS, 1)
 	pinjoint.set_param(PinJoint.PARAM_DAMPING, 1.5)
@@ -113,8 +123,8 @@ func _physics_process(delta):
 		if Input.is_action_pressed("move_backwards"):
 			central_force += Vector3(0, 0, -1 * velocity_linear_acceleration).rotated(Vector3(0,1,0), rotataion)
 		self.add_central_force(central_force)
-		#if is_carrying_item:
-		#	grabbed_item.item.add_central_force(central_force)
+		if is_carrying_item:
+			grabbed_item.item.add_central_force(central_force)
 	if Input.is_action_pressed("debug_reset"):
 		self.angular_velocity = Vector3(0,0,0)
 		self.linear_velocity = Vector3(0,0,0)
@@ -164,7 +174,8 @@ func _physics_process(delta):
 			grabbed_item = item_data
 		if debug_visualize_item_selection:
 			for item in level_items:
-				paint_object(item, Color(1,1,1,0))
+				if item:
+					paint_object(item, Color(1,1,1,0))
 			if item_data:
 				paint_object(item_data.item, Color(0,0,1,0.5))
 	

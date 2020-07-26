@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://util/DebugLabel.tscn" type="PackedScene" id=3]
@@ -195,6 +195,8 @@ __meta__ = {
 }
 
 [node name="GrabTarget" type="RigidBody" parent="."]
+collision_layer = 3
+collision_mask = 7
 mode = 1
 can_sleep = false
 

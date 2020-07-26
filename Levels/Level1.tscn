@@ -67,6 +67,48 @@ transform = Transform( 0.916209, 0, -0.400701, 0, 1, 0, 0.400701, 0, 0.916209, -
 [node name="Crate4" parent="Items" instance=ExtResource( 24 )]
 transform = Transform( 0.836994, 0, 0.547213, 0, 1, 0, -0.547213, 0, 0.836994, -26.9455, 1.13523, 10.8063 )
 
+[node name="FoldingChair2" parent="Items" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11066, 0.92784, 9.0941 )
+
+[node name="Trolley1" parent="Items" instance=ExtResource( 27 )]
+transform = Transform( -0.81139, 0, -0.584505, 0, 1, 0, 0.584505, 0, -0.81139, -16.8189, 1.36124, 3.3696 )
+
+[node name="Trolley2" parent="Items" instance=ExtResource( 27 )]
+transform = Transform( -0.613155, 0, 0.789962, 0, 1, 0, -0.789962, 0, -0.613155, 12.4648, 1.36124, 3.3696 )
+
+[node name="Pallet3" parent="Items" instance=ExtResource( 32 )]
+transform = Transform( -0.81139, 0, -0.584505, 0, 1, 0, 0.584505, 0, -0.81139, -6.60901, 0.283, 1.1597 )
+
+[node name="Mattrress1" parent="Items" instance=ExtResource( 33 )]
+transform = Transform( 0.417772, 0, -0.908552, 0, 1, 0, 0.908552, 0, 0.417772, -22.5253, 0.286, -14.5431 )
+
+[node name="FoldingChair3" parent="Items" instance=ExtResource( 34 )]
+transform = Transform( 0.417772, 0, -0.908552, 0, 1, 0, 0.908552, 0, 0.417772, -22.4699, 0.92784, 0.7703 )
+
+[node name="Ladder2" parent="Items" instance=ExtResource( 28 )]
+transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, -2.03733, 0.86891, 6.564 )
+
+[node name="FoldingChair4" parent="Items" instance=ExtResource( 34 )]
+transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, -22.4698, 0.92784, 8.5991 )
+
+[node name="FoldingChair1" parent="Items" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57169, 1.11446, 3.7254 )
+
+[node name="Ladder1" parent="Items" instance=ExtResource( 31 )]
+transform = Transform( -0.143717, -0.421531, -0.895353, 0, 0.904745, -0.425953, 0.989619, -0.0612168, -0.130028, -26.5845, 2.17444, -9.7137 )
+
+[node name="Ladder3" parent="Items" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 0.904745, -0.425953, 0, 0.425953, 0.904745, 10.9399, 2.91836, -1.4332 )
+
+[node name="Mattrress2" parent="Items" instance=ExtResource( 33 )]
+transform = Transform( 0.556035, -0.831159, 0, 0.831159, 0.556035, 0, 0, 0, 1, 27.3001, 2.58449, 6.7539 )
+
+[node name="potion1" parent="Items" instance=ExtResource( 25 )]
+transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, -16.239, 2.15058, -5.09745 )
+
+[node name="Coil_Roll" parent="Items" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.239, 0.81256, -5.09745 )
+
 [node name="Clean" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0 )
 
@@ -314,48 +356,6 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1.31614, 0, -2.14426e-07, 2
 [node name="Cabinet4" parent="Playable/Spatial" instance=ExtResource( 11 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.869598, 0, -1.41676e-07, 21.4544, -3.89452, 4.62567 )
 
-[node name="FoldingChair2" parent="Playable/Spatial" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84967, -2.85232, 20.5485 )
-
-[node name="Trolley1" parent="Playable/Spatial" instance=ExtResource( 27 )]
-transform = Transform( -0.81139, 0, -0.584505, 0, 1, 0, 0.584505, 0, -0.81139, -23.0799, -2.41892, 14.824 )
-
-[node name="Trolley2" parent="Playable/Spatial" instance=ExtResource( 27 )]
-transform = Transform( -0.613155, 0, 0.789962, 0, 1, 0, -0.789962, 0, -0.613155, 6.20383, -2.41892, 14.824 )
-
-[node name="Pallet3" parent="Playable/Spatial" instance=ExtResource( 32 )]
-transform = Transform( -0.81139, 0, -0.584505, 0, 1, 0, 0.584505, 0, -0.81139, -12.87, -3.49716, 12.6141 )
-
-[node name="Mattrress1" parent="Playable/Spatial" instance=ExtResource( 33 )]
-transform = Transform( 0.417772, 0, -0.908552, 0, 1, 0, 0.908552, 0, 0.417772, -28.7863, -3.49416, -3.08869 )
-
-[node name="FoldingChair3" parent="Playable/Spatial" instance=ExtResource( 34 )]
-transform = Transform( 0.417772, 0, -0.908552, 0, 1, 0, 0.908552, 0, 0.417772, -28.7309, -2.85232, 12.2247 )
-
-[node name="Ladder2" parent="Playable/Spatial" instance=ExtResource( 28 )]
-transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, -8.29832, -2.91125, 18.0184 )
-
-[node name="FoldingChair4" parent="Playable/Spatial" instance=ExtResource( 34 )]
-transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, -28.7308, -2.85232, 20.0535 )
-
-[node name="FoldingChair1" parent="Playable/Spatial" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83268, -2.6657, 15.1798 )
-
-[node name="Ladder1" parent="Playable/Spatial" instance=ExtResource( 31 )]
-transform = Transform( -0.143717, -0.421531, -0.895353, 0, 0.904745, -0.425953, 0.989619, -0.0612168, -0.130028, -32.8455, -1.60572, 1.7407 )
-
-[node name="Ladder3" parent="Playable/Spatial" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 0.904745, -0.425953, 0, 0.425953, 0.904745, 4.67888, -0.861796, 10.0212 )
-
-[node name="Mattrress2" parent="Playable/Spatial" instance=ExtResource( 33 )]
-transform = Transform( 0.556035, -0.831159, 0, 0.831159, 0.556035, 0, 0, 0, 1, 21.0391, -1.19567, 18.2083 )
-
-[node name="Coil_Roll" parent="Playable/Spatial" instance=ExtResource( 30 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, -2.9676, 6.35695 )
-
-[node name="potion1" parent="Playable/Spatial/Coil_Roll" instance=ExtResource( 25 )]
-transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, 0, 1.33802, 0 )
-
 [node name="Windows" type="Spatial" parent="Playable"]
 transform = Transform( 1, 0, 0, 0, 0.848365, 0, 0, 0, 1, 0, 3.49902, 0 )
 
@@ -504,3 +504,6 @@ light_specular = 0.6
 spot_range = 34.2
 spot_attenuation = 0.297302
 spot_angle = 60.0
+
+[node name="PinJoint" type="PinJoint" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.777568, 0 )
