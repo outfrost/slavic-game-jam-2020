@@ -25,6 +25,7 @@ var timer_label: RichTextLabel
 var gameover_popup: Popup
 var gameover_message_label: RichTextLabel
 var gameover_score_label: RichTextLabel
+var gameover_reason_label: RichTextLabel
 
 var time_left: float
 
@@ -45,7 +46,7 @@ func SpawnLevel() -> void:
 
 	robot = get_tree().root.find_node("Robot", true, false)
 	if robot:
-		robot.connect("battery_depleted", self, "game_over")
+		robot.connect("battery_depleted", self, "game_over", ["battery"])
 		connect("game_over", robot, "on_game_over")
 	else:
 		printerr("No robot found :(")
@@ -68,6 +69,7 @@ func _ready():
 	gameover_popup = find_node("GameoverPopup")
 	gameover_message_label = gameover_popup.get_node("Panel/MessageLabel")
 	gameover_score_label = gameover_popup.get_node("Panel/ScoreLabel")
+	gameover_reason_label = gameover_popup.get_node("Panel/ReasonLabel")
 	gameover_popup.get_node("Panel/RestartButton").connect("pressed", self, "next_level")
 
 func _process(delta):
@@ -80,7 +82,7 @@ func _process(delta):
 		time_left = max(time_left - delta, 0.0)
 		timer_label.bbcode_text = "[right][b]%02d:%02d[/b][/right]" % [int(time_left) / 60, int(time_left) % 60]
 		if time_left == 0.0:
-			game_over()
+			game_over("time")
 
 	if Input.is_action_just_pressed("debug_switch_camera"):
 		current_camera = (current_camera + 1) % (dev_cameras.size())
@@ -98,11 +100,11 @@ func _process(delta):
 		camera_origin += cam_pers_offset
 		camera_perspective.translation = camera_origin
 
-func game_over():
+func game_over(reason):
 	var similarity = scan_level()
 	emit_signal("game_over")
 	var score = int(similarity * 100)
-	gameover_score_label.bbcode_text = "[center][b]%d%%[/b][/center]" % score
+	gameover_score_label.bbcode_text = "[center][b]Score: %d%%[/b][/center]" % score
 	if score >= 75:
 		gameover_message_label.bbcode_text = "[center][b]Close enough![/b][/center]"
 	elif score == 69:
@@ -111,6 +113,11 @@ func game_over():
 		gameover_message_label.bbcode_text = "[center][b]You can do better![/b][/center]"
 	else:
 		gameover_message_label.bbcode_text = "[center][b]Well that's a bit sad[/b][/center]"
+
+	if reason == "battery":
+		gameover_reason_label.bbcode_text = "[center][b]You ran out of battery![/b][/center]"
+	elif reason == "time":
+		gameover_reason_label.bbcode_text = "[center][b]Time's up![/b][/center]"
 	gameover_popup.show()
 
 func next_level():
@@ -137,10 +144,13 @@ func scan_level() -> float:
 			for z in range(0, min(line_final.size(), line_ref.size())):
 				var point_final = line_final[z]
 				var point_ref = line_ref[z]
-				mean_diff += abs(point_final - point_ref)
+				#if point_final > 0.0:
+					#print(point_final)
+				#mean_diff += abs(point_final - point_ref)
+				mean_diff += float(point_final != point_ref)
 				cell_count += 1
 	mean_diff /= cell_count
-	var similarity = 1.0 - ((1.0 - mean_diff) * (1.0 - mean_diff))
+	var similarity = pow(1.0 - mean_diff, 4.0)
 	return similarity
 
 func scan_aabb(aabb: AABB) -> Array:
@@ -169,11 +179,18 @@ func scan_aabb(aabb: AABB) -> Array:
 				query.transform = Transform.IDENTITY.translated(
 					aabb.position + pos)
 				var result = physics_direct_state.collide_shape(query)
-				var cell_value = 0.0
-				for point in result:
-					var distance = (point as Vector3 - pos).length()
-					var value = clamp(inverse_lerp(max_distance, 0.0, distance), 0.0, 1.0)
-					cell_value = max(cell_value, value)
+				#var cell_value = 0.0
+				var cell_value: bool = result.size() > 0
+#				if cell_value:
+#					print("REEE")
+#					for p in result:
+#						print(p)
+#				for point in result:
+#					var distance = ((point as Vector3) - pos).length()
+#					print("from %s to %s" % [pos, point])
+#					#print(inverse_lerp(max_distance, 0.0, distance))
+#					var value = clamp(inverse_lerp(max_distance, 0.0, distance), 0.0, 1.0)
+#					cell_value = max(cell_value, value)
 				points.append(cell_value)
 			lines.append(points)
 		planes.append(lines)

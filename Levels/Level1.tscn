@@ -38,7 +38,8 @@
 [node name="Level1" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26099, 0, -11.4544 )
 script = ExtResource( 15 )
-playable_area_bounds = AABB( 0, 0, 0, 30, 20, 20 )
+playable_area_bounds = AABB( -30, 0, -20, 60, 5, 40 )
+reference_area_bounds = AABB( 170, 0, -20, 60, 5, 40 )
 
 [node name="ChargingStation" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311269, 0, -6.1871 )
