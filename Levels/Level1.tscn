@@ -11,7 +11,7 @@
 [ext_resource path="res://Furniture/Table2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Furniture/Cabinet2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Furniture/Cabinet3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Furniture/bed.fbx" type="PackedScene" id=13]
+[ext_resource path="res://Furniture/Bed.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
@@ -73,7 +73,7 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1.31614, 0, -2.14426e-07, 2
 [node name="Cabinet4" parent="Spatial" instance=ExtResource( 11 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.869598, 0, -1.41676e-07, 21.4544, -3.89452, 4.62567 )
 
-[node name="bed" parent="Spatial" instance=ExtResource( 13 )]
+[node name="Bed" parent="Spatial" instance=ExtResource( 12 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.7049, -3.975, 27.4334 )
 
 [node name="Table3" parent="Spatial" instance=ExtResource( 9 )]
@@ -276,7 +276,7 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
-spot_range = 15.0
+spot_range = 28.1
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
@@ -287,7 +287,7 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
-spot_range = 15.0
+spot_range = 28.1
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
@@ -298,7 +298,7 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
-spot_range = 15.0
+spot_range = 28.1
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
@@ -309,7 +309,7 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 0.848365, 0, 3.25841e-07, 0, -1, 
 transform = Transform( 1, 8.52651e-14, 4.50365e-14, -5.30863e-14, 1.62921e-07, 1.17874, 8.52651e-14, -1, 1.38216e-07, 0, 0.626728, 0 )
 light_color = Color( 0.882353, 0.878431, 0.611765, 1 )
 light_energy = 2.0
-spot_range = 15.0
+spot_range = 28.1
 spot_angle = 60.0
 spot_angle_attenuation = 0.757859
 
