@@ -2,7 +2,8 @@ extends Spatial
 
 #const RobotClass = preload("res://functional/Robot.gd")
 
-export var playable_area_bounds: AABB = AABB(Vector3(0,0,0), Vector3(500, 500, 150))
+export var playable_area_bounds: AABB = AABB(Vector3(-10,0,-10), Vector3(20, 4, 20))
+export var reference_area_bounds: AABB = AABB(Vector3(190, 0, -10), Vector3(20, 4, 20))
 export var time_limit: float = 90.0
 
 #var Robot: RobotClass
