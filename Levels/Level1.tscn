@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Furniture/fridge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level1Room.tscn" type="PackedScene" id=2]
@@ -24,6 +24,16 @@
 [ext_resource path="res://Items/Crate2.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Items/Crate3.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Items/Crate1.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Items/Potion1.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Items/Ladder3.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Items/Trolley1.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Items/Ladder2.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Items/Coil_Roll1.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Items/Ladder1.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Items/Pallet3.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Items/Mattress1.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Items/FoldingChair2.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Items/FoldingChair1.tscn" type="PackedScene" id=35]
 
 [node name="Level1" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26099, 0, -11.4544 )
@@ -92,6 +102,24 @@ transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422
 
 [node name="Fridge" parent="Clean/Spatial" instance=ExtResource( 1 )]
 transform = Transform( -0.000670358, 0, -0.893114, 0, 1.05061, 0, 1.03031, 0, -0.000773328, 21.3549, -3.76307, 0.0495424 )
+
+[node name="Carton2" parent="Clean/Spatial" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58131, -0.81451, -5.23018 )
+
+[node name="Mirror1" parent="Clean/Spatial" instance=ExtResource( 21 )]
+transform = Transform( 0.699089, 0, 0.715034, 0, 1, 0, -0.715034, 0, 0.699089, -31.6477, -1.30523, -4.54371 )
+
+[node name="Vase2" parent="Clean/Spatial" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.77151, -0.357327, -0.217226 )
+
+[node name="Crate6" parent="Clean/Spatial" instance=ExtResource( 23 )]
+transform = Transform( 0.984726, 0, 0.174112, 0, 1, 0, -0.174112, 0, 0.984726, -28.2537, -3.16738, 23.8547 )
+
+[node name="Crate5" parent="Clean/Spatial" instance=ExtResource( 22 )]
+transform = Transform( 0.916209, 0, -0.400701, 0, 1, 0, 0.400701, 0, 0.916209, -27.6143, -2.66871, 26.0734 )
+
+[node name="Crate4" parent="Clean/Spatial" instance=ExtResource( 24 )]
+transform = Transform( 0.836994, 0, 0.547213, 0, 1, 0, -0.547213, 0, 0.836994, -30.7412, -2.64493, 22.2607 )
 
 [node name="Windows" type="Spatial" parent="Clean"]
 transform = Transform( 1, 0, 0, 0, 0.848365, 0, 0, 0, 1, 0, 3.49902, 0 )
@@ -247,9 +275,6 @@ spot_angle = 60.0
 [node name="Spatial" type="Spatial" parent="Playable"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78016, 0 )
 
-[node name="Desk2" parent="Playable/Spatial" instance=ExtResource( 3 )]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 21.1901, -3.83495, 14.7862 )
-
 [node name="Cabinet5" parent="Playable/Spatial" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1.02754, 0, 0, 0, 1.22469, 13.9765, -3.92652, -6.83109 )
 
@@ -262,59 +287,53 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7.7683,
 [node name="Cabinet8" parent="Playable/Spatial" instance=ExtResource( 7 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 7.81898, -3.975, 2.43824 )
 
-[node name="Cabinet7" parent="Playable/Spatial" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43344, -3.89452, 12.8774 )
-
 [node name="Cabinet1" parent="Playable/Spatial" instance=ExtResource( 5 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1.31614, 0, -2.14426e-07, 21.4416, -3.89583, 9.14212 )
 
 [node name="Cabinet4" parent="Playable/Spatial" instance=ExtResource( 11 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.869598, 0, -1.41676e-07, 21.4544, -3.89452, 4.62567 )
 
-[node name="Bed" parent="Playable/Spatial" instance=ExtResource( 12 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.7049, -3.975, 27.4334 )
+[node name="FoldingChair2" parent="Playable/Spatial" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84967, -2.85232, 20.5485 )
 
-[node name="Table3" parent="Playable/Spatial" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.904, -3.81818, -0.29 )
+[node name="Trolley1" parent="Playable/Spatial" instance=ExtResource( 27 )]
+transform = Transform( -0.81139, 0, -0.584505, 0, 1, 0, 0.584505, 0, -0.81139, -23.0799, -2.41892, 14.824 )
 
-[node name="Chair1" parent="Playable/Spatial" instance=ExtResource( 14 )]
-transform = Transform( -2.03651e-07, 0, 1.25, 0, 1.25, 0, -1.25, 0, -2.03651e-07, 20.0072, -3.79887, 15.9533 )
+[node name="Trolley2" parent="Playable/Spatial" instance=ExtResource( 27 )]
+transform = Transform( -0.613155, 0, 0.789962, 0, 1, 0, -0.789962, 0, -0.613155, 6.20383, -2.41892, 14.824 )
 
-[node name="Chair2" parent="Playable/Spatial" instance=ExtResource( 14 )]
-transform = Transform( -2.03651e-07, 0, 1.25, 0, 1.26602, 0, -1.25, 0, -2.03651e-07, -13.0184, -3.75948, -0.346872 )
+[node name="Pallet3" parent="Playable/Spatial" instance=ExtResource( 32 )]
+transform = Transform( -0.81139, 0, -0.584505, 0, 1, 0, 0.584505, 0, -0.81139, -12.87, -3.49716, 12.6141 )
 
-[node name="Chair3" parent="Playable/Spatial" instance=ExtResource( 14 )]
-transform = Transform( 1.49061e-08, 0, -1.25, 0, 1.26602, 0, 1.25, 0, 1.49061e-08, -4.70343, -3.75948, -0.346872 )
+[node name="Mattrress1" parent="Playable/Spatial" instance=ExtResource( 33 )]
+transform = Transform( 0.417772, 0, -0.908552, 0, 1, 0, 0.908552, 0, 0.417772, -28.7863, -3.49416, -3.08869 )
 
-[node name="Chair4" parent="Playable/Spatial" instance=ExtResource( 14 )]
-transform = Transform( 1.25, 0, 0, 0, 1.26602, 0, 0, 0, 1.25, -8.85053, -3.75948, -1.84079 )
+[node name="FoldingChair3" parent="Playable/Spatial" instance=ExtResource( 34 )]
+transform = Transform( 0.417772, 0, -0.908552, 0, 1, 0, 0.908552, 0, 0.417772, -28.7309, -2.85232, 12.2247 )
 
-[node name="Chair5" parent="Playable/Spatial" instance=ExtResource( 14 )]
-transform = Transform( -0.978681, 0, -0.777614, 0, 1.26602, 0, 0.777614, 0, -0.978681, -8.36302, -3.75948, 1.89641 )
+[node name="Ladder2" parent="Playable/Spatial" instance=ExtResource( 28 )]
+transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, -8.29832, -2.91125, 18.0184 )
 
-[node name="EndTable" parent="Playable/Spatial" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422, 23.7205 )
+[node name="FoldingChair4" parent="Playable/Spatial" instance=ExtResource( 34 )]
+transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, -28.7308, -2.85232, 20.0535 )
 
-[node name="Fridge" parent="Playable/Spatial" instance=ExtResource( 1 )]
-transform = Transform( -0.000670358, 0, -0.893114, 0, 1.05061, 0, 1.03031, 0, -0.000773328, 21.3549, -3.76307, 0.0495424 )
+[node name="FoldingChair1" parent="Playable/Spatial" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83268, -2.6657, 15.1798 )
 
-[node name="Carton2" parent="Playable/Spatial" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65378, -0.81451, -5.23018 )
+[node name="Ladder1" parent="Playable/Spatial" instance=ExtResource( 31 )]
+transform = Transform( -0.143717, -0.421531, -0.895353, 0, 0.904745, -0.425953, 0.989619, -0.0612168, -0.130028, -32.8455, -1.60572, 1.7407 )
 
-[node name="Mirror1" parent="Playable/Spatial" instance=ExtResource( 21 )]
-transform = Transform( 0.699089, 0, 0.715034, 0, 1, 0, -0.715034, 0, 0.699089, -32.376, -3.77653, -4.54371 )
+[node name="Ladder3" parent="Playable/Spatial" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 0.904745, -0.425953, 0, 0.425953, 0.904745, 4.67888, -0.861796, 10.0212 )
 
-[node name="Vase2" parent="Playable/Spatial" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9775, -0.357327, -0.217226 )
+[node name="Mattrress2" parent="Playable/Spatial" instance=ExtResource( 33 )]
+transform = Transform( 0.556035, -0.831159, 0, 0.831159, 0.556035, 0, 0, 0, 1, 21.0391, -1.19567, 18.2083 )
 
-[node name="Crate6" parent="Playable/Spatial" instance=ExtResource( 23 )]
-transform = Transform( 0.984726, 0, 0.174112, 0, 1, 0, -0.174112, 0, 0.984726, -30.719, -3.16738, 23.8547 )
+[node name="Coil_Roll" parent="Playable/Spatial" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, -2.9676, 6.35695 )
 
-[node name="Crate5" parent="Playable/Spatial" instance=ExtResource( 22 )]
-transform = Transform( 0.916209, 0, -0.400701, 0, 1, 0, 0.400701, 0, 0.916209, -30.0796, -3.87134, 26.0734 )
-
-[node name="Crate4" parent="Playable/Spatial" instance=ExtResource( 24 )]
-transform = Transform( 0.836994, 0, 0.547213, 0, 1, 0, -0.547213, 0, 0.836994, -33.2065, -2.64493, 22.2607 )
+[node name="potion1" parent="Playable/Spatial/Coil_Roll" instance=ExtResource( 25 )]
+transform = Transform( -0.107548, 0, 0.9942, 0, 1, 0, -0.9942, 0, -0.107548, 0, 1.33802, 0 )
 
 [node name="Windows" type="Spatial" parent="Playable"]
 transform = Transform( 1, 0, 0, 0, 0.848365, 0, 0, 0, 1, 0, 3.49902, 0 )

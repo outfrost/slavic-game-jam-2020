@@ -9,6 +9,8 @@ extents = Vector3( 1.22017, 1.58044, 1.16009 )
 extents = Vector3( 0.859916, 0.0547432, 2.27372 )
 
 [node name="Cabinet4" type="StaticBody"]
+collision_layer = 2
+collision_mask = 7
 
 [node name="Cabinet4Model" parent="." instance=ExtResource( 1 )]
 

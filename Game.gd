@@ -99,8 +99,18 @@ func _process(delta):
 		camera_perspective.translation = camera_origin
 
 func game_over():
-	scan_level()
+	var similarity = scan_level()
 	emit_signal("game_over")
+	var score = int(similarity * 100)
+	gameover_score_label.bbcode_text = "[center][b]%d%%[/b][/center]" % score
+	if score >= 75:
+		gameover_message_label.bbcode_text = "[center][b]Close enough![/b][/center]"
+	elif score == 69:
+		gameover_message_label.bbcode_text = "[center][b]nice[/b][/center]"
+	elif score >= 40:
+		gameover_message_label.bbcode_text = "[center][b]You can do better![/b][/center]"
+	else:
+		gameover_message_label.bbcode_text = "[center][b]Well that's a bit sad[/b][/center]"
 	gameover_popup.show()
 
 func next_level():
@@ -114,8 +124,24 @@ func remove_level():
 		current_level_container.remove_child(node)
 		(node as Node).queue_free()
 
-func scan_level():
+func scan_level() -> float:
 	final_scan = scan_aabb(level_playable_area)
+	var mean_diff = 0.0
+	var cell_count = 0
+	for x in range(0, min(final_scan.size(), reference_scan.size())):
+		var plane_final = final_scan[x]
+		var plane_ref = reference_scan[x]
+		for y in range(0, min(plane_final.size(), plane_ref.size())):
+			var line_final = plane_final[y]
+			var line_ref = plane_ref[y]
+			for z in range(0, min(line_final.size(), line_ref.size())):
+				var point_final = line_final[z]
+				var point_ref = line_ref[z]
+				mean_diff += abs(point_final - point_ref)
+				cell_count += 1
+	mean_diff /= cell_count
+	var similarity = 1.0 - ((1.0 - mean_diff) * (1.0 - mean_diff))
+	return similarity
 
 func scan_aabb(aabb: AABB) -> Array:
 	var steps_x = int(ceil(aabb.size.x / scan_step))
