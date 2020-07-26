@@ -100,9 +100,9 @@ __meta__ = {
 
 [node name="MessageLabel" type="RichTextLabel" parent="CanvasLayerGameover/GameoverPopup/Panel"]
 anchor_left = 0.5
-anchor_top = 0.4
+anchor_top = 0.486
 anchor_right = 0.5
-anchor_bottom = 0.65
+anchor_bottom = 0.704
 margin_left = -300.0
 margin_right = 300.0
 grow_horizontal = 2
@@ -115,11 +115,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ReasonLabel" type="RichTextLabel" parent="CanvasLayerGameover/GameoverPopup/Panel"]
+anchor_left = 0.5
+anchor_top = 0.047
+anchor_right = 0.5
+anchor_bottom = 0.338
+margin_left = -300.0
+margin_right = 300.0
+grow_horizontal = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/bold_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Time's up![/b][/center]"
+text = "Time's up!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayerGameover/GameoverPopup/Panel"]
 anchor_left = 0.5
-anchor_top = 0.1
+anchor_top = 0.24
 anchor_right = 0.5
-anchor_bottom = 0.35
+anchor_bottom = 0.501
 margin_left = -300.0
 margin_right = 300.0
 grow_horizontal = 2
