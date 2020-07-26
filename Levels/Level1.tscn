@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Furniture/fridge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Furniture/cube2.tscn" type="PackedScene" id=2]
@@ -203,7 +203,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.255713, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30412, -0.240074, 11.5502 )
 collision_layer = 4
 collision_mask = 7
-physics_material_override = ExtResource( 12 )
 
 [node name="Floor" parent="Room/StaticBody2" instance=ExtResource( 4 )]
 transform = Transform( 30, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, 0, 0 )
