@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=13 format=2]
-=======
 [gd_scene load_steps=15 format=2]
->>>>>>> 4751e783bcd47b6ee19101211dd01338baa847ad
 
 [ext_resource path="res://Levels/SampleLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
