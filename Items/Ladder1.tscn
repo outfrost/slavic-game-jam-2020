@@ -6,23 +6,25 @@
 extents = Vector3( 0.658875, 1.51242, 0.104219 )
 
 [node name="Ladder1" type="RigidBody"]
+can_sleep = false
 
 [node name="Ladder1Model" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.28453, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50779, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223263, 0 )
 shape = SubResource( 1 )
 
-[node name="GrabPoints" type="Node" parent="."]
+[node name="GrabPoints" type="Spatial" parent="."]
 
-[node name="PinJoint" type="PinJoint" parent="GrabPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.605042, 0 )
+[node name="GrabPoint" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00870651, 0 )
 
-[node name="PinJoint2" type="PinJoint" parent="GrabPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30201, 0 )
+[node name="GrabPoint2" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725837, 0 )
 
-[node name="PinJoint3" type="PinJoint" parent="GrabPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99897, 0 )
+[node name="GrabPoint3" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42685, 0 )
 
-[node name="PinJoint4" type="PinJoint" parent="GrabPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.70896, 0 )
+[node name="GrabPoint4" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.657344, 0 )

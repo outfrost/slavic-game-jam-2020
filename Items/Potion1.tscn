@@ -6,14 +6,16 @@
 extents = Vector3( 0.217, 0.268, 0.217 )
 
 [node name="potion1" type="RigidBody"]
+can_sleep = false
 
 [node name="potion1Model" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.222516, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.269746, -0.00885689 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0472298, -0.00885689 )
 shape = SubResource( 1 )
 
-[node name="GrabPoints" type="Node" parent="."]
+[node name="GrabPoints" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22106, 0 )
 
-[node name="PinJoint" type="PinJoint" parent="GrabPoints"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.604905, 0 )
+[node name="Position3D" type="Position3D" parent="GrabPoints"]

@@ -10,7 +10,7 @@
 [ext_resource path="res://Furniture/Table2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Furniture/Cabinet2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Furniture/Cabinet3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Furniture/bed.fbx" type="PackedScene" id=13]
+[ext_resource path="res://Furniture/Bed.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
@@ -60,7 +60,7 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1.31614, 0, -2.14426e-07, 2
 [node name="Cabinet4" parent="Clean/Spatial" instance=ExtResource( 11 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.869598, 0, -1.41676e-07, 21.4544, -3.89452, 4.62567 )
 
-[node name="bed" parent="Clean/Spatial" instance=ExtResource( 13 )]
+[node name="Bed" parent="Clean/Spatial" instance=ExtResource( 12 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.7049, -3.975, 27.4334 )
 
 [node name="Table3" parent="Clean/Spatial" instance=ExtResource( 9 )]
@@ -264,7 +264,7 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1.31614, 0, -2.14426e-07, 2
 [node name="Cabinet4" parent="Playable/Spatial" instance=ExtResource( 11 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.869598, 0, -1.41676e-07, 21.4544, -3.89452, 4.62567 )
 
-[node name="bed" parent="Playable/Spatial" instance=ExtResource( 13 )]
+[node name="Bed" parent="Playable/Spatial" instance=ExtResource( 12 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.7049, -3.975, 27.4334 )
 
 [node name="Table3" parent="Playable/Spatial" instance=ExtResource( 9 )]
