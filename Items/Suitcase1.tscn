@@ -6,6 +6,8 @@
 extents = Vector3( 0.5, 1.074, 0.5 )
 
 [node name="Suitcase1" type="RigidBody"]
+collision_layer = 2
+collision_mask = 7
 can_sleep = false
 
 [node name="Suitcase1Model" parent="." instance=ExtResource( 1 )]
