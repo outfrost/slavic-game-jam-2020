@@ -11,12 +11,7 @@
 [ext_resource path="res://Furniture/Table2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Furniture/Cabinet2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Furniture/Cabinet3.tscn" type="PackedScene" id=11]
-<<<<<<< HEAD
 [ext_resource path="res://Furniture/Bed.tscn" type="PackedScene" id=12]
-=======
-[ext_resource path="res://Environment/floor_physics_mat.tres" type="PhysicsMaterial" id=12]
-[ext_resource path="res://Assets/Furniture/bed.fbx" type="PackedScene" id=13]
->>>>>>> 2e8aa1f23492c8dfb89d3406a515affaf6743d6e
 [ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=15]
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
