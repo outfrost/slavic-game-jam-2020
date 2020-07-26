@@ -6,6 +6,8 @@
 extents = Vector3( 0.658875, 1.51242, 0.104219 )
 
 [node name="Ladder1" type="RigidBody"]
+collision_layer = 2
+collision_mask = 7
 can_sleep = false
 
 [node name="Ladder1Model" parent="." instance=ExtResource( 1 )]

@@ -9,24 +9,27 @@ extents = Vector3( 0.81292, 0.110436, 0.801415 )
 extents = Vector3( 0.653389, 0.915161, 0.140136 )
 
 [node name="Ladder2" type="RigidBody"]
+collision_layer = 2
+collision_mask = 7
 can_sleep = false
 
 [node name="Ladder2Model" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.849414, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.852386, -1.10572 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.852386, -0.00305629 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.013508, -0.219322 )
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.013508, 0.883342 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( -1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 0.013508, -1.986 )
+transform = Transform( -1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 0.013508, -0.883336 )
 shape = SubResource( 2 )
 
 [node name="GrabPoints" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.10266 )
 
 [node name="GrabPoint" type="Position3D" parent="GrabPoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.274059, 0 )

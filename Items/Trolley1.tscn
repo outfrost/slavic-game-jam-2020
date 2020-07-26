@@ -9,6 +9,8 @@ extents = Vector3( 1.01247, 1.25098, 1.20503 )
 extents = Vector3( 0.106843, 0.279702, 1.20679 )
 
 [node name="Trolley1" type="RigidBody"]
+collision_layer = 2
+collision_mask = 7
 
 [node name="Trolley1Model" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.29175, 0 )
