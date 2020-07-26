@@ -28,6 +28,7 @@ var gameover_score_label: RichTextLabel
 
 var time_left: float
 
+var reference_scan: Array
 var final_scan: Array
 
 func SpawnLevel() -> void:
@@ -36,6 +37,9 @@ func SpawnLevel() -> void:
 	level_playable_area = level_instance.playable_area_bounds
 	var level_dimension = level_playable_area.get_longest_axis_size()
 	level_dimension_squared = level_dimension * level_dimension
+
+	var level_reference_area = level_instance.reference_area_bounds
+	reference_scan = scan_aabb(level_reference_area)
 
 	time_left = level_instance.time_limit
 
@@ -111,9 +115,12 @@ func remove_level():
 		(node as Node).queue_free()
 
 func scan_level():
-	var steps_x = int(ceil(level_playable_area.size.x / scan_step))
-	var steps_y = int(ceil(level_playable_area.size.y / scan_step))
-	var steps_z = int(ceil(level_playable_area.size.z / scan_step))
+	final_scan = scan_aabb(level_playable_area)
+
+func scan_aabb(aabb: AABB) -> Array:
+	var steps_x = int(ceil(aabb.size.x / scan_step))
+	var steps_y = int(ceil(aabb.size.y / scan_step))
+	var steps_z = int(ceil(aabb.size.z / scan_step))
 
 	var physics_direct_state = get_world().get_direct_space_state()
 	var query = PhysicsShapeQueryParameters.new()
@@ -124,21 +131,33 @@ func scan_level():
 	shape.extents = Vector3.ONE * scan_step * 0.5
 	query.set_shape(shape)
 
+	var planes = []
+	var max_distance = sqrt(3 * scan_step * scan_step)
+
 	for x in range(0, steps_x):
 		var lines = []
 		for y in range(0, steps_y):
 			var points = []
 			for z in range(0, steps_z):
+				var pos: Vector3 = shape.extents + Vector3(x * scan_step, y * scan_step, z * scan_step)
 				query.transform = Transform.IDENTITY.translated(
-					level_playable_area.position
-					+ shape.extents
-					+ Vector3(x * scan_step, y * scan_step, z * scan_step)
-				)
+					aabb.position + pos)
 				var result = physics_direct_state.collide_shape(query)
-				if result.size() > 0:
-					var box = MeshInstance.new()
-					var cube_mesh = CubeMesh.new()
-					cube_mesh.size = Vector3.ONE * 0.1
-					box.mesh = cube_mesh
-					box.transform = Transform.IDENTITY.translated(query.transform.origin)
-					add_child(box)
+				var cell_value = 0.0
+				for point in result:
+					var distance = (point as Vector3 - pos).length()
+					var value = clamp(inverse_lerp(max_distance, 0.0, distance), 0.0, 1.0)
+					cell_value = max(cell_value, value)
+				points.append(cell_value)
+			lines.append(points)
+		planes.append(lines)
+	
+	return planes
+
+
+#					var box = MeshInstance.new()
+#					var cube_mesh = CubeMesh.new()
+#					cube_mesh.size = Vector3.ONE * 0.1
+#					box.mesh = cube_mesh
+#					box.transform = Transform.IDENTITY.translated(query.transform.origin)
+#					add_child(box)
