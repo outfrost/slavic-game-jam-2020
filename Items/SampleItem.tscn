@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="SampleItem" type="RigidBody"]
+
+[node name="GrabPoints" type="Node" parent="."]
+
+[node name="PinJoint" type="PinJoint" parent="GrabPoints"]

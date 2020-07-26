@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Assets/Furniture/window.fbx" type="PackedScene" id=1]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.156863, 0.0980392, 0.00392157, 1 )
 
