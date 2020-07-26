@@ -11,19 +11,66 @@ extents = Vector3( 0.106843, 0.279702, 1.20679 )
 [node name="Trolley1" type="RigidBody"]
 
 [node name="Trolley1Model" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.29175, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25063, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0411226, 0 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.898934, 2.75931, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.898934, 1.46756, 0 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.903039, 2.75931, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.903039, 1.46756, 0 )
 shape = SubResource( 2 )
 
-[node name="GrabPoints" type="Node" parent="."]
+[node name="GrabPoints" type="Spatial" parent="."]
 
-[node name="PinJoint" type="PinJoint" parent="GrabPoints"]
+[node name="GrabPoint" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.924099, 1.63877, 0 )
+
+[node name="GrabPoint2" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917578, 1.63877, 0 )
+
+[node name="GrabPoint3" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.924099, 1.15643, 0 )
+
+[node name="GrabPoint4" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917578, 1.15643, 0 )
+
+[node name="GrabPoint5" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.924099, 0.136927, 0 )
+
+[node name="GrabPoint6" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917578, 0.136927, 0 )
+
+[node name="GrabPoint7" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.924099, -0.959309, 0 )
+
+[node name="GrabPoint8" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917578, -0.959309, 0 )
+
+[node name="GrabPoint9" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326057, 1.63877, -0.920839 )
+
+[node name="GrabPoint10" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326065, 1.63877, 0.920839 )
+
+[node name="GrabPoint11" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326057, 1.15643, -0.920839 )
+
+[node name="GrabPoint12" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326065, 1.15643, 0.920839 )
+
+[node name="GrabPoint13" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326057, 0.136927, -0.920839 )
+
+[node name="GrabPoint14" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326065, 0.136927, 0.920839 )
+
+[node name="GrabPoint15" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326057, -0.959309, -0.920839 )
+
+[node name="GrabPoint16" type="Position3D" parent="GrabPoints"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00326065, -0.959309, 0.920839 )

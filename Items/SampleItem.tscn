@@ -2,6 +2,4 @@
 
 [node name="SampleItem" type="RigidBody"]
 
-[node name="GrabPoints" type="Node" parent="."]
-
-[node name="PinJoint" type="PinJoint" parent="GrabPoints"]
+[node name="GrabPoints" type="Spatial" parent="."]
