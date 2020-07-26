@@ -128,8 +128,8 @@ grow_horizontal = 2
 size_flags_stretch_ratio = 0.0
 custom_fonts/bold_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center][b]64%[/b][/center]"
-text = "64%"
+bbcode_text = "[center][b]69%[/b][/center]"
+text = "69%"
 __meta__ = {
 "_edit_use_anchors_": false
 }
