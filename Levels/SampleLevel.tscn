@@ -44,7 +44,6 @@ radius = 0.26017
 script = ExtResource( 1 )
 playable_area_bounds = AABB( -15, 0, -20, 30, 4, 40 )
 reference_area_bounds = AABB( 185, 0, -20, 30, 4, 40 )
-time_limit = 3.0
 
 [node name="Robot" parent="." instance=ExtResource( 3 )]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Levels/SampleLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://default_env.tres" type="Environment" id=5]
 [ext_resource path="res://Assets/Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://Audio/Hyperatlantic_Roomba_loop.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Audio/SFX_Alarm_Clock.wav" type="AudioStream" id=8]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -168,3 +170,14 @@ can_sleep = false
 
 [node name="CollisionShape" type="CollisionShape" parent="GrabTarget"]
 shape = SubResource( 8 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="MusicLoop" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 7 )
+volume_db = -25.0
+autoplay = true
+
+[node name="AlarmSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 8 )
+volume_db = -12.0

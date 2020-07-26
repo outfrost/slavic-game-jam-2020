@@ -36,6 +36,26 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311269, 0, -6.1871 )
 [node name="Robot" parent="." instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311, 1, -6.187 )
 
+[node name="Items" type="Node" parent="."]
+
+[node name="Carton2" parent="Items" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9148, 3.6511, -16.6846 )
+
+[node name="Mirror1" parent="Items" instance=ExtResource( 21 )]
+transform = Transform( 0.699089, 0, 0.715034, 0, 1, 0, -0.715034, 0, 0.699089, -26.115, 2.90442, -15.9981 )
+
+[node name="Vase2" parent="Items" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71651, 3.42283, -11.6716 )
+
+[node name="Crate6" parent="Items" instance=ExtResource( 23 )]
+transform = Transform( 0.984726, 0, 0.174112, 0, 1, 0, -0.174112, 0, 0.984726, -24.458, 0.728877, 12.4003 )
+
+[node name="Crate5" parent="Items" instance=ExtResource( 22 )]
+transform = Transform( 0.916209, 0, -0.400701, 0, 1, 0, 0.400701, 0, 0.916209, -23.8186, 1.41019, 14.619 )
+
+[node name="Crate4" parent="Items" instance=ExtResource( 24 )]
+transform = Transform( 0.836994, 0, 0.547213, 0, 1, 0, -0.547213, 0, 0.836994, -26.9455, 1.13523, 10.8063 )
+
 [node name="Clean" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0 )
 
@@ -297,24 +317,6 @@ transform = Transform( 1, 0, 0, 0, 0.813594, 0, 0, 0, 1.05225, 21.5374, -3.80422
 
 [node name="Fridge" parent="Playable/Spatial" instance=ExtResource( 1 )]
 transform = Transform( -0.000670358, 0, -0.893114, 0, 1.05061, 0, 1.03031, 0, -0.000773328, 21.3549, -3.76307, 0.0495424 )
-
-[node name="Carton2" parent="Playable/Spatial" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65378, -0.81451, -5.23018 )
-
-[node name="Mirror1" parent="Playable/Spatial" instance=ExtResource( 21 )]
-transform = Transform( 0.699089, 0, 0.715034, 0, 1, 0, -0.715034, 0, 0.699089, -32.376, -3.77653, -4.54371 )
-
-[node name="Vase2" parent="Playable/Spatial" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9775, -0.357327, -0.217226 )
-
-[node name="Crate6" parent="Playable/Spatial" instance=ExtResource( 23 )]
-transform = Transform( 0.984726, 0, 0.174112, 0, 1, 0, -0.174112, 0, 0.984726, -30.719, -3.16738, 23.8547 )
-
-[node name="Crate5" parent="Playable/Spatial" instance=ExtResource( 22 )]
-transform = Transform( 0.916209, 0, -0.400701, 0, 1, 0, 0.400701, 0, 0.916209, -30.0796, -3.87134, 26.0734 )
-
-[node name="Crate4" parent="Playable/Spatial" instance=ExtResource( 24 )]
-transform = Transform( 0.836994, 0, 0.547213, 0, 1, 0, -0.547213, 0, 0.836994, -33.2065, -2.64493, 22.2607 )
 
 [node name="Windows" type="Spatial" parent="Playable"]
 transform = Transform( 1, 0, 0, 0, 0.848365, 0, 0, 0, 1, 0, 3.49902, 0 )

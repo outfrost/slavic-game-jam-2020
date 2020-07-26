@@ -28,6 +28,8 @@ var gameover_score_label: RichTextLabel
 
 var time_left: float
 
+var sound_time_low: AudioStreamPlayer
+
 var reference_scan: Array
 var final_scan: Array
 
@@ -42,6 +44,9 @@ func SpawnLevel() -> void:
 	reference_scan = scan_aabb(level_reference_area)
 
 	time_left = level_instance.time_limit
+
+	if sound_time_low and sound_time_low.playing:
+		sound_time_low.stop()
 
 	robot = get_tree().root.find_node("Robot", true, false)
 	if robot:
@@ -64,6 +69,8 @@ func _ready():
 	SpawnLevel()
 	
 	timer_label = find_node("TimerLabel")
+	
+	sound_time_low = self.get_node("Sounds/AlarmSound")
 
 	gameover_popup = find_node("GameoverPopup")
 	gameover_message_label = gameover_popup.get_node("Panel/MessageLabel")
@@ -78,6 +85,8 @@ func _process(delta):
 
 	if !gameover_popup.visible:
 		time_left = max(time_left - delta, 0.0)
+		if !sound_time_low.playing and time_left < 11:
+			sound_time_low.play()
 		timer_label.bbcode_text = "[right][b]%02d:%02d[/b][/right]" % [int(time_left) / 60, int(time_left) % 60]
 		if time_left == 0.0:
 			game_over()

@@ -5,7 +5,18 @@ const util = preload("res://util/util.gd")
 const indicator_lit = preload("res://Assets/Characters/indicator_lit.tres")
 const indicator_unlit = preload("res://Assets/Characters/indicator_unlit.tres")
 
-const grab_radius = 1.5
+var sound_battery_low: AudioStreamPlayer3D
+var sound_grab: AudioStreamPlayer3D
+var sound_engine: AudioStreamPlayer3D
+var sound_pull: AudioStreamPlayer3D
+var sound_push: AudioStreamPlayer3D
+var sound_turning_on: AudioStreamPlayer3D
+var sound_turning_off: AudioStreamPlayer3D
+
+var enging_sound_min = 5
+var engine_sound_max = 25
+
+const grab_radius = 2
 const debug_visualize_item_selection = true
 const debug_visualize_grab_point_selection = true
 var pinjoint: PinJoint
@@ -55,6 +66,18 @@ func _ready():
 	grab_target_body = self.get_parent().get_parent().get_parent().get_node("GrabTarget")
 	if !grab_target_body:
 		print("!!!!")
+	
+	sound_battery_low = self.get_node("Sounds/BatteryLow")
+	sound_grab = self.get_node("Sounds/Grab")
+	sound_engine = self.get_node("Sounds/Engine")
+	sound_pull = self.get_node("Sounds/Pull")
+	sound_push = self.get_node("Sounds/Push")
+	sound_turning_on = self.get_node("Sounds/TurningOn")
+	sound_turning_off = self.get_node("Sounds/TurningOff")
+	
+	sound_turning_on.play()
+	sound_engine.play()
+	#sound_engine.unit_db
 	
 	# Lookup table for charge indicator surface indices for materials
 	var mesh_instance = player_model.get_node("Char1_Body/Body2") as MeshInstance
@@ -107,6 +130,9 @@ func _physics_process(delta):
 		charge = 0.5
 		player_model.rotation.y = 0
 	
+	var engine_volume = enging_sound_min + velocity_abs/velocity_max_linear * (engine_sound_max - enging_sound_min)
+	sound_engine.unit_db = engine_volume
+	
 	var test_visual_thing = self.get_parent().find_node("TestThing") as Spatial
 	var grab_point_pos = grab_point.global_transform.origin
 	if(debug_visualize_grab_point_selection and test_visual_thing):
@@ -158,6 +184,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("arm_grab_toggle"):
 		is_carrying_item = grabbed_item and !is_carrying_item
 		if(is_carrying_item):
+			sound_grab.play()
 			grabbed_item.item.set_sleeping(false)
 			if Input.is_action_pressed("jump_button"):
 				(grabbed_item.item as RigidBody).add_central_force(Vector3(0, 5, 0))
@@ -175,8 +202,11 @@ func _process(delta):
 		return
 	add_charge(discharge_rate * delta)
 	util.display(self, "charge %f" % charge)
+	if charge < 0.2:
+		sound_battery_low.play()
 	if charge == 0.0:
 		emit_signal("battery_depleted")
+		sound_turning_off.play()
 
 	if indicator_lookup.empty():
 		return

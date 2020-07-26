@@ -12,6 +12,10 @@ var docked: bool = false
 
 var working: bool = true
 
+var sound_nearby_charging: AudioStreamPlayer3D
+var sound_station_charging: AudioStreamPlayer3D
+var sound_station_docking: AudioStreamPlayer3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	robot = get_tree().root.find_node("Robot", true, false)
@@ -20,6 +24,10 @@ func _ready():
 	connect("body_entered", self, "on_body_entered_dock")
 	connect("body_exited", self, "on_body_exited_dock")
 	(get_tree().root.find_node("Game", true, false) as Game).connect("game_over", self, "on_game_over")
+	
+	sound_nearby_charging = self.get_node("Sounds/NearbyCharging")
+	sound_station_charging = self.get_node("Sounds/StationCharging")
+	sound_station_docking = self.get_node("Sounds/StationDocking")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,10 +45,16 @@ func _process(delta):
 func on_body_entered_dock(body):
 	if body == robot:
 		docked = true
+		if !sound_station_docking.playing:
+			sound_station_docking.play()
+		if !sound_station_charging.playing:
+			sound_station_charging.play()
+		
 
 func on_body_exited_dock(body):
 	if body == robot:
 		docked = false
+		sound_station_charging.stop()
 
 func on_game_over():
 	working = false

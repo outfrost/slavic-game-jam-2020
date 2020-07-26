@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_Collision.wav-84146fb8466a37d24ea23fae2fdf1c7d.sample"
+
+[deps]
+
+source_file="res://Audio/SFX_Collision.wav"
+dest_files=[ "res://.import/SFX_Collision.wav-84146fb8466a37d24ea23fae2fdf1c7d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

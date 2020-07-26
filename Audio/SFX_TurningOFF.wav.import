@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_TurningOFF.wav-df89f5a1769040112e1cd1a839db2f12.sample"
+
+[deps]
+
+source_file="res://Audio/SFX_TurningOFF.wav"
+dest_files=[ "res://.import/SFX_TurningOFF.wav-df89f5a1769040112e1cd1a839db2f12.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
