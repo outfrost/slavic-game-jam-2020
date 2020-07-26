@@ -9,6 +9,7 @@ extents = Vector3( 0.25, 0.502, 0.25 )
 can_sleep = false
 
 [node name="Carton1" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.364324, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14186, 0 )
