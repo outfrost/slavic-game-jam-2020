@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Furniture/LoftBed1.fbx" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 3.13682, 0.259626, 1.58624 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.13398, 1.70183, 0.144351 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.117418, 0.496675, 1.38901 )
+
+[node name="LoftBed1" type="StaticBody"]
+collision_layer = 2147483650
+collision_mask = 2147483655
+
+[node name="LoftBed1Model" parent="." instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79604, 0.0443082 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99463, 1.71198, -1.39793 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99463, 1.71198, 1.4967 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00471, 1.71198, -1.39793 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00471, 1.71198, 1.4967 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00199, 2.03734, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98258, 2.03734, 0 )
+shape = SubResource( 3 )
