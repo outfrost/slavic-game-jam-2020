@@ -169,10 +169,11 @@ func scan_level() -> float:
 				#if point_final > 0.0:
 					#print(point_final)
 				#mean_diff += abs(point_final - point_ref)
-				mean_diff += float(point_final != point_ref)
-				cell_count += 1
+				if point_final || point_ref:
+					mean_diff += float(point_final != point_ref)
+					cell_count += 1
 	mean_diff /= cell_count
-	var similarity = pow(1.0 - mean_diff, 4.0)
+	var similarity = 1.0 - mean_diff * mean_diff
 	return similarity
 
 func scan_aabb(aabb: AABB) -> Array:
