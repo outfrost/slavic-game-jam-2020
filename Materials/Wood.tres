@@ -1,6 +1,7 @@
 [gd_resource type="SpatialMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://Textures/wood_01.jpg" type="Texture" id=1]
+[ext_resource path="res://Materials/Textures/wood_01.jpg" type="Texture" id=1]
+
 
 [resource]
 params_cull_mode = 2
