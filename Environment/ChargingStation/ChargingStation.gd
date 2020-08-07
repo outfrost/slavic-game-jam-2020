@@ -1,7 +1,7 @@
 extends Area
 
-const util = preload("res://util/util.gd")
-const Game = preload("res://Game.gd")
+const util = preload("res://Game/UI/util.gd")
+const Game = preload("res://Game/Game.gd")
 const Robot = preload("res://Characters/Robot.gd")
 
 export var max_charging_speed: float = 0.05

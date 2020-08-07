@@ -1,6 +1,6 @@
 extends Spatial
 
-const util = preload("res://util/util.gd")
+const util = preload("res://Game/UI/util.gd")
 const Level = preload("res://Levels/Level.gd")
 const Robot = preload("res://Characters/Robot.gd")
 

@@ -1,12 +1,14 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Game.gd" type="Script" id=2]
-[ext_resource path="res://util/DebugLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Game.gd" type="Script" id=2]
+[ext_resource path="res://Game/UI/DebugLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://default_env.tres" type="Environment" id=5]
 [ext_resource path="res://Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://Audio/Hyperatlantic_Roomba_loop.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Audio/SFX_Alarm_Clock.wav" type="AudioStream" id=8]
+
+
 
 
 [sub_resource type="Environment" id=1]

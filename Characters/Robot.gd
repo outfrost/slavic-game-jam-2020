@@ -1,6 +1,6 @@
 extends RigidBody
 
-const util = preload("res://util/util.gd")
+const util = preload("res://Game/UI/util.gd")
 
 const indicator_lit = preload("Assets/indicator_lit.tres")
 const indicator_unlit = preload("Assets/indicator_unlit.tres")
