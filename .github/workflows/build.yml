@@ -23,7 +23,6 @@ jobs:
         godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_linux_headless.64.zip
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_export_templates.tpz
         relative_project_path: ./
-        archive_export_output: true
         create_release: false
         use_preset_export_path: true
       env:
@@ -31,24 +30,24 @@ jobs:
     - name: Upload HTML5 build
       uses: actions/upload-artifact@v2
       with:
-        name: HTML5.zip
-        path: build/web/HTML5.zip
+        name: HTML5 build
+        path: build/web/
         if-no-files-found: error
     - name: Upload Linux/X11 build
       uses: actions/upload-artifact@v2
       with:
-        name: LinuxX11.zip
-        path: build/linux_amd64/LinuxX11.zip
+        name: LinuxX11 build
+        path: build/linux_amd64/
         if-no-files-found: error
     - name: Upload Mac OSX build
       uses: actions/upload-artifact@v2
       with:
-        name: Mac OSX.zip
-        path: build/macos/Mac OSX.zip
+        name: Mac OSX build
+        path: build/macos/
         if-no-files-found: error
     - name: Upload Windows Desktop build
       uses: actions/upload-artifact@v2
       with:
-        name: Windows Desktop.zip
-        path: build/windows_amd64/Windows Desktop.zip
+        name: Windows Desktop build
+        path: build/windows_amd64/
         if-no-files-found: error
