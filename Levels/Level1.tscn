@@ -18,7 +18,7 @@
 [ext_resource path="res://Furniture/window.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Items/Carton1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Furniture/lamp.tscn" type="PackedScene" id=18]
-[ext_resource path="res://functional/ChargingStation.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Environment/ChargingStation/ChargingStation.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Characters/Robot.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Items/Mirror1.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Items/Crate2.tscn" type="PackedScene" id=22]
@@ -34,6 +34,9 @@
 [ext_resource path="res://Items/Mattress1.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Items/FoldingChair2.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Items/FoldingChair1.tscn" type="PackedScene" id=35]
+
+
+
 
 
 [node name="Level1" type="Spatial"]

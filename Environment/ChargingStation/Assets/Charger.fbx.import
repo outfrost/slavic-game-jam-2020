@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Charger.fbx-f26bac5f36db02448cdcc80f87c8c432.scn"
+path="res://.import/Charger.fbx-c8e2cad31003bf56e83a8b66e2dba933.scn"
 
 [deps]
 
-source_file="res://Assets/Static/Charger.fbx"
-dest_files=[ "res://.import/Charger.fbx-f26bac5f36db02448cdcc80f87c8c432.scn" ]
+source_file="res://Environment/ChargingStation/Assets/Charger.fbx"
+dest_files=[ "res://.import/Charger.fbx-c8e2cad31003bf56e83a8b66e2dba933.scn" ]
 
 [params]
 
