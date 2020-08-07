@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Materials/Textures/wood_02.jpg" type="Texture" id=1]
+[ext_resource path="res://Textures/wood_02.jpg" type="Texture" id=1]
 [ext_resource path="res://Environment/Items/Assets/Mirror1.fbx" type="PackedScene" id=2]
+
 
 
 
