@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Export project and release
     steps:
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v2.3.1
       # Ensure that we get the entire project history
       with:
