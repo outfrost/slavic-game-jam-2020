@@ -3,10 +3,10 @@
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Environment/ChargingStation/ChargingStation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Characters/Robot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Furniture/Cabinet1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Furniture/Stool1.fbx" type="PackedScene" id=5]
-[ext_resource path="res://Furniture/Chair1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Furniture/Desk1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Environment/Furniture/Cabinet1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/Furniture/Assets/Stool1.fbx" type="PackedScene" id=5]
+[ext_resource path="res://Environment/Furniture/Chair1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/Furniture/Desk1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Items/Lantern1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Items/Fence1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Items/Coil_Roll1.tscn" type="PackedScene" id=10]
@@ -18,6 +18,9 @@
 [ext_resource path="res://Items/Ladder2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Items/Ladder1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Items/Carton1.tscn" type="PackedScene" id=18]
+
+
+
 
 
 
