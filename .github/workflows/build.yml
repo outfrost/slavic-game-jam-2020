@@ -30,24 +30,24 @@ jobs:
     - name: Upload HTML5 build
       uses: actions/upload-artifact@v2
       with:
-        name: HTML5 build
-        path: build/web/
+        name: HTML5
+        path: build/web/HTML5/
         if-no-files-found: error
     - name: Upload Linux/X11 build
       uses: actions/upload-artifact@v2
       with:
-        name: LinuxX11 build
-        path: build/linux_amd64/
+        name: LinuxX11
+        path: build/linux_amd64/LinuxX11/
         if-no-files-found: error
     - name: Upload Mac OSX build
       uses: actions/upload-artifact@v2
       with:
-        name: Mac OSX build
-        path: build/macos/
+        name: Mac OSX
+        path: build/macos/Mac OSX/
         if-no-files-found: error
     - name: Upload Windows Desktop build
       uses: actions/upload-artifact@v2
       with:
-        name: Windows Desktop build
-        path: build/windows_amd64/
+        name: Windows Desktop
+        path: build/windows_amd64/Windows Desktop/
         if-no-files-found: error
