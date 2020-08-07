@@ -2,8 +2,8 @@ extends RigidBody
 
 const util = preload("res://util/util.gd")
 
-const indicator_lit = preload("res://Assets/Characters/indicator_lit.tres")
-const indicator_unlit = preload("res://Assets/Characters/indicator_unlit.tres")
+const indicator_lit = preload("Assets/indicator_lit.tres")
+const indicator_unlit = preload("Assets/indicator_unlit.tres")
 
 var sound_battery_low: AudioStreamPlayer3D
 var sound_grab: AudioStreamPlayer3D
