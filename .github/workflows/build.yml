@@ -25,5 +25,11 @@ jobs:
         relative_project_path: ./
         archive_export_output: true
         create_release: false
+        use_preset_export_path: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        path: build/
+        if-no-files-found: error
