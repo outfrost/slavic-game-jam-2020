@@ -1,44 +1,52 @@
-# This is a basic workflow to help you get started with Actions
+name: Build
 
-name: build
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  # job id, can be anything
-  export_game:
+  export_project:
     # Always use ubuntu-latest for this action
     runs-on: ubuntu-latest
-    # Job name, can be anything
-    name: Export Game Job
+    name: Export project
     steps:
-      # Always include the checkout step so that 
-      # your project is available for Godot to export
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v2.3.1
-      # Ensure that you get the entire project history
+    - name: Export
+      uses: firebelley/godot-export@v2.4.0
       with:
-        fetch-depth: 0
-      # separate step to extract the version from the tag name
-    #- name: get tag from version
-      #id: tag_version
-      #run: |
-        #echo ::set-output name=TAG_VERSION::${GITHUB_REF#refs/tags/v}
-    - name: export game
-      # Use latest version (see releases for all versions)
-      uses: firebelley/godot-export@v2.2.0
-      with:
-        # Defining all the required inputs
-        # I used the mono version of Godot in this example
         godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_linux_headless.64.zip
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_export_templates.tpz
         relative_project_path: ./
-        create_release: true
-        #base_version:  ${{ steps.tag_version.outputs.TAG_VERSION}} 
+        create_release: false
+        use_preset_export_path: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload HTML5 build
+      uses: actions/upload-artifact@v2
+      with:
+        name: HTML5
+        path: build/web/HTML5/
+        if-no-files-found: error
+    - name: Upload Linux/X11 build
+      uses: actions/upload-artifact@v2
+      with:
+        name: LinuxX11
+        path: build/linux_amd64/LinuxX11/
+        if-no-files-found: error
+    - name: Upload Mac OSX build
+      uses: actions/upload-artifact@v2
+      with:
+        name: Mac OSX
+        path: build/macos/Mac OSX/
+        if-no-files-found: error
+    - name: Upload Windows Desktop build
+      uses: actions/upload-artifact@v2
+      with:
+        name: Windows Desktop
+        path: build/windows_amd64/Windows Desktop/
+        if-no-files-found: error
