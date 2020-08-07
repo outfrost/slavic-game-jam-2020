@@ -28,8 +28,23 @@ jobs:
         use_preset_export_path: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload artifacts
+    - name: Upload HTML5 build
       uses: actions/upload-artifact@v2
       with:
-        path: build/
+        path: build/web/HTML5.zip
+        if-no-files-found: error
+    - name: Upload Linux/X11 build
+      uses: actions/upload-artifact@v2
+      with:
+        path: build/linux_amd64/LinuxX11.zip
+        if-no-files-found: error
+    - name: Upload Mac OSX build
+      uses: actions/upload-artifact@v2
+      with:
+        path: build/macos/Mac OSX.zip
+        if-no-files-found: error
+    - name: Upload Windows Desktop build
+      uses: actions/upload-artifact@v2
+      with:
+        path: build/windows_amd64/Windows Desktop.zip
         if-no-files-found: error
