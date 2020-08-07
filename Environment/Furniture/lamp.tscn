@@ -3,8 +3,6 @@
 [ext_resource path="res://Environment/Furniture/Assets/lamp.fbx" type="PackedScene" id=1]
 [ext_resource path="res://Environment/Furniture/Assets/SIGNBACKX.JPG" type="Texture" id=2]
 
-
-
 [sub_resource type="SpatialMaterial" id=1]
 params_cull_mode = 2
 metallic = 1.0
