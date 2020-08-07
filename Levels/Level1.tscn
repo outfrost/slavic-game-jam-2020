@@ -5,7 +5,7 @@
 [ext_resource path="res://Environment/Furniture/Desk1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Environment/Furniture/EndTable1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Environment/Furniture/Cabinet1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Environment/Furniture/cube1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Architecture/cube1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Environment/Furniture/Cabinet7.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Environment/Furniture/Cabinet6.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Environment/Furniture/Table2.tscn" type="PackedScene" id=9]
@@ -15,9 +15,9 @@
 [ext_resource path="res://Environment/Items/Vase1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Environment/Furniture/Chair1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=15]
-[ext_resource path="res://Environment/Furniture/window.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Levels/Architecture/window.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Environment/Items/Carton1.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Environment/Furniture/lamp.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Levels/Architecture/lamp.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Environment/ChargingStation/ChargingStation.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Characters/Robot.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Environment/Items/Mirror1.tscn" type="PackedScene" id=21]
@@ -34,6 +34,9 @@
 [ext_resource path="res://Environment/Items/Mattress1.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Environment/Items/FoldingChair2.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Environment/Items/FoldingChair1.tscn" type="PackedScene" id=35]
+
+
+
 
 
 
