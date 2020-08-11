@@ -62,7 +62,7 @@ func SpawnLevel() -> void:
 		connect("game_over", robot, "on_game_over")
 	else:
 		printerr("No robot found :(")
-	
+
 	robot.working = false
 	set_camera(1)
 	hud_message_label.show()
@@ -70,7 +70,7 @@ func SpawnLevel() -> void:
 	set_camera(0)
 	hud_message_label.hide()
 	robot.working = true
-	
+
 	state = GameState.RUNNING
 
 func _ready():
@@ -86,11 +86,11 @@ func _ready():
 	current_level_container = self.get_node("CurrentLevel")
 	hud_message_label = find_node("HudMessageLabel", true, false)
 	SpawnLevel()
-	
+
 	timer_label = find_node("TimerLabel")
-	
+
 	sound_time_low = self.get_node("Sounds/AlarmSound")
-	
+
 	var gameover_popup_node = get_node(gameover_popup)
 	connect("game_start", gameover_popup_node, "on_game_start")
 	connect("game_over", gameover_popup_node, "on_game_over")
@@ -211,7 +211,7 @@ func scan_aabb(aabb: AABB) -> Array:
 				points.append(cell_value)
 			lines.append(points)
 		planes.append(lines)
-	
+
 	return planes
 
 

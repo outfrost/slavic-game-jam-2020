@@ -68,7 +68,7 @@ func _ready():
 	grab_target_body = self.get_parent().get_parent().get_parent().get_node("GrabTarget")
 	if !grab_target_body:
 		print("!!!!")
-	
+
 	sound_battery_low = self.get_node("Sounds/BatteryLow")
 	sound_grab = self.get_node("Sounds/Grab")
 	sound_engine = self.get_node("Sounds/Engine")
@@ -76,11 +76,11 @@ func _ready():
 	sound_push = self.get_node("Sounds/Push")
 	sound_turning_on = self.get_node("Sounds/TurningOn")
 	sound_turning_off = self.get_node("Sounds/TurningOff")
-	
+
 	sound_turning_on.play()
 	sound_engine.play()
 	#sound_engine.unit_db
-	
+
 	# Lookup table for charge indicator surface indices for materials
 	var mesh_instance = player_model.get_node("Char1_Body/Body2") as MeshInstance
 	body_mesh = mesh_instance.mesh.duplicate()
@@ -131,10 +131,10 @@ func _physics_process(delta):
 		self.transform = Transform.IDENTITY
 		charge = 0.5
 		player_model.rotation.y = 0
-	
+
 	var engine_volume = enging_sound_min + velocity_abs/velocity_max_linear * (engine_sound_max - enging_sound_min)
 	sound_engine.unit_db = engine_volume
-	
+
 	var test_visual_thing = self.get_parent().find_node("TestThing") as Spatial
 	var grab_point_pos = grab_point.global_transform.origin
 	if(debug_visualize_grab_point_selection and test_visual_thing):
@@ -142,13 +142,13 @@ func _physics_process(delta):
 		test_visual_thing.translate(grab_point_pos)
 	grab_target_body.transform = Transform.IDENTITY
 	grab_target_body.translate(grab_point_pos)
-	
+
 	# TODO: teleport item up/down when robot moves arm up/down
 	var level_items_container = self.get_parent().get_node("Items")
 	var level_items = []
 	if level_items_container:
 		level_items = self.get_parent().get_node("Items").get_children()
-	
+
 	var items_matched = []
 	var distance_min = grab_radius
 	for item in level_items:
@@ -178,10 +178,10 @@ func _physics_process(delta):
 					paint_object(item, Color(1,1,1,0))
 			if item_data:
 				paint_object(item_data.item, Color(0,0,1,0.5))
-	
+
 	pinjoint.transform = Transform.IDENTITY
 	pinjoint.translate(grab_point.global_transform.origin)
-	
+
 	if is_carrying_item and Input.is_action_pressed("jump_button"):
 		(grabbed_item.item as RigidBody).add_central_force(Vector3(0, 15, 0))
 	if Input.is_action_just_pressed("arm_grab_toggle"):

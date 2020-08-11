@@ -24,7 +24,7 @@ func _ready():
 	connect("body_entered", self, "on_body_entered_dock")
 	connect("body_exited", self, "on_body_exited_dock")
 	(get_tree().root.find_node("Game", true, false) as Game).connect("game_over", self, "on_game_over")
-	
+
 	sound_nearby_charging = self.get_node("Sounds/NearbyCharging")
 	sound_station_charging = self.get_node("Sounds/StationCharging")
 	sound_station_docking = self.get_node("Sounds/StationDocking")
@@ -49,7 +49,7 @@ func on_body_entered_dock(body):
 			sound_station_docking.play()
 		if !sound_station_charging.playing:
 			sound_station_charging.play()
-		
+
 
 func on_body_exited_dock(body):
 	if body == robot:
