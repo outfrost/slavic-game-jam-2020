@@ -56,5 +56,5 @@ func on_body_exited_dock(body):
 		docked = false
 		sound_station_charging.stop()
 
-func on_game_over():
+func on_game_over(_reason, _score):
 	working = false

@@ -35,16 +35,6 @@
 [ext_resource path="res://Environment/Items/FoldingChair2.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Environment/Items/FoldingChair1.tscn" type="PackedScene" id=35]
 
-
-
-
-
-
-
-
-
-
-
 [node name="Level1" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26099, 0, -11.4544 )
 script = ExtResource( 15 )

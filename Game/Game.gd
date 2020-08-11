@@ -4,10 +4,19 @@ const util = preload("res://Game/UI/util.gd")
 const Level = preload("res://Levels/Level.gd")
 const Robot = preload("res://Characters/Robot.gd")
 
-signal game_over()
+enum GameState {
+	STARTING,
+	RUNNING,
+	OVER,
+}
+
+signal game_start()
+signal game_over(reason, score)
 
 export var Levels: Array
 export var scan_step: float = 0.25
+
+export var gameover_popup: NodePath
 
 var current_level = 0
 var current_camera = 0
@@ -21,14 +30,11 @@ var level_dimension_squared: float
 var current_level_container: Node
 
 var timer_label: RichTextLabel
-
-var gameover_popup: Popup
-var gameover_message_label: RichTextLabel
-var gameover_score_label: RichTextLabel
-var gameover_reason_label: RichTextLabel
 var hud_message_label: RichTextLabel
 
 var time_left: float
+
+var state = GameState.STARTING
 
 var sound_time_low: AudioStreamPlayer
 
@@ -45,7 +51,7 @@ func SpawnLevel() -> void:
 	var level_reference_area = level_instance.reference_area_bounds
 	reference_scan = scan_aabb(level_reference_area)
 
-	time_left = level_instance.time_limit + 5.0
+	time_left = level_instance.time_limit
 
 	if sound_time_low and sound_time_low.playing:
 		sound_time_low.stop()
@@ -64,6 +70,8 @@ func SpawnLevel() -> void:
 	set_camera(0)
 	hud_message_label.hide()
 	robot.working = true
+	
+	state = GameState.RUNNING
 
 func _ready():
 	dev_cameras = self.get_node("devCameras").get_children()
@@ -82,20 +90,16 @@ func _ready():
 	timer_label = find_node("TimerLabel")
 	
 	sound_time_low = self.get_node("Sounds/AlarmSound")
-
-	gameover_popup = find_node("GameoverPopup")
-	gameover_message_label = gameover_popup.get_node("Panel/MessageLabel")
-	gameover_score_label = gameover_popup.get_node("Panel/ScoreLabel")
-	gameover_reason_label = gameover_popup.get_node("Panel/ReasonLabel")
-	gameover_popup.get_node("Panel/RestartButton").connect("pressed", self, "next_level")
+	
+	var gameover_popup_node = get_node(gameover_popup)
+	connect("game_start", gameover_popup_node, "on_game_start")
+	connect("game_over", gameover_popup_node, "on_game_over")
+	gameover_popup_node.connect("next_level", self, "on_next_level")
 
 func _process(delta):
 	util.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
-	if Input.is_action_just_pressed("level_next"):
-		#call_deferred("next_level")
-		next_level()
 
-	if !gameover_popup.visible:
+	if state == GameState.RUNNING:
 		time_left = max(time_left - delta, 0.0)
 		if !sound_time_low.playing and time_left < 11:
 			sound_time_low.play()
@@ -118,35 +122,25 @@ func _process(delta):
 		camera_origin += cam_pers_offset
 		camera_perspective.translation = camera_origin
 
+	if Input.is_action_just_pressed("level_next"):
+		on_next_level()
+
 func set_camera(index):
 	current_camera = index
 	dev_cameras[current_camera].make_current()
 
 func game_over(reason):
+	state = GameState.OVER
 	var similarity = scan_level()
-	emit_signal("game_over")
 	var score = int(similarity * 100)
-	gameover_score_label.bbcode_text = "[center][b]Score: %d%%[/b][/center]" % score
-	if score >= 75:
-		gameover_message_label.bbcode_text = "[center][b]Close enough![/b][/center]"
-	elif score == 69:
-		gameover_message_label.bbcode_text = "[center][b]nice[/b][/center]"
-	elif score >= 40:
-		gameover_message_label.bbcode_text = "[center][b]You can do better![/b][/center]"
-	else:
-		gameover_message_label.bbcode_text = "[center][b]Well that's a bit sad[/b][/center]"
+	emit_signal("game_over", reason, score)
 
-	if reason == "battery":
-		gameover_reason_label.bbcode_text = "[center][b]You ran out of battery![/b][/center]"
-	elif reason == "time":
-		gameover_reason_label.bbcode_text = "[center][b]Time's up![/b][/center]"
-	gameover_popup.show()
-
-func next_level():
-	gameover_popup.hide()
+func on_next_level():
 	remove_level()
 	current_level = (current_level + 1) % Levels.size()
+	state = GameState.STARTING
 	call_deferred("SpawnLevel")
+	emit_signal("game_start")
 
 func remove_level():
 	for node in current_level_container.get_children():
@@ -191,7 +185,7 @@ func scan_aabb(aabb: AABB) -> Array:
 	query.set_shape(shape)
 
 	var planes = []
-	var max_distance = sqrt(3 * scan_step * scan_step)
+	#var max_distance = sqrt(3 * scan_step * scan_step)
 
 	for x in range(0, steps_x):
 		var lines = []

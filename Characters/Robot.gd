@@ -225,5 +225,5 @@ func add_charge(amount: float):
 	charge += amount
 	charge = clamp(charge, 0.0, 1.0)
 
-func on_game_over():
+func on_game_over(_reason, _score):
 	working = false
