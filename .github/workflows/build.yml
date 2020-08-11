@@ -14,8 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Export project
     steps:
+
     - name: Checkout
       uses: actions/checkout@v2.3.1
+
     - name: Export
       uses: firebelley/godot-export@v2.4.0
       with:
@@ -26,27 +28,31 @@ jobs:
         use_preset_export_path: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload HTML5 build
+
+    - name: Upload Linux X11 amd64 build
       uses: actions/upload-artifact@v2
       with:
-        name: HTML5
-        path: build/web/HTML5/
+        name: Linux-X11-amd64
+        path: build/linux_amd64/Linux-X11-amd64/
         if-no-files-found: error
-    - name: Upload Linux/X11 build
+
+    - name: Upload macOS build
       uses: actions/upload-artifact@v2
       with:
-        name: LinuxX11
-        path: build/linux_amd64/LinuxX11/
+        name: macOS
+        path: build/macos/macOS/
         if-no-files-found: error
-    - name: Upload Mac OSX build
+
+    - name: Upload Windows amd64 build
       uses: actions/upload-artifact@v2
       with:
-        name: Mac OSX
-        path: build/macos/Mac OSX/
+        name: Windows-amd64
+        path: build/windows_amd64/Windows-amd64/
         if-no-files-found: error
-    - name: Upload Windows Desktop build
+
+    - name: Upload Windows i686 build
       uses: actions/upload-artifact@v2
       with:
-        name: Windows Desktop
-        path: build/windows_amd64/Windows Desktop/
+        name: Windows-i686
+        path: build/windows_i686/Windows-i686/
         if-no-files-found: error

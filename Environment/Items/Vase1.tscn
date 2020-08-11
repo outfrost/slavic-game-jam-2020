@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Environment/Items/TexturedModels/Vase1.tscn" type="PackedScene" id=1]
+
+
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.417865
+height = 1.43213
+
+[node name="Vase1" type="RigidBody"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="Vase1" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.637207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0808609, 0 )
+shape = SubResource( 1 )
+
+[node name="GrabPoints" type="Spatial" parent="."]
+
+[node name="GrabPoint" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74028, 0 )
+
+[node name="GrabPoint2" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.576131, 0 )

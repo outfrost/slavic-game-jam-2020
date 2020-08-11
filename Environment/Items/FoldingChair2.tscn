@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Environment/Items/Assets/FoldingChair2.fbx" type="PackedScene" id=1]
+
+
+
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0377456, 0.726493, 0.0342446 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0352883, 0.0303505, 1.24485 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.0345536, 0.0269297, 0.624045 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.554407, 0.0385852, 0.0262066 )
+
+[node name="FoldingChair1" type="RigidBody"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="FoldingChair2Model" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.914078, 0 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.785717, -0.618587, 0, 0.618587, 0.785717, 0.621009, -0.324384, -0.691299 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.785717, -0.618587, 0, 0.618587, 0.785717, -0.607377, -0.324384, -0.691299 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.49764, -0.867384, 0, 0.867384, 0.49764, 0.569391, 0.202262, -0.152946 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.49764, -0.867384, 0, 0.867384, 0.49764, -0.556835, 0.202262, -0.152946 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.520301, 0.170032, 0.209611 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509281, 0.170032, 0.209611 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858266, 0.454695 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858266, -1.12933 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.168603, 0.802283 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31438, -0.788996 )
+shape = SubResource( 4 )
+
+[node name="GrabPoints" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.914078, 0 )
+
+[node name="Position3D" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07091, 0.700095 )
+
+[node name="Position3D2" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11915, -0.727293 )
+
+[node name="Position3D3" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0895789, -1.06927 )
+
+[node name="Position3D4" type="Position3D" parent="GrabPoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0747102, 0.439894 )
