@@ -1,8 +1,5 @@
+class_name ChargingStation
 extends Area
-
-const util = preload("res://Game/UI/util.gd")
-const Game = preload("res://Game/Game.gd")
-const Robot = preload("res://Characters/Robot.gd")
 
 export var max_charging_speed: float = 0.05
 export var charging_falloff_distance: float = 10.0
@@ -39,7 +36,7 @@ func _process(delta):
 	else:
 		var distance = global_transform.origin.distance_to(robot.global_transform.origin)
 		charging_eff = clamp(inverse_lerp(charging_falloff_distance, 0.0, distance), 0.0, 1.0)
-	util.display(self, "charging_eff %f" % charging_eff)
+	DebugLabel.display(self, "charging_eff %f" % charging_eff)
 	robot.add_charge(max_charging_speed * charging_eff * delta)
 
 func on_body_entered_dock(body):

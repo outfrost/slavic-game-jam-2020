@@ -1,3 +1,4 @@
+class_name Level
 extends Spatial
 
 export var playable_area_bounds: AABB = AABB(Vector3(-10,0,-10), Vector3(20, 4, 20))

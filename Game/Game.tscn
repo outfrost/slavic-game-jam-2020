@@ -12,17 +12,17 @@
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 6 )
 
-[sub_resource type="SphereShape" id=8]
+[sub_resource type="SphereShape" id=3]
 radius = 0.25
 
-[node name="Game" type="Spatial"]
+[node name="Game" type="Node"]
 script = ExtResource( 2 )
 Levels = [ ExtResource( 4 ) ]
 scan_step = 0.5
@@ -65,7 +65,7 @@ anchor_right = 0.98
 anchor_bottom = 0.2
 grow_horizontal = 0
 size_flags_stretch_ratio = 0.0
-custom_fonts/bold_font = SubResource( 7 )
+custom_fonts/bold_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[right][b]00:00[/b][/right]"
 text = "00:00"
@@ -79,7 +79,7 @@ anchor_right = 1.0
 anchor_bottom = 0.9
 grow_horizontal = 0
 size_flags_stretch_ratio = 0.0
-custom_fonts/bold_font = SubResource( 7 )
+custom_fonts/bold_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center][b]This is the room you're used to. Try to match it![/b][/center]"
 text = "This is the room you're used to. Try to match it!"
@@ -94,7 +94,7 @@ mode = 1
 can_sleep = false
 
 [node name="CollisionShape" type="CollisionShape" parent="GrabTarget"]
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="Sounds" type="Node" parent="."]
 

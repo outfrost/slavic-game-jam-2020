@@ -8,9 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area",
+"class": "ChargingStation",
+"language": "GDScript",
+"path": "res://Environment/ChargingStation/ChargingStation.gd"
+}, {
+"base": "Label",
+"class": "DebugLabel",
+"language": "GDScript",
+"path": "res://Game/UI/DebugLabel.gd"
+}, {
+"base": "Node",
+"class": "Game",
+"language": "GDScript",
+"path": "res://Game/Game.gd"
+}, {
+"base": "Spatial",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Levels/Level.gd"
+}, {
+"base": "RigidBody",
+"class": "Robot",
+"language": "GDScript",
+"path": "res://Characters/Robot.gd"
+} ]
 _global_script_class_icons={
-
+"ChargingStation": "",
+"DebugLabel": "",
+"Game": "",
+"Level": "",
+"Robot": ""
 }
 
 [application]

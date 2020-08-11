@@ -1,6 +1,5 @@
+class_name Robot
 extends RigidBody
-
-const util = preload("res://Game/UI/util.gd")
 
 const indicator_lit = preload("Assets/indicator_lit.tres")
 const indicator_unlit = preload("Assets/indicator_unlit.tres")
@@ -204,7 +203,7 @@ func _process(delta):
 	if !working:
 		return
 	add_charge(discharge_rate * delta)
-	util.display(self, "charge %f" % charge)
+	DebugLabel.display(self, "charge %f" % charge)
 	if charge < 0.2:
 		if !sound_battery_low.playing:
 			sound_battery_low.play()

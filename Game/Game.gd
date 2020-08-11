@@ -1,8 +1,5 @@
-extends Spatial
-
-const util = preload("res://Game/UI/util.gd")
-const Level = preload("res://Levels/Level.gd")
-const Robot = preload("res://Characters/Robot.gd")
+class_name Game
+extends Node
 
 enum GameState {
 	STARTING,
@@ -97,7 +94,7 @@ func _ready():
 	gameover_popup_node.connect("next_level", self, "on_next_level")
 
 func _process(delta):
-	util.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
+	DebugLabel.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
 
 	if state == GameState.RUNNING:
 		time_left = max(time_left - delta, 0.0)
@@ -116,7 +113,7 @@ func _process(delta):
 		var distance_squared = displacement.length_squared()
 		# t = 1 / ( 4 * dist^2 / level_dim^2 + 1) from 0 to 1
 		var t = clamp(1.0 / ((4.0 * distance_squared / level_dimension_squared) + 1.0), 0.0, 1.0)
-		#util.display(self, "t %f" % t)
+		#DebugLabel.display(self, "t %f" % t)
 		var camera_origin = min_displacement.linear_interpolate(displacement, t)
 		# Camera follows at an offset to see player more or less in the middle of the screen
 		camera_origin += cam_pers_offset
@@ -175,7 +172,7 @@ func scan_aabb(aabb: AABB) -> Array:
 	var steps_y = int(ceil(aabb.size.y / scan_step))
 	var steps_z = int(ceil(aabb.size.z / scan_step))
 
-	var physics_direct_state = get_world().get_direct_space_state()
+	var physics_direct_state = get_tree().root.get_world().get_direct_space_state()
 	var query = PhysicsShapeQueryParameters.new()
 	query.collision_mask = 2 # 0b010
 	query.collide_with_areas = true
