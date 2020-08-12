@@ -24,7 +24,9 @@ action = "ui_accept"
 [sub_resource type="ShortCut" id=5]
 shortcut = SubResource( 4 )
 
-[node name="GameoverPopup" type="Popup"]
+[node name="GameoverPopup" type="Popup" groups=[
+"GameStateObservers",
+]]
 anchor_left = 0.5
 anchor_top = 0.75
 anchor_right = 0.5

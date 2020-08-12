@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Game.gd"
 }, {
+"base": "Reference",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://Game/GameState.gd"
+}, {
+"base": "Reference",
+"class": "GroupMessenger",
+"language": "GDScript",
+"path": "res://Instrumentation/GroupMessenger.gd"
+}, {
 "base": "Spatial",
 "class": "Level",
 "language": "GDScript",
@@ -38,6 +48,8 @@ _global_script_class_icons={
 "ChargingStation": "",
 "DebugLabel": "",
 "Game": "",
+"GameState": "",
+"GroupMessenger": "",
 "Level": "",
 "Robot": ""
 }

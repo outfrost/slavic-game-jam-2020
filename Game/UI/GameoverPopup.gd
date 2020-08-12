@@ -10,8 +10,9 @@ export var restart_button: NodePath
 func _ready():
 	get_node(restart_button).connect("pressed", self, "on_restart_pressed")
 
-func on_game_start():
-	hide()
+func on_game_state_changed(args: Array):
+	if args[0] != GameState.OVER:
+		hide()
 
 func on_game_over(reason: String, score: int):
 	var reason_text: String

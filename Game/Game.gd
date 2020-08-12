@@ -1,13 +1,6 @@
 class_name Game
 extends Node
 
-enum GameState {
-	STARTING,
-	RUNNING,
-	OVER,
-}
-
-signal game_start()
 signal game_over(reason, score)
 
 export var Levels: Array
@@ -32,6 +25,8 @@ var hud_message_label: RichTextLabel
 var time_left: float
 
 var state = GameState.STARTING
+var game_state_msg = GroupMessenger.new(
+	self, "game_state_changed", ["GameStateObservers"])
 
 var sound_time_low: AudioStreamPlayer
 
@@ -56,7 +51,6 @@ func SpawnLevel() -> void:
 	robot = get_tree().root.find_node("Robot", true, false)
 	if robot:
 		robot.connect("battery_depleted", self, "game_over", ["battery"])
-		connect("game_over", robot, "on_game_over")
 	else:
 		printerr("No robot found :(")
 
@@ -68,7 +62,7 @@ func SpawnLevel() -> void:
 	hud_message_label.hide()
 	robot.working = true
 
-	state = GameState.RUNNING
+	update_state(GameState.RUNNING)
 
 func _ready():
 	dev_cameras = self.get_node("devCameras").get_children()
@@ -89,7 +83,6 @@ func _ready():
 	sound_time_low = self.get_node("Sounds/AlarmSound")
 
 	var gameover_popup_node = get_node(gameover_popup)
-	connect("game_start", gameover_popup_node, "on_game_start")
 	connect("game_over", gameover_popup_node, "on_game_over")
 	gameover_popup_node.connect("next_level", self, "on_next_level")
 
@@ -127,7 +120,7 @@ func set_camera(index):
 	dev_cameras[current_camera].make_current()
 
 func game_over(reason):
-	state = GameState.OVER
+	update_state(GameState.OVER)
 	var similarity = scan_level()
 	var score = int(similarity * 100)
 	emit_signal("game_over", reason, score)
@@ -135,7 +128,7 @@ func game_over(reason):
 func on_next_level():
 	remove_level()
 	current_level = (current_level + 1) % Levels.size()
-	state = GameState.STARTING
+	update_state(GameState.STARTING)
 	call_deferred("SpawnLevel")
 	emit_signal("game_start")
 
@@ -143,6 +136,10 @@ func remove_level():
 	for node in current_level_container.get_children():
 		current_level_container.remove_child(node)
 		(node as Node).queue_free()
+
+func update_state(state: int):
+	self.state = state
+	game_state_msg.dispatch([state])
 
 func scan_level() -> float:
 	final_scan = scan_aabb(level_playable_area)

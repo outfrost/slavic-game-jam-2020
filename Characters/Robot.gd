@@ -226,3 +226,7 @@ func add_charge(amount: float):
 
 func on_game_over(_reason, _score):
 	working = false
+
+func on_game_state_changed(args: Array):
+	if args[0] == GameState.OVER:
+		working = false

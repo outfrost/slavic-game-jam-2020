@@ -20,7 +20,6 @@ func _ready():
 		printerr("Charging station lost connection to robot :(")
 	connect("body_entered", self, "on_body_entered_dock")
 	connect("body_exited", self, "on_body_exited_dock")
-	(get_tree().root.find_node("Game", true, false) as Game).connect("game_over", self, "on_game_over")
 
 	sound_nearby_charging = self.get_node("Sounds/NearbyCharging")
 	sound_station_charging = self.get_node("Sounds/StationCharging")
@@ -55,3 +54,7 @@ func on_body_exited_dock(body):
 
 func on_game_over(_reason, _score):
 	working = false
+
+func on_game_state_changed(args: Array):
+	if args[0] == GameState.OVER:
+		working = false
