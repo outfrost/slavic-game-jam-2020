@@ -9,13 +9,8 @@ export var scan_step: float = 0.25
 export var gameover_popup: NodePath
 
 var current_level = 0
-var current_camera = 0
-var dev_cameras: Array
-var camera_perspective: Camera
-var cam_pers_offset: Vector3
 var robot: Robot
 var level_playable_area: AABB
-var level_dimension_squared: float
 
 var current_level_container: Node
 
@@ -37,8 +32,6 @@ func SpawnLevel() -> void:
 	var level_instance: Level = (Levels[current_level] as PackedScene).instance()
 	current_level_container.add_child(level_instance)
 	level_playable_area = level_instance.playable_area_bounds
-	var level_dimension = level_playable_area.get_longest_axis_size()
-	level_dimension_squared = level_dimension * level_dimension
 
 	var level_reference_area = level_instance.reference_area_bounds
 	reference_scan = scan_aabb(level_reference_area)
@@ -54,24 +47,13 @@ func SpawnLevel() -> void:
 	else:
 		printerr("No robot found :(")
 
-	set_camera(1)
 	hud_message_label.show()
 	yield(get_tree().create_timer(level_instance.freeze_time), "timeout")
-	set_camera(0)
 	hud_message_label.hide()
 
 	update_state(GameState.RUNNING)
 
 func _ready():
-	dev_cameras = self.get_node("devCameras").get_children()
-	dev_cameras[current_camera].make_current()
-	camera_perspective = self.get_node("devCameras/CameraPerspective")
-	if camera_perspective:
-		cam_pers_offset = camera_perspective.transform.origin
-	else:
-		printerr("No perspective camera :(")
-		cam_pers_offset = Vector3.ZERO
-
 	current_level_container = self.get_node("CurrentLevel")
 	hud_message_label = find_node("HudMessageLabel", true, false)
 	SpawnLevel()
@@ -95,27 +77,8 @@ func _process(delta):
 		if time_left == 0.0:
 			game_over("time")
 
-	if Input.is_action_just_pressed("debug_switch_camera"):
-		set_camera((current_camera + 1) % dev_cameras.size())
-
-	if camera_perspective && robot:
-		var displacement = robot.global_transform.origin
-		var min_displacement = displacement * 0.25
-		var distance_squared = displacement.length_squared()
-		# t = 1 / ( 4 * dist^2 / level_dim^2 + 1) from 0 to 1
-		var t = clamp(1.0 / ((4.0 * distance_squared / level_dimension_squared) + 1.0), 0.0, 1.0)
-		#DebugLabel.display(self, "t %f" % t)
-		var camera_origin = min_displacement.linear_interpolate(displacement, t)
-		# Camera follows at an offset to see player more or less in the middle of the screen
-		camera_origin += cam_pers_offset
-		camera_perspective.translation = camera_origin
-
 	if Input.is_action_just_pressed("level_next"):
 		on_next_level()
-
-func set_camera(index):
-	current_camera = index
-	dev_cameras[current_camera].make_current()
 
 func game_over(reason):
 	update_state(GameState.OVER)
