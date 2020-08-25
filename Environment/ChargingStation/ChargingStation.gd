@@ -7,7 +7,7 @@ export var charging_falloff_distance: float = 10.0
 var robot: Robot
 var docked: bool = false
 
-var working: bool = true
+var working: bool = false
 
 var sound_nearby_charging: AudioStreamPlayer3D
 var sound_station_charging: AudioStreamPlayer3D
@@ -52,9 +52,5 @@ func on_body_exited_dock(body):
 		docked = false
 		sound_station_charging.stop()
 
-func on_game_over(_reason, _score):
-	working = false
-
 func on_game_state_changed(args: Array):
-	if args[0] == GameState.OVER:
-		working = false
+	working = (args[0] == GameState.RUNNING)

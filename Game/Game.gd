@@ -54,13 +54,11 @@ func SpawnLevel() -> void:
 	else:
 		printerr("No robot found :(")
 
-	robot.working = false
 	set_camera(1)
 	hud_message_label.show()
 	yield(get_tree().create_timer(5.0), "timeout")
 	set_camera(0)
 	hud_message_label.hide()
-	robot.working = true
 
 	update_state(GameState.RUNNING)
 

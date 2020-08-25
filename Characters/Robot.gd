@@ -38,7 +38,7 @@ var indicator_lookup = {}
 
 var grab_point: Position3D
 
-var working: bool = true
+var working: bool = false
 
 func paint_object(object, color):
 	var model = object.find_node("*Model")
@@ -224,9 +224,5 @@ func add_charge(amount: float):
 	charge += amount
 	charge = clamp(charge, 0.0, 1.0)
 
-func on_game_over(_reason, _score):
-	working = false
-
 func on_game_state_changed(args: Array):
-	if args[0] == GameState.OVER:
-		working = false
+	working = (args[0] == GameState.RUNNING)
