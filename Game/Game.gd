@@ -56,7 +56,7 @@ func SpawnLevel() -> void:
 
 	set_camera(1)
 	hud_message_label.show()
-	yield(get_tree().create_timer(5.0), "timeout")
+	yield(get_tree().create_timer(level_instance.freeze_time), "timeout")
 	set_camera(0)
 	hud_message_label.hide()
 
