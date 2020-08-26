@@ -5,19 +5,16 @@ export var main_camera_path: NodePath
 export var clean_room_camera_path: NodePath
 export var robot_path: NodePath
 
-var cameras: Array
+onready var cameras: Array = get_children()
+onready var main_camera: Camera = get_node(main_camera_path)
+onready var robot: Spatial = get_node(robot_path)
+onready var main_camera_offset: Vector3 = main_camera.transform.origin
+
 var current_camera: int = 0
-var main_camera: Camera
-var robot: Spatial
-var main_camera_offset: Vector3
 var level_dimension_squared: float
 
 func _ready() -> void:
-	cameras = get_children()
 	set_camera(get_node(clean_room_camera_path).get_position_in_parent())
-	main_camera = get_node(main_camera_path)
-	robot = get_node(robot_path)
-	main_camera_offset = main_camera.transform.origin
 
 	var level: Level = get_node(level_path)
 	var level_dimension = level.playable_area_bounds.get_longest_axis_size()
