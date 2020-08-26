@@ -6,16 +6,19 @@ signal game_over(reason, score)
 export var Levels: Array
 export var scan_step: float = 0.25
 
-export var gameover_popup: NodePath
+export var level_container_path: NodePath
+export var gameover_popup_path: NodePath
+export var timer_label_path: NodePath
+export var hud_message_label_path: NodePath
+
+onready var level_container: Node = get_node(level_container_path)
+onready var timer_label: RichTextLabel = get_node(timer_label_path)
+onready var hud_message_label: RichTextLabel = get_node(hud_message_label_path)
+onready var time_low_sound: AudioStreamPlayer = get_node(@"Sounds/AlarmSound")
 
 var current_level = 0
 var robot: Robot
 var level_playable_area: AABB
-
-var current_level_container: Node
-
-var timer_label: RichTextLabel
-var hud_message_label: RichTextLabel
 
 var time_left: float
 
@@ -23,14 +26,33 @@ var state = GameState.STARTING
 var game_state_msg = GroupMessenger.new(
 	self, "game_state_changed", ["GameStateObservers"])
 
-var sound_time_low: AudioStreamPlayer
-
 var reference_scan: Array
 var final_scan: Array
 
+func _ready():
+	SpawnLevel()
+
+	var gameover_popup = get_node(gameover_popup_path)
+	connect("game_over", gameover_popup, "on_game_over")
+	gameover_popup.connect("next_level", self, "on_next_level")
+
+func _process(delta):
+	DebugLabel.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
+
+	if state == GameState.RUNNING:
+		time_left = max(time_left - delta, 0.0)
+		if !time_low_sound.playing and time_left < 11:
+			time_low_sound.play()
+		timer_label.bbcode_text = "[right][b]%02d:%02d[/b][/right]" % [int(time_left) / 60, int(time_left) % 60]
+		if time_left == 0.0:
+			game_over("time")
+
+	if Input.is_action_just_pressed("level_next"):
+		on_next_level()
+
 func SpawnLevel() -> void:
 	var level_instance: Level = (Levels[current_level] as PackedScene).instance()
-	current_level_container.add_child(level_instance)
+	level_container.add_child(level_instance)
 	level_playable_area = level_instance.playable_area_bounds
 
 	var level_reference_area = level_instance.reference_area_bounds
@@ -38,8 +60,8 @@ func SpawnLevel() -> void:
 
 	time_left = level_instance.time_limit
 
-	if sound_time_low and sound_time_low.playing:
-		sound_time_low.stop()
+	if time_low_sound and time_low_sound.playing:
+		time_low_sound.stop()
 
 	robot = get_tree().root.find_node("Robot", true, false)
 	if robot:
@@ -52,33 +74,6 @@ func SpawnLevel() -> void:
 	hud_message_label.hide()
 
 	update_state(GameState.RUNNING)
-
-func _ready():
-	current_level_container = self.get_node("CurrentLevel")
-	hud_message_label = find_node("HudMessageLabel", true, false)
-	SpawnLevel()
-
-	timer_label = find_node("TimerLabel")
-
-	sound_time_low = self.get_node("Sounds/AlarmSound")
-
-	var gameover_popup_node = get_node(gameover_popup)
-	connect("game_over", gameover_popup_node, "on_game_over")
-	gameover_popup_node.connect("next_level", self, "on_next_level")
-
-func _process(delta):
-	DebugLabel.display(self, "fps %d" % Performance.get_monitor(Performance.TIME_FPS))
-
-	if state == GameState.RUNNING:
-		time_left = max(time_left - delta, 0.0)
-		if !sound_time_low.playing and time_left < 11:
-			sound_time_low.play()
-		timer_label.bbcode_text = "[right][b]%02d:%02d[/b][/right]" % [int(time_left) / 60, int(time_left) % 60]
-		if time_left == 0.0:
-			game_over("time")
-
-	if Input.is_action_just_pressed("level_next"):
-		on_next_level()
 
 func game_over(reason):
 	update_state(GameState.OVER)
@@ -94,8 +89,8 @@ func on_next_level():
 	emit_signal("game_start")
 
 func remove_level():
-	for node in current_level_container.get_children():
-		current_level_container.remove_child(node)
+	for node in level_container.get_children():
+		level_container.remove_child(node)
 		(node as Node).queue_free()
 
 func update_state(state: int):

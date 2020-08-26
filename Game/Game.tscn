@@ -25,7 +25,10 @@ radius = 0.25
 script = ExtResource( 2 )
 Levels = [ ExtResource( 4 ) ]
 scan_step = 0.5
-gameover_popup = NodePath("CanvasLayerGameover/GameoverPopup")
+level_container_path = NodePath("CurrentLevel")
+gameover_popup_path = NodePath("CanvasLayerGameover/GameoverPopup")
+timer_label_path = NodePath("CanvasLayerHud/TimerLabel")
+hud_message_label_path = NodePath("CanvasLayerHud/HudMessageLabel")
 
 [node name="CurrentLevel" type="Node" parent="."]
 
