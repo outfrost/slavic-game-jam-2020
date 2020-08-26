@@ -43,6 +43,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26099, 0, -11.4544 )
 script = ExtResource( 15 )
 playable_area_bounds = AABB( -30, 0, -20, 60, 5, 40 )
 reference_area_bounds = AABB( 170, 0, -20, 60, 5, 40 )
+scan_step = 0.5
 
 [node name="CameraControl" parent="." instance=ExtResource( 29 )]
 level_path = NodePath("..")
