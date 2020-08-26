@@ -12,6 +12,9 @@ var reference_scan: Array
 func _ready() -> void:
 	reference_scan = scan_aabb(reference_area_bounds)
 
+# TODO Figure out if more granular collision scanning (as originally intended)
+# is feasible, and if so how.
+
 func scan_level() -> float:
 	var final_scan = scan_aabb(playable_area_bounds)
 	var mean_diff = 0.0
@@ -25,9 +28,9 @@ func scan_level() -> float:
 			for z in range(0, min(line_final.size(), line_ref.size())):
 				var point_final = line_final[z]
 				var point_ref = line_ref[z]
-				#if point_final > 0.0:
-					#print(point_final)
-				#mean_diff += abs(point_final - point_ref)
+#				if point_final > 0.0:
+#					print(point_final)
+#				mean_diff += abs(point_final - point_ref)
 				if point_final || point_ref:
 					mean_diff += float(point_final != point_ref)
 					cell_count += 1
@@ -50,7 +53,7 @@ func scan_aabb(aabb: AABB) -> Array:
 	query.set_shape(shape)
 
 	var planes = []
-	#var max_distance = sqrt(3 * scan_step * scan_step)
+#	var max_distance = sqrt(3 * scan_step * scan_step)
 
 	for x in range(0, steps_x):
 		var lines = []
@@ -61,28 +64,22 @@ func scan_aabb(aabb: AABB) -> Array:
 				query.transform = Transform.IDENTITY.translated(
 					aabb.position + pos)
 				var result = physics_direct_state.collide_shape(query)
-				#var cell_value = 0.0
-				var cell_value: bool = result.size() > 0
-#				if cell_value:
-#					print("REEE")
-#					for p in result:
-#						print(p)
+#				var cell_value = 0.0
 #				for point in result:
 #					var distance = ((point as Vector3) - pos).length()
-#					print("from %s to %s" % [pos, point])
-#					#print(inverse_lerp(max_distance, 0.0, distance))
 #					var value = clamp(inverse_lerp(max_distance, 0.0, distance), 0.0, 1.0)
 #					cell_value = max(cell_value, value)
+				var cell_value: bool = result.size() > 0
 				points.append(cell_value)
 			lines.append(points)
 		planes.append(lines)
 
 	return planes
 
-
-#					var box = MeshInstance.new()
-#					var cube_mesh = CubeMesh.new()
-#					cube_mesh.size = Vector3.ONE * 0.1
-#					box.mesh = cube_mesh
-#					box.transform = Transform.IDENTITY.translated(query.transform.origin)
-#					add_child(box)
+func spawn_cube(origin: Vector3, size: float) -> void:
+	var box = MeshInstance.new()
+	var cube_mesh = CubeMesh.new()
+	cube_mesh.size = Vector3.ONE * size
+	box.mesh = cube_mesh
+	box.transform = Transform.IDENTITY.translated(origin)
+	add_child(box)
