@@ -23,8 +23,7 @@ radius = 0.25
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
-Levels = [ ExtResource( 4 ) ]
-scan_step = 0.5
+levels = [ ExtResource( 4 ) ]
 level_container_path = NodePath("CurrentLevel")
 gameover_popup_path = NodePath("CanvasLayerGameover/GameoverPopup")
 timer_label_path = NodePath("CanvasLayerHud/TimerLabel")
