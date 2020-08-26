@@ -55,6 +55,8 @@ func paint_object(object, color):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("battery_depleted", get_tree().root.find_node("Game", true, false), "game_over", ["battery"])
+
 	player_model = self.get_node('PlayerModel') as Spatial
 	grab_point = player_model.find_node("GrabPoint") as Position3D
 	pinjoint = self.get_parent().find_node("PinJoint") as PinJoint

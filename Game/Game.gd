@@ -17,10 +17,8 @@ onready var time_low_sound: AudioStreamPlayer = get_node(@"Sounds/AlarmSound")
 
 var current_level = 0
 var level: Level
-var robot: Robot
 
 var time_left: float
-
 var state = GameState.STARTING
 var game_state_msg = GroupMessenger.new(
 	self, "game_state_changed", ["GameStateObservers"])
@@ -54,12 +52,6 @@ func spawn_level() -> void:
 
 	if time_low_sound and time_low_sound.playing:
 		time_low_sound.stop()
-
-	robot = get_tree().root.find_node("Robot", true, false)
-	if robot:
-		robot.connect("battery_depleted", self, "game_over", ["battery"])
-	else:
-		printerr("No robot found :(")
 
 	hud_message_label.show()
 	yield(get_tree().create_timer(level.freeze_time), "timeout")
