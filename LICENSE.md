@@ -1,17 +1,16 @@
+# License terms
+
 Copyright (c) 2020 The Hyperatlantic ( Agnieszka Belicka,
 Iwo 'Outfrost' Bujkiewicz, Marek Domagała, Wojciech Nietresta,
 Andrew 'L1Q' Shevchenko, Ryan '666Savior' White )
 
 3D models, materials, textures, scenes, sounds, and other assets
-not explicitly mentioned below, are made available for use only as part of
-this project as a complete game. Publishing changed versions of these
-elements is not allowed. Redistribution and creation of derivative works
-is not allowed, except for the sole purpose of directly contributing
-to works being developed by The Hyperatlantic, for example this project,
-and only in a way that is clearly communicated to The Hyperatlantic.
-The authors reserve the right to revoke this permission for anyone,
-at any time, for any reason. Any other use, commercial or non-commercial,
-requires express written permission from the authors.
+not explicitly mentioned below, are made available for personal use only,
+strictly as part of this project as a complete game, as published by
+The Hyperatlantic. Redistribution of copies, creation and publication of
+changed versions and derivative works, publication as part of collections
+and compilations, selling, and sublicensing are not allowed without
+express written permission from the authors.
 
 Source code (file extensions: `.gd`), generated configuration files
 (file extensions: `.cfg`, `.godot`, `.import`), and repository metadata
@@ -31,7 +30,8 @@ See https://godotengine.org/license for credits and license terms.
 
 ---
 
-MIT License
+### MIT License
+(Source code, generated configuration files, repository metadata)
 
 Copyright (c) 2020 The Hyperatlantic ( Agnieszka Belicka,
 Iwo 'Outfrost' Bujkiewicz, Marek Domagała, Wojciech Nietresta,
