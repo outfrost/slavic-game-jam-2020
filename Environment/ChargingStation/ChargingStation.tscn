@@ -64,7 +64,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.173, 0.3, 0.375 )
 shape = SubResource( 3 )
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" type="Spatial" parent="."]
 
 [node name="NearbyCharging" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12257, 0.213231 )
