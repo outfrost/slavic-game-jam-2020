@@ -60,6 +60,12 @@ config/name="Roombotic Makeover"
 run/main_scene="res://Game/Game.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+gdscript/warnings/shadowed_variable=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/integer_division=false
+
 [display]
 
 window/size/width=1800

@@ -519,6 +519,3 @@ light_specular = 0.6
 spot_range = 34.2
 spot_attenuation = 0.297302
 spot_angle = 60.0
-
-[node name="PinJoint" type="PinJoint" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.777568, 0 )
