@@ -70,7 +70,6 @@ func on_next_level():
 	current_level = (current_level + 1) % levels.size()
 	update_state(GameState.STARTING)
 	call_deferred("spawn_level")
-	emit_signal("game_start")
 
 func remove_level():
 	for node in level_container.get_children():
