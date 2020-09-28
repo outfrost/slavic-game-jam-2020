@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Characters/Robot.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Assets/Char1_Eyes.fbx" type="PackedScene" id=2]
@@ -21,9 +21,6 @@ rough = true
 
 [sub_resource type="SphereShape" id=2]
 radius = 0.2
-
-[sub_resource type="CubeMesh" id=5]
-size = Vector3( 0.4, 0.4, 0.4 )
 
 [sub_resource type="CylinderShape" id=3]
 height = 0.6
@@ -72,10 +69,6 @@ script = ExtResource( 14 )
 
 [node name="CollisionShape" type="CollisionShape" parent="PlayerModel/Char1_Arm/GrabJoint/GrabAnchor"]
 shape = SubResource( 2 )
-
-[node name="DebugCube" type="MeshInstance" parent="PlayerModel/Char1_Arm/GrabJoint/GrabAnchor"]
-mesh = SubResource( 5 )
-material/0 = null
 
 [node name="Char1_Body" parent="PlayerModel" instance=ExtResource( 3 )]
 
