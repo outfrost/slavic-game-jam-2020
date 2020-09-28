@@ -3,9 +3,9 @@ extends RigidBody
 
 signal battery_depleted()
 
-export var velocity_max_angular: float = 2
-export var velocity_max_linear: float = 30
-export var velocity_linear_acceleration: float = 20
+export var max_linear_speed: float = 30
+export var linear_acceleration: float = 2
+export var rotation_rate: float = 1
 export var charge: float = 0.5
 export var discharge_rate: float = -0.025
 export var grab_radius: float = 2.0
@@ -83,34 +83,30 @@ func _ready():
 func _physics_process(delta):
 	if !working:
 		return
-	var acceleration = velocity_linear_acceleration
-	if grabbed_item:
-		acceleration = acceleration * 5
-	var velocity_abs = self.linear_velocity.length()
+
+	# Rotate player model to fake robot rotation
 	var rotation_angle = 0
-	if Input.is_action_pressed("turn_left") and self.angular_velocity.y < 1 * velocity_max_angular:
+	if Input.is_action_pressed("turn_left"):
 		rotation_angle += 1 * delta
-	if Input.is_action_pressed("turn_right") and self.angular_velocity.y > -1 * velocity_max_angular:
+	if Input.is_action_pressed("turn_right"):
 		rotation_angle -= 1 * delta
 	player_model.rotate_y(rotation_angle)
-	var rotataion = player_model.transform.basis.get_euler().y
-	if velocity_abs < velocity_max_linear || grabbed_item:
-		var central_force = Vector3(0,0,0)
-		if Input.is_action_pressed("move_forwards"):
-			central_force += Vector3(0, 0, 1 * velocity_linear_acceleration).rotated(Vector3(0,1,0), rotataion)
-		if Input.is_action_pressed("move_backwards"):
-			central_force += Vector3(0, 0, -1 * velocity_linear_acceleration).rotated(Vector3(0,1,0), rotataion)
-		self.add_central_force(central_force)
-		if grabbed_item:
-			grabbed_item.add_central_force(central_force)
-	if Input.is_action_pressed("debug_reset"):
-		self.angular_velocity = Vector3(0,0,0)
-		self.linear_velocity = Vector3(0,0,0)
-		self.transform = Transform.IDENTITY
-		charge = 0.5
-		player_model.rotation.y = 0
 
-	sound_engine.unit_db = lerp(min_engine_sound_db, max_engine_sound_db, velocity_abs/velocity_max_linear)
+	# Apply linear movement
+	var rotation = player_model.transform.basis.get_euler().y
+	var movement_direction = Vector3.ZERO
+	if Input.is_action_pressed("move_forwards"):
+		movement_direction += Vector3.BACK.rotated(Vector3.UP, rotation)
+	if Input.is_action_pressed("move_backwards"):
+		movement_direction += Vector3.FORWARD.rotated(Vector3.UP, rotation)
+	self.add_central_force(movement_direction * linear_acceleration * weight)
+
+	if Input.is_action_pressed("debug_reset"):
+		angular_velocity = Vector3(0,0,0)
+		linear_velocity = Vector3(0,0,0)
+		transform = Transform.IDENTITY
+		charge = 1.0
+		player_model.rotation.y = 0
 
 	# Scan for potential items to grab
 	if !grabbed_item:
@@ -159,6 +155,14 @@ func _physics_process(delta):
 			if visualize_item_selection:
 				paint_object(grabbed_item, Color(0,1,0,0.5))
 			sound_grab.play()
+
+func _integrate_forces(state: PhysicsDirectBodyState) -> void:
+	# Limit linear speed
+	var speed = linear_velocity.length()
+	if speed > max_linear_speed:
+		linear_velocity *= max_linear_speed / (speed - max_linear_speed)
+	# Adjust engine sound volume
+	sound_engine.unit_db = lerp(min_engine_sound_db, max_engine_sound_db, speed / max_linear_speed)
 
 func _process(delta):
 	if !working:
