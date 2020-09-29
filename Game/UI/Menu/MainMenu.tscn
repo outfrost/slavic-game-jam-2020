@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/UI/Menu/doomby_menu.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Game/UI/Theme/ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Game/UI/Menu/MainMenu.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -16,73 +17,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource( 3 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+play_button = NodePath("VBoxContainer/PlayButton")
 
-[node name="MenuControls" type="CanvasLayer" parent="."]
-layer = 11
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuControls"]
-anchor_left = 0.08
-anchor_top = 0.5
-anchor_right = 0.32
-anchor_bottom = 0.9
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme = ExtResource( 3 )
-custom_constants/separation = 10
+grow_vertical = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="Button" parent="MenuControls/VBoxContainer"]
-margin_right = 432.0
-margin_bottom = 47.0
-text = "Play"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ChooseLevelButton" type="Button" parent="MenuControls/VBoxContainer"]
-margin_top = 57.0
-margin_right = 432.0
-margin_bottom = 104.0
-disabled = true
-text = "Choose level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionsButton" type="Button" parent="MenuControls/VBoxContainer"]
-margin_top = 114.0
-margin_right = 432.0
-margin_bottom = 161.0
-disabled = true
-text = "Options"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CreditsButton" type="Button" parent="MenuControls/VBoxContainer"]
-margin_top = 171.0
-margin_right = 432.0
-margin_bottom = 218.0
-disabled = true
-text = "Credits"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="QuitButton" type="Button" parent="MenuControls/VBoxContainer"]
-margin_top = 228.0
-margin_right = 432.0
-margin_bottom = 275.0
-text = "Quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TitleLabel" type="RichTextLabel" parent="MenuControls"]
+[node name="TitleLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.95
@@ -96,19 +50,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuBackground" type="CanvasLayer" parent="."]
-layer = 10
-follow_viewport_enable = true
-
-[node name="Background" type="TextureRect" parent="MenuBackground"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.08
+anchor_top = 0.5
+anchor_right = 0.32
+anchor_bottom = 0.9
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource( 1 )
-expand = true
-stretch_mode = 7
+theme = ExtResource( 3 )
+custom_constants/separation = 10
 __meta__ = {
-"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+margin_right = 432.0
+margin_bottom = 47.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChooseLevelButton" type="Button" parent="VBoxContainer"]
+margin_top = 57.0
+margin_right = 432.0
+margin_bottom = 104.0
+disabled = true
+text = "Choose level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+margin_top = 114.0
+margin_right = 432.0
+margin_bottom = 161.0
+disabled = true
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+margin_top = 171.0
+margin_right = 432.0
+margin_bottom = 218.0
+disabled = true
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 228.0
+margin_right = 432.0
+margin_bottom = 275.0
+text = "Quit"
+__meta__ = {
 "_edit_use_anchors_": false
 }

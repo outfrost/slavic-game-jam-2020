@@ -24,8 +24,6 @@ var game_state_msg = GroupMessenger.new(
 	self, "game_state_changed", ["GameStateObservers"])
 
 func _ready():
-	spawn_level()
-
 	var gameover_popup = get_node(gameover_popup_path)
 	connect("game_over", gameover_popup, "on_game_over")
 	gameover_popup.connect("next_level", self, "on_next_level")
@@ -43,6 +41,9 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("level_next"):
 		on_next_level()
+
+func on_start_game() -> void:
+	spawn_level()
 
 func spawn_level() -> void:
 	level = (levels[current_level] as PackedScene).instance()

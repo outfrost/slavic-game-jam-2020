@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Game/UI/GameoverPopup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://Game/UI/DebugLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/UI/Menu/MainMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://Audio/Hyperatlantic_Roomba_loop.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Audio/SFX_Alarm_Clock.wav" type="AudioStream" id=8]
+[ext_resource path="res://Game/UI/Theme/ui_theme.tres" type="Theme" id=9]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -22,27 +24,27 @@ font_data = ExtResource( 6 )
 script = ExtResource( 2 )
 levels = [ ExtResource( 4 ) ]
 level_container_path = NodePath("CurrentLevel")
-gameover_popup_path = NodePath("CanvasLayerGameover/GameoverPopup")
-timer_label_path = NodePath("CanvasLayerHud/TimerLabel")
-hud_message_label_path = NodePath("CanvasLayerHud/HudMessageLabel")
+gameover_popup_path = NodePath("GameoverPopup")
+timer_label_path = NodePath("TimerLabel")
+hud_message_label_path = NodePath("HudMessageLabel")
 
 [node name="CurrentLevel" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="CanvasLayerDebug" type="CanvasLayer" parent="."]
+[node name="DebugLayer" type="CanvasLayer" parent="."]
 layer = 99
 
-[node name="DebugLabel" parent="CanvasLayerDebug" instance=ExtResource( 3 )]
+[node name="DebugLabel" parent="DebugLayer" instance=ExtResource( 3 )]
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 0.0
+margin_bottom = 0.0
+rect_scale = Vector2( 0.75, 0.75 )
+theme = ExtResource( 9 )
 
-[node name="CanvasLayerGameover" type="CanvasLayer" parent="."]
-
-[node name="GameoverPopup" parent="CanvasLayerGameover" instance=ExtResource( 1 )]
-
-[node name="CanvasLayerHud" type="CanvasLayer" parent="."]
-
-[node name="TimerLabel" type="RichTextLabel" parent="CanvasLayerHud"]
+[node name="TimerLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.6
 anchor_top = 0.02
 anchor_right = 0.98
@@ -57,7 +59,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HudMessageLabel" type="RichTextLabel" parent="CanvasLayerHud"]
+[node name="HudMessageLabel" type="RichTextLabel" parent="."]
 anchor_top = 0.7
 anchor_right = 1.0
 anchor_bottom = 0.9
@@ -70,6 +72,10 @@ text = "This is the room you're used to. Try to match it!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameoverPopup" parent="." instance=ExtResource( 1 )]
+
+[node name="MainMenu" parent="." instance=ExtResource( 5 )]
 
 [node name="Sounds" type="Node" parent="."]
 

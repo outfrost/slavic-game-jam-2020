@@ -156,7 +156,7 @@ func _physics_process(delta):
 				paint_object(grabbed_item, Color(0,1,0,0.5))
 			sound_grab.play()
 
-func _integrate_forces(state: PhysicsDirectBodyState) -> void:
+func _integrate_forces(_state: PhysicsDirectBodyState) -> void:
 	# Limit linear speed
 	var speed = linear_velocity.length()
 	if speed > max_linear_speed:
