@@ -22,6 +22,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 play_button = NodePath("VBoxContainer/PlayButton")
+quit_button = NodePath("VBoxContainer/QuitButton")
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
