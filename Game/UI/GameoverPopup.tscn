@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Game/UI/GameoverPopup.gd" type="Script" id=2]
+[ext_resource path="res://Game/UI/Theme/ui_theme.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -37,6 +38,7 @@ margin_right = 480.0
 margin_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource( 3 )
 popup_exclusive = true
 script = ExtResource( 2 )
 __meta__ = {
