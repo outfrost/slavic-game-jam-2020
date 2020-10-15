@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/Cantarell-Bold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Game/UI/GameoverPopup.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=4]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[node name="GameoverPopup" type="Popup" groups=[
+"GameStateObservers",
+]]
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+margin_left = -480.0
+margin_top = -160.0
+margin_right = 480.0
+margin_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+popup_exclusive = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+gameover_message_label = NodePath("Panel/MessageLabel")
+gameover_score_label = NodePath("Panel/ScoreLabel")
+gameover_reason_label = NodePath("Panel/ReasonLabel")
+restart_button = NodePath("Panel/RestartButton")
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.486
+anchor_right = 0.5
+anchor_bottom = 0.704
+margin_left = -300.0
+margin_right = 300.0
+grow_horizontal = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/bold_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][b]You can do better[/b][/center]"
+text = "You can do better"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReasonLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.047
+anchor_right = 0.5
+anchor_bottom = 0.338
+margin_left = -300.0
+margin_right = 300.0
+grow_horizontal = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/bold_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Time's up![/b][/center]"
+text = "Time's up!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.24
+anchor_right = 0.5
+anchor_bottom = 0.501
+margin_left = -300.0
+margin_right = 300.0
+grow_horizontal = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/bold_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][b]69%[/b][/center]"
+text = "69%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="Panel"]
+anchor_left = 0.35
+anchor_top = 0.7
+anchor_right = 0.65
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+shortcut = SubResource( 5 )
+text = "Try again"
+__meta__ = {
+"_edit_use_anchors_": false
+}

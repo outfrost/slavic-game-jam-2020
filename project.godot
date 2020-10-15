@@ -8,9 +8,50 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area",
+"class": "ChargingStation",
+"language": "GDScript",
+"path": "res://Environment/ChargingStation/ChargingStation.gd"
+}, {
+"base": "Label",
+"class": "DebugLabel",
+"language": "GDScript",
+"path": "res://Game/UI/DebugLabel.gd"
+}, {
+"base": "Node",
+"class": "Game",
+"language": "GDScript",
+"path": "res://Game/Game.gd"
+}, {
+"base": "Reference",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://Game/GameState.gd"
+}, {
+"base": "Reference",
+"class": "GroupMessenger",
+"language": "GDScript",
+"path": "res://Instrumentation/GroupMessenger.gd"
+}, {
+"base": "Spatial",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Levels/Level.gd"
+}, {
+"base": "RigidBody",
+"class": "Robot",
+"language": "GDScript",
+"path": "res://Characters/Robot.gd"
+} ]
 _global_script_class_icons={
-
+"ChargingStation": "",
+"DebugLabel": "",
+"Game": "",
+"GameState": "",
+"GroupMessenger": "",
+"Level": "",
+"Robot": ""
 }
 
 [application]
@@ -18,6 +59,12 @@ _global_script_class_icons={
 config/name="Roombotic Makeover"
 run/main_scene="res://Game/Game.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/integer_division=false
 
 [display]
 

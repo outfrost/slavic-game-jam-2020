@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Characters/Robot.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Assets/Char1_Eyes.fbx" type="PackedScene" id=2]
@@ -11,34 +11,64 @@
 [ext_resource path="res://Audio/SFX_Push.wav" type="AudioStream" id=9]
 [ext_resource path="res://Audio/SFX_TurningON.wav" type="AudioStream" id=10]
 [ext_resource path="res://Audio/SFX_TurningOFF.wav" type="AudioStream" id=11]
-
-
+[ext_resource path="res://Characters/Assets/indicator_lit.tres" type="Material" id=12]
+[ext_resource path="res://Characters/Assets/indicator_unlit.tres" type="Material" id=13]
+[ext_resource path="res://Characters/GrabAnchor.gd" type="Script" id=14]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 rough = true
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="SphereShape" id=2]
+radius = 0.2
+
+[sub_resource type="CylinderShape" id=3]
 height = 0.6
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.177752, 0.755777, 0.237316 )
 
-[node name="Robot" type="RigidBody"]
-collision_layer = 2
+[node name="Robot" type="RigidBody" groups=[
+"GameStateObservers",
+]]
 collision_mask = 7
 physics_material_override = SubResource( 1 )
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource( 1 )
+indicator_lit = ExtResource( 12 )
+indicator_unlit = ExtResource( 13 )
+player_model_path = NodePath("PlayerModel")
+grab_anchor_path = NodePath("PlayerModel/Char1_Arm/GrabJoint/GrabAnchor")
+grab_joint_path = NodePath("PlayerModel/Char1_Arm/GrabJoint")
+sound_battery_low_path = NodePath("Sounds/BatteryLow")
+sound_grab_path = NodePath("Sounds/Grab")
+sound_engine_path = NodePath("Sounds/Engine")
+sound_pull_path = NodePath("Sounds/Pull")
+sound_push_path = NodePath("Sounds/Push")
+sound_turning_on_path = NodePath("Sounds/TurningOn")
+sound_turning_off_path = NodePath("Sounds/TurningOff")
 
 [node name="PlayerModel" type="Spatial" parent="."]
 
 [node name="Char1_Arm" parent="PlayerModel" instance=ExtResource( 4 )]
 
-[node name="GrabPoint" type="Position3D" parent="PlayerModel/Char1_Arm"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55536, 1.86397 )
+[node name="GrabJoint" type="Generic6DOFJoint" parent="PlayerModel/Char1_Arm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27922, 2.31126 )
+
+[node name="GrabAnchor" type="RigidBody" parent="PlayerModel/Char1_Arm/GrabJoint"]
+collision_layer = 0
+collision_mask = 0
+mode = 1
+mass = 0.00102041
+gravity_scale = 0.0
+custom_integrator = true
+can_sleep = false
+script = ExtResource( 14 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerModel/Char1_Arm/GrabJoint/GrabAnchor"]
+shape = SubResource( 2 )
 
 [node name="Char1_Body" parent="PlayerModel" instance=ExtResource( 3 )]
 
@@ -46,13 +76,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55536, 1.86397 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37537, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" type="Spatial" parent="."]
 
 [node name="BatteryLow" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80988, 0 )
@@ -67,6 +97,7 @@ unit_db = 9.0
 [node name="Engine" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
 stream = ExtResource( 6 )
+unit_size = 2.5
 
 [node name="Pull" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82658, 0 )
